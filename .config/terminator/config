@@ -9,6 +9,7 @@
   [[default]]
     cursor_color = "#aaaaaa"
     font = FiraCode Nerd Font Mono weight=453 14
+    scrollback_infinite = True
     use_system_font = False
 [layouts]
   [[default]]
