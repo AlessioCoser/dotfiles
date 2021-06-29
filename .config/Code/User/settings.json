@@ -86,5 +86,6 @@
     "markdown.marp.enableHtml": true,
     "markdown.marp.chromePath": "/Applications/Google\\ Chrome.app/Contents/MacOS/Google\\ Chrome",
     "js/ts.implicitProjectConfig.checkJs": true,
-    "eslint.alwaysShowStatus": true
+    "eslint.alwaysShowStatus": true,
+    "window.menuBarVisibility": "toggle"
   }

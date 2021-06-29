@@ -4,3 +4,6 @@
 [push]
   default = simple
   followTags = true
+[core]
+  editor = vim
+
