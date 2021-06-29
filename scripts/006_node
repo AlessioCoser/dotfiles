@@ -1,0 +1,8 @@
+#!/bin/bash
+
+if ! type "n" > /dev/null; then
+  curl -L https://raw.githubusercontent.com/tj/n/master/bin/n -o n
+  sudo mv n /usr/local/bin/
+fi
+
+n lts
