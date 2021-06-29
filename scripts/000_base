@@ -18,6 +18,13 @@ sudo apt install -y \
     git \
     tig
 
+
+# install Monaco Font
+mkdir -p ~/.fonts
+curl -o ~/.fonts/Monaco-Linux.ttf "http://www.gringod.com/wp-upload/software/Fonts/Monaco_Linux.ttf"
+sudo fc-cache -fv
+
+
 # install gnome-shell extension installer
 wget -O gnome-shell-extension-installer "https://github.com/brunelli/gnome-shell-extension-installer/raw/master/gnome-shell-extension-installer"
 chmod +x gnome-shell-extension-installer
@@ -30,7 +37,7 @@ gnome-extensions enable clipboard-indicator@tudmotu.com
 # install customizable dock shell extension: "dash-to-dock@micxgx.gmail.com"
 gnome-shell-extension-installer --yes 307
 gnome-extensions enable dash-to-dock@micxgx.gmail.com
-gsettings set org.gnome.shell.extensions.dash-to-dock apply-custom-theme true  
+gsettings set org.gnome.shell.extensions.dash-to-dock apply-custom-theme true
 
 # install sound device shell extension: "sound-output-device-chooser@kgshank.net"
 gnome-shell-extension-installer --yes 906
@@ -50,6 +57,6 @@ gsettings set org.gnome.desktop.interface gtk-theme 'Yaru-light'
 # sudo curl -o /usr/share/backgrounds/desert-orange.jpg https://wallpaperbat.com/img/349312-minimalist-desert-wallpaper-for-desktop-1440p.jpg
 sudo curl -o /usr/share/backgrounds/starwars-blue.jpg https://i1.wp.com/wallpapercave.com/wp/wp6722869.jpg
 
-gsettings set org.gnome.desktop.screensaver picture-uri 'file:///usr/share/backgrounds/starwars-blue.jpg' 
-gsettings set com.ubuntu.login-screen background-picture-uri 'file:///usr/share/backgrounds/starwars-blue.jpg' 
-gsettings set org.gnome.desktop.background picture-uri 'file:///usr/share/backgrounds/starwars-blue.jpg' 
+gsettings set org.gnome.desktop.screensaver picture-uri 'file:///usr/share/backgrounds/starwars-blue.jpg'
+gsettings set com.ubuntu.login-screen background-picture-uri 'file:///usr/share/backgrounds/starwars-blue.jpg'
+gsettings set org.gnome.desktop.background picture-uri 'file:///usr/share/backgrounds/starwars-blue.jpg'
