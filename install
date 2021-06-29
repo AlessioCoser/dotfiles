@@ -36,7 +36,7 @@ if [ "$COMMAND" == "all" ] || [ "$COMMAND" == "scripts" ]; then
   do
     echo "--> executing $file"
 
-    # ./$file
+    ./$file
   done
 fi
 
@@ -50,15 +50,15 @@ if [ "$COMMAND" == "all" ] || [ "$COMMAND" == "dots" ]; then
 
       echo "----> linking $filename"
 
-      # if [ -f ~/$filename.orig ]; then
-      #   rm ~/$filename
-      # else 
-      #   if [ -f ~/$filename ]; then
-      #     mv ~/$filename ~/$filename.orig
-      #   fi
-      # fi
+      if [ -f ~/$filename.orig ]; then
+        rm ~/$filename
+      else
+        if [ -f ~/$filename ]; then
+          mv ~/$filename ~/$filename.orig
+        fi
+      fi
 
-      # ln -s ~/dotfiles/$file ~/$filename
+      ln -s ~/dotfiles/$file ~/$filename
     fi
   done
 fi

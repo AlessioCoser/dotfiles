@@ -1,19 +1,34 @@
 #!/usr/bin/env bash
 
-sudo add-apt-repository ppa:fish-shell/release-3
-sudo apt update
-sudo apt install -y fish
-chsh -s /usr/bin/fish
+if ! type "fish" > /dev/null; then
+  sudo add-apt-repository ppa:fish-shell/release-3
+  sudo apt update
+  sudo apt install -y fish
+  chsh -s /usr/bin/fish
 
-# oh my fish
-curl -L https://get.oh-my.fish | fish
+  # oh my fish
+  curl -L https://get.oh-my.fish | fish
 
-# fish theme
-omf install edan
-omf theme edan
+  # fish theme
+  omf install edan
+  omf theme edan
 
-# jump to directory
-omf install z
+  # jump to directory
+  omf install z
 
-# git plugin for shortcut
-omf install https://github.com/jhillyerd/plugin-git
+  # git plugin for shortcut
+  omf install https://github.com/jhillyerd/plugin-git
+fi
+
+# link settings
+FISH_SETTINGS_PATH=/home/$(whoami)/.config/fish
+DOTFILE_SETTINGS_PATH=/home/$(whoami)/dotfiles/.config/fish
+
+if [ -f "$FISH_SETTINGS_PATH/config.fish" ]; then
+  if [ -f "$FISH_SETTINGS_PATH/config.fish.orig" ]; then
+    rm "$FISH_SETTINGS_PATH/config.fish"
+  else
+    mv "$FISH_SETTINGS_PATH/config.fish" "$FISH_SETTINGS_PATH/config.fish.orig"
+  fi
+fi
+ln -s "$DOTFILE_SETTINGS_PATH/config.fish" "$FISH_SETTINGS_PATH/config.fish"

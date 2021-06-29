@@ -4,9 +4,6 @@ if ! type "code" > /dev/null; then
   sudo snap install code --classic
 fi
 
-CODE_SETTINGS_PATH=/home/$(whoami)/.config/Code/User
-DOTFILE_SETTINGS_PATH=/home/$(whoami)/dotfiles/.config/Code/User
-
 sleep 5
 
 # show extensions installed: `code --list-extensions`
@@ -42,6 +39,10 @@ code --install-extension rvest.vs-code-prettier-eslint
 code --install-extension tht13.python
 code --install-extension trinm1709.dracula-theme-from-intellij
 code --install-extension VisualStudioExptTeam.vscodeintellicode
+
+
+CODE_SETTINGS_PATH=/home/$(whoami)/.config/Code/User
+DOTFILE_SETTINGS_PATH=/home/$(whoami)/dotfiles/.config/Code/User
 
 # copy settings
 if [ -f "$CODE_SETTINGS_PATH/settings.json" ]; then
