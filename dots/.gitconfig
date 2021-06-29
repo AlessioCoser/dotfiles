@@ -1,0 +1,6 @@
+[user]
+  name = Alessio Coser
+  email = 
+[push]
+  default = simple
+  followTags = true

@@ -1,0 +1,19 @@
+#!/usr/bin/env bash
+
+sudo add-apt-repository ppa:fish-shell/release-3
+sudo apt update
+sudo apt install -y fish
+chsh -s /usr/bin/fish
+
+# oh my fish
+curl -L https://get.oh-my.fish | fish
+
+# fish theme
+omf install edan
+omf theme edan
+
+# jump to directory
+omf install z
+
+# git plugin for shortcut
+omf install https://github.com/jhillyerd/plugin-git

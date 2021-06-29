@@ -1,0 +1,21 @@
+[global_config]
+  window_state = maximise
+  title_transmit_bg_color = "#3465a4"
+  title_inactive_bg_color = "#eeeeec"
+  title_use_system_font = False
+  title_font = FiraCode Nerd Font Mono weight=453 12
+[keybindings]
+[profiles]
+  [[default]]
+    cursor_color = "#aaaaaa"
+    font = FiraCode Nerd Font Mono weight=453 14
+    use_system_font = False
+[layouts]
+  [[default]]
+    [[[window0]]]
+      type = Window
+      parent = ""
+    [[[child1]]]
+      type = Terminal
+      parent = window0
+[plugins]

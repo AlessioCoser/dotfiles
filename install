@@ -1,0 +1,64 @@
+#!/bin/sh
+set -e
+
+COMMAND=$1
+DOTSPATH="$HOME/dotfiles"
+
+if [ -e $DOTSPATH/.git ]; then
+  cd $DOTSPATH && git pull
+else
+  git clone https://github.com/AlessioCoser/dotfiles-ubuntu.git $DOTSPATH
+  cd $DOTSPATH
+fi
+
+function print_waiting_title {
+  echo "------------------------------"
+  echo $1
+  echo "------------------------------"
+  sleep 3
+}
+
+if [ -z ${COMMAND} ]; then
+  COMMAND="all"
+fi
+
+if [ "$COMMAND" -ne "all" ] && [ "$COMMAND" -ne "scripts" ] && [ "$COMMAND" -ne "dots" ]; then
+	echo "Usage: $0 [all, scripts, dots]"
+  exit 1
+fi
+
+if [ "$COMMAND" == "all" ] || [ "$COMMAND" == "scripts" ]; then
+  print_waiting_title "installing scripts"
+
+  chmod +x scripts/*
+
+  for file in $(echo scripts/*)
+  do
+    echo "--> executing $file"
+
+    # ./$file
+  done
+fi
+
+if [ "$COMMAND" == "all" ] || [ "$COMMAND" == "dots" ]; then
+  print_waiting_title "linking dot-files"
+
+  for file in $(echo dots/.*)
+  do
+    if [ -f "$file" ]; then
+      filename=$(basename "$file")
+
+      echo "----> linking $filename"
+
+      # if [ -f ~/$filename.orig ]; then
+      #   rm ~/$filename
+      # else 
+      #   if [ -f ~/$filename ]; then
+      #     mv ~/$filename ~/$filename.orig
+      #   fi
+      # fi
+
+      # ln -s ~/dotfiles/$file ~/$filename
+    fi
+  done
+fi

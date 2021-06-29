@@ -1,0 +1,54 @@
+#!/usr/bin/env bash
+
+# set keyboard blazingly fast
+sudo kbdrate -r 10.9 -d 250
+
+# add firacode font repository
+sudo add-apt-repository "deb http://archive.ubuntu.com/ubuntu $(lsb_release -sc) universe"
+
+sudo apt update
+
+sudo apt install -y \
+    fonts-firacode \
+    curl \
+    wget \
+    htop \
+    vim \
+    git \
+    tig
+
+# install gnome-shell extension installer
+wget -O gnome-shell-extension-installer "https://github.com/brunelli/gnome-shell-extension-installer/raw/master/gnome-shell-extension-installer"
+chmod +x gnome-shell-extension-installer
+mv gnome-shell-extension-installer /usr/bin/
+
+# install clipboard indicator shell extension: "clipboard-indicator@tudmotu.com"
+gnome-shell-extension-installer --yes 779
+gnome-extensions enable clipboard-indicator@tudmotu.com
+
+# install customizable dock shell extension: "dash-to-dock@micxgx.gmail.com"
+gnome-shell-extension-installer --yes 307
+gnome-extensions enable dash-to-dock@micxgx.gmail.com
+gsettings set org.gnome.shell.extensions.dash-to-dock apply-custom-theme true  
+
+# install sound device shell extension: "sound-output-device-chooser@kgshank.net"
+gnome-shell-extension-installer --yes 906
+gnome-extensions enable sound-output-device-chooser@kgshank.net
+
+
+# set light ubuntu color theme
+gsettings set org.gnome.desktop.interface gtk-theme 'Yaru-light'
+
+
+# download and set wallpapers
+# sudo curl -o /usr/share/backgrounds/fox-grey.jpg https://assets.hongkiat.com/uploads/minimalist-dekstop-wallpapers/non-4k/preview/06.jpg
+# sudo curl -o /usr/share/backgrounds/starwars-yellow.jpg https://images.wallpapersden.com/image/download/r2-d2-star-wars-minimalist_a2xuaWWUmZqaraWkpJRqZWVlrWdqZWU.jpg
+# sudo curl -o /usr/share/backgrounds/starwars-orange.jpg https://wallpaperboat.com/wp-content/uploads/2019/05/star-wars-minimalist-065.jpg
+# sudo curl -o /usr/share/backgrounds/starwars-green.jpg https://images.wallpapersden.com/image/download/star-wars-skywalker-saga-minimal_a2xsbmqUmZqaraWkpJRnamtlrWZpaWU.jpg
+# sudo curl -o /usr/share/backgrounds/city-green.jpg https://wallpaperboat.com/wp-content/uploads/2019/06/minimalist-desktop-17.jpg
+# sudo curl -o /usr/share/backgrounds/desert-orange.jpg https://wallpaperbat.com/img/349312-minimalist-desert-wallpaper-for-desktop-1440p.jpg
+sudo curl -o /usr/share/backgrounds/starwars-blue.jpg https://i1.wp.com/wallpapercave.com/wp/wp6722869.jpg
+
+gsettings set org.gnome.desktop.screensaver picture-uri 'file:///usr/share/backgrounds/starwars-blue.jpg' 
+gsettings set com.ubuntu.login-screen background-picture-uri 'file:///usr/share/backgrounds/starwars-blue.jpg' 
+gsettings set org.gnome.desktop.background picture-uri 'file:///usr/share/backgrounds/starwars-blue.jpg' 

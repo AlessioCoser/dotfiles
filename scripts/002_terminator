@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+
+sudo apt install -y terminator
+# see the shortcuts here: https://makandracards.com/makandra/26311-terminator-keyboard-shortcuts
+
+gsettings set org.gnome.desktop.default-applications.terminal exec /usr/bin/terminator
+gsettings set org.gnome.desktop.default-applications.terminal exec-arg "-x"

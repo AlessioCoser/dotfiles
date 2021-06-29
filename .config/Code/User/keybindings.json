@@ -1,0 +1,13 @@
+// Place your key bindings in this file to overwrite the defaults
+[
+  { "key": "ctrl+alt+t", "command": "workbench.action.terminal.focus"},
+  {
+    "key": "ctrl+alt+t",
+    "command": "workbench.action.closePanel",
+    "when": "terminalFocus"
+  },
+  {
+    "key": "ctrl+\\",
+    "command": "workbench.action.terminal.toggleTerminal"
+  }
+]
