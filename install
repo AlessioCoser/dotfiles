@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 set -e
 
 COMMAND=$1
@@ -22,7 +22,7 @@ if [ -z ${COMMAND} ]; then
   COMMAND="all"
 fi
 
-if [ "$COMMAND" -ne "all" ] && [ "$COMMAND" -ne "scripts" ] && [ "$COMMAND" -ne "dots" ]; then
+if [ "$COMMAND" != "all" ] && [ "$COMMAND" != "scripts" ] && [ "$COMMAND" != "dots" ]; then
 	echo "Usage: $0 [all, scripts, dots]"
   exit 1
 fi

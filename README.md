@@ -3,7 +3,7 @@ This is a collection of dotfiles and scripts I use for customizing Ubuntu to my 
 
 ## Installation
 ```
-  curl https://raw.github.com/AlessioCoser/dotfiles-ubuntu/master/install -L -o - | sh
+  curl https://raw.github.com/AlessioCoser/dotfiles-ubuntu/master/install -L -o - | bash
 ```
 
 ## Custom installation
