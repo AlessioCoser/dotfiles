@@ -30,14 +30,23 @@ wget -O gnome-shell-extension-installer "https://github.com/brunelli/gnome-shell
 chmod +x gnome-shell-extension-installer
 mv gnome-shell-extension-installer /usr/bin/
 
+
 # install clipboard indicator shell extension: "clipboard-indicator@tudmotu.com"
 gnome-shell-extension-installer --yes 779
 gnome-extensions enable clipboard-indicator@tudmotu.com
 
+
 # install customizable dock shell extension: "dash-to-dock@micxgx.gmail.com"
 gnome-shell-extension-installer --yes 307
 gnome-extensions enable dash-to-dock@micxgx.gmail.com
+gnome-extensions disable ubuntu-dock@ubuntu.com
+gsettings set org.gnome.shell.extensions.dash-to-dock autohide true
+gsettings set org.gnome.shell.extensions.dash-to-dock dock-position 'BOTTOM'
+gsettings set org.gnome.shell.extensions.dash-to-dock isolate-monitors false
+gsettings set org.gnome.shell.extensions.dash-to-dock intellihide-mode 'ALL_WINDOWS'
+gsettings set org.gnome.shell.extensions.dash-to-dock intellihide true
 gsettings set org.gnome.shell.extensions.dash-to-dock apply-custom-theme true
+
 
 # install sound device shell extension: "sound-output-device-chooser@kgshank.net"
 gnome-shell-extension-installer --yes 906
