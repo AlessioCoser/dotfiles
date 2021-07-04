@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 # set keyboard blazingly fast
-sudo kbdrate -r 10.9 -d 250
+sudo kbdrate -r 1 -d 150
 
 # add firacode font repository
 sudo add-apt-repository "deb http://archive.ubuntu.com/ubuntu $(lsb_release -sc) universe"
