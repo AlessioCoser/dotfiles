@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 if ! type "n" > /dev/null; then
   curl -L https://raw.githubusercontent.com/tj/n/master/bin/n -o n

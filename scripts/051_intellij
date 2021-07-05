@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 
 if ! type "intellij-idea-ultimate" > /dev/null; then

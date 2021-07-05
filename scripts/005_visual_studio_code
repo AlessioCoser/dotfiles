@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 if ! type "code" > /dev/null; then
   sudo snap install code --classic
