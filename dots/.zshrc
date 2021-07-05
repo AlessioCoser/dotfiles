@@ -3,6 +3,7 @@ export PATH="/usr/local/Cellar:$PATH"
 
 source ~/.aliases
 source ~/.config/antigen.zsh
+source ~/.profile
 
 antigen bundle danielefongo/shapeshift
 antigen bundle git
