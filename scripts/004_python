@@ -3,14 +3,12 @@
 
 if ! type "pyenv" > /dev/null; then
   sudo apt install -y build-essential zlib1g-dev libbz2-dev libsqlite3-dev libncurses5-dev libgdbm-dev libnss3-dev libssl-dev libreadline-dev libffi-dev
-  curl -L https://github.com/pyenv/pyenv-installer/raw/master/bin/pyenv-installer | bash
 
-  export PATH="$HOME/.pyenv/bin:$PATH"
-  if type "fish" > /dev/null; then
-    fish_add_path $HOME/.pyenv/bin
-  fi
+  curl -L https://github.com/pyenv/pyenv-installer/raw/master/bin/pyenv-installer | bash
 
   pyenv install 3.6.14
   pyenv install 3.8.11
   pyenv global 3.6.14
+
+  sudo -H pip install -U pipenv
 fi
