@@ -1,12 +1,14 @@
 export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:$PATH"
 export PYENV_ROOT="$HOME/.pyenv"
 export PATH="$PYENV_ROOT/bin:$PATH"
-eval "$(pyenv init --path)"
+export PATH="$HOME/.poetry/bin:$PATH"
 
+eval "$(pyenv init --path)"
 
 source ~/.aliases
 source ~/.config/antigen.zsh
 source ~/.profile
+source ~/.poetry/env
 
 antigen bundle danielefongo/shapeshift
 antigen bundle git
