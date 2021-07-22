@@ -47,6 +47,7 @@ gsettings set org.gnome.shell.extensions.dash-to-dock intellihide-mode 'ALL_WIND
 gsettings set org.gnome.shell.extensions.dash-to-dock intellihide true
 gsettings set org.gnome.shell.extensions.dash-to-dock apply-custom-theme true
 
+sudo apt-get install gnome-shell-pomodoro
 
 # install sound device shell extension: "sound-output-device-chooser@kgshank.net"
 gnome-shell-extension-installer --yes 906
