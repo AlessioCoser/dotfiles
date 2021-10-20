@@ -36,7 +36,7 @@
     "editor.minimap.enabled": false,
     "explorer.openEditors.visible": 0,
     "workbench.startupEditor": "none",
-    "workbench.colorTheme": "Atom One Light",
+    "workbench.colorTheme": "Community Material Theme",
     "workbench.iconTheme": "eq-material-theme-icons",
     "files.trimTrailingWhitespace": true,
     "files.autoSave": "onFocusChange",
