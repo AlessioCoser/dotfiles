@@ -31,9 +31,25 @@ chmod +x gnome-shell-extension-installer
 mv gnome-shell-extension-installer /usr/bin/
 
 
-# install clipboard indicator shell extension: "clipboard-indicator@tudmotu.com"
+# install and configure clipboard indicator shell extension: "clipboard-indicator@tudmotu.com"
 gnome-shell-extension-installer --yes 779
 gnome-extensions enable clipboard-indicator@tudmotu.com
+dconf write "/org/gnome/shell/extensions/clipboard-indicator/cache-size" "2048"
+dconf write "/org/gnome/shell/extensions/clipboard-indicator/confirm-clear" "false"
+dconf write "/org/gnome/shell/extensions/clipboard-indicator/disable-down-arrow" "true"
+dconf write "/org/gnome/shell/extensions/clipboard-indicator/display-mode" "0"
+dconf write "/org/gnome/shell/extensions/clipboard-indicator/enable-keybindings" "true"
+dconf write "/org/gnome/shell/extensions/clipboard-indicator/history-size" "99"
+dconf write "/org/gnome/shell/extensions/clipboard-indicator/move-item-first" "false"
+dconf write "/org/gnome/shell/extensions/clipboard-indicator/notify-on-copy" "false"
+dconf write "/org/gnome/shell/extensions/clipboard-indicator/preview-size" "99"
+dconf write "/org/gnome/shell/extensions/clipboard-indicator/refresh-interval" "500"
+dconf write "/org/gnome/shell/extensions/clipboard-indicator/strip-text" "false"
+dconf write "/org/gnome/shell/extensions/clipboard-indicator/toggle-menu" "['<Control>Insert']"
+dconf write "/org/gnome/shell/extensions/clipboard-indicator/topbar-preview-size" "99"
+dconf write "/org/gnome/shell/extensions/clipboard-indicator/next-entry" "['<Super>v']"
+dconf write "/org/gnome/shell/extensions/clipboard-indicator/prev-entry" "['<Super><Shift>v']"
+dconf write "/org/gnome/shell/extensions/clipboard-indicator/clear-history" "['<Shift><Control>Delete']"
 
 
 # install customizable dock shell extension: "dash-to-dock@micxgx.gmail.com"
@@ -47,7 +63,6 @@ gsettings set org.gnome.shell.extensions.dash-to-dock intellihide-mode 'ALL_WIND
 gsettings set org.gnome.shell.extensions.dash-to-dock intellihide true
 gsettings set org.gnome.shell.extensions.dash-to-dock apply-custom-theme true
 
-sudo apt-get install gnome-shell-pomodoro
 
 # install sound device shell extension: "sound-output-device-chooser@kgshank.net"
 gnome-shell-extension-installer --yes 906

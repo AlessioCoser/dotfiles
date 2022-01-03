@@ -79,7 +79,7 @@
     "materialTheme.accent": "Teal",
     "editor.suggestSelection": "first",
     "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
-    "python.languageServer": "Microsoft",
+    "python.languageServer": "Default",
     "[html]": {
       "editor.defaultFormatter": "mohd-akram.vscode-html-format"
     },
