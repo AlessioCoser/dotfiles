@@ -1,5 +1,13 @@
 #!/usr/bin/env bash
 
+function refresh_shell {
+  echo "Restarting GNOME Shell..."
+  sleep 5
+  dbus-send --session --type=method_call --dest=org.gnome.Shell /org/gnome/Shell org.gnome.Shell.Eval string\:'global.reexec_self()';
+  sleep 5
+  echo "... GNOME Shell ready"
+}
+
 # set keyboard blazingly fast
 sudo kbdrate -r 1 -d 150
 
@@ -30,19 +38,12 @@ wget -O gnome-shell-extension-installer "https://github.com/brunelli/gnome-shell
 chmod +x gnome-shell-extension-installer
 sudo mv gnome-shell-extension-installer /usr/bin/
 
-
 # install shell extensions
-gnome-shell-extension-installer --yes 779
-gnome-shell-extension-installer --yes 906
+gnome-shell-extension-installer --yes 779 # "clipboard-indicator@tudmotu.com"
+gnome-shell-extension-installer --yes 906 # "sound-output-device-chooser@kgshank.net"
+refresh_shell
 
-# refresh gnome-shell to find extensions
-killall gnome-shell
-sleep 15
-
-# configure sound device shell extension: "sound-output-device-chooser@kgshank.net"
 gnome-extensions enable sound-output-device-chooser@kgshank.net
-
-# configure clipboard indicator shell extension: "clipboard-indicator@tudmotu.com"
 gnome-extensions enable clipboard-indicator@tudmotu.com
 dconf write "/org/gnome/shell/extensions/clipboard-indicator/cache-size" "2048"
 dconf write "/org/gnome/shell/extensions/clipboard-indicator/confirm-clear" "false"
@@ -87,5 +88,4 @@ gsettings set org.gnome.desktop.background picture-uri 'file:///usr/share/backgr
 
 
 # refresh gnome-shell to make the changes effective
-killall gnome-shell
-sleep 15
+refresh_shell
