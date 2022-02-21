@@ -1,6 +1,0 @@
-#!/usr/bin/env bash
-
-
-if ! type "intellij-idea-ultimate" > /dev/null; then
-  sudo snap install intellij-idea-ultimate --classic
-fi

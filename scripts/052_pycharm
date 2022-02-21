@@ -1,6 +1,0 @@
-#!/usr/bin/env bash
-
-
-if ! type "pycharm-professional" > /dev/null; then
-  sudo snap install pycharm-professional --classic
-fi

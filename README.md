@@ -1,10 +1,15 @@
 # Dotfiles Ubuntu
-This is a collection of dotfiles and scripts I use for customizing Ubuntu to my liking and setting up the software development tools
+This is a collection of dotfiles and scripts I use for customizing Ubuntu to my liking and setting up the software development tools.
 
 ## Prerequisites:
 - X11
 - GNOME Shell
 - curl and git `sudo apt install curl git`
+
+## Versions
+Tested on fresh installed Ubuntu versions:
+- 20.04
+- 21.10
 
 ## Installation
 ```
