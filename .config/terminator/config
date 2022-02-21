@@ -5,10 +5,13 @@
   title_inactive_bg_color = "#bcbcbc"
   title_use_system_font = False
   title_font = Monaco 12
+  invert_search = True
 [keybindings]
 [profiles]
   [[default]]
     background_color = "#243238"
+    background_darkness = 0.95
+    background_type = transparent
     cursor_color = "#c0c4ce"
     cursor_color_fg = False
     font = Monaco 14
