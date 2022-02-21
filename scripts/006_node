@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-if ! type "n" > /dev/null; then
+if ! type "nvm" > /dev/null; then
   curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash
 fi
 
