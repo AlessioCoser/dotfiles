@@ -52,18 +52,13 @@ dconf write "/org/gnome/shell/extensions/clipboard-indicator/prev-entry" "['<Con
 dconf write "/org/gnome/shell/extensions/clipboard-indicator/clear-history" "['<Shift><Control>Delete']"
 
 
-# install customizable dock shell extension: "dash-to-dock@micxgx.gmail.com"
-gnome-shell-extension-installer --yes 307
-gnome-extensions enable dash-to-dock@micxgx.gmail.com
-gnome-extensions disable ubuntu-dock@ubuntu.com
+# configure bottom autohide dock
+gsettings set org.gnome.shell.extensions.dash-to-dock extend-height false
+gsettings set org.gnome.shell.extensions.dash-to-dock dock-position BOTTOM
+gsettings set org.gnome.shell.extensions.dash-to-dock show-mounts false
+gsettings set org.gnome.shell.extensions.dash-to-dock dock-fixed false
 gsettings set org.gnome.shell.extensions.dash-to-dock autohide true
-gsettings set org.gnome.shell.extensions.dash-to-dock dock-position 'BOTTOM'
-gsettings set org.gnome.shell.extensions.dash-to-dock isolate-monitors false
-gsettings set org.gnome.shell.extensions.dash-to-dock intellihide-mode 'ALL_WINDOWS'
 gsettings set org.gnome.shell.extensions.dash-to-dock intellihide true
-gsettings set org.gnome.shell.extensions.dash-to-dock apply-custom-theme true
-gnome-extensions disable dash-to-dock@micxgx.gmail.com
-gnome-extensions enable ubuntu-dock@ubuntu.com
 
 
 # install sound device shell extension: "sound-output-device-chooser@kgshank.net"
