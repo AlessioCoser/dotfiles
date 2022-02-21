@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
 
 if ! type "n" > /dev/null; then
-  curl -L https://raw.githubusercontent.com/tj/n/master/bin/n -o n
-  sudo mv n /usr/local/bin/
+  curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash
 fi
 
-n lts
+nvm install 16.13.2
+nvm alias default 16.13.2

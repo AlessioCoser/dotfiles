@@ -44,6 +44,8 @@ code --install-extension VisualStudioExptTeam.vscodeintellicode
 CODE_SETTINGS_PATH=/home/$(whoami)/.config/Code/User
 DOTFILE_SETTINGS_PATH=/home/$(whoami)/dotfiles/.config/Code/User
 
+mkdir -p $CODE_SETTINGS_PATH
+
 # copy settings
 if [ -f "$CODE_SETTINGS_PATH/settings.json" ]; then
   if [ -f "$CODE_SETTINGS_PATH/settings.json.orig" ]; then

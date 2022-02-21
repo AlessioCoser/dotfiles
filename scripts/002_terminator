@@ -13,6 +13,8 @@ fi
 TERM_SETTINGS_PATH=/home/$(whoami)/.config/terminator
 DOTFILE_SETTINGS_PATH=/home/$(whoami)/dotfiles/.config/terminator
 
+mkdir -p $TERM_SETTINGS_PATH
+
 if [ -f "$TERM_SETTINGS_PATH/config" ]; then
   if [ -f "$TERM_SETTINGS_PATH/config.orig" ]; then
     rm "$TERM_SETTINGS_PATH/config"
