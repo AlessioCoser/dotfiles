@@ -4,6 +4,13 @@ set -e
 COMMAND=$1
 DOTSPATH="$HOME/dotfiles"
 
+
+if [ $XDG_SESSION_TYPE == "wayland" ]; then
+  echo "This script is not compatible with Wayland: use X11 instead.\n"
+  echo "open '/etc/gdm3/custom.conf' and decomment this line: '#WaylandEnable=false'"
+  exit 1
+fi
+
 if [ -e $DOTSPATH/.git ]; then
   cd $DOTSPATH && git pull
 else

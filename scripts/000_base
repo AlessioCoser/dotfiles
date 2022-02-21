@@ -52,6 +52,11 @@ dconf write "/org/gnome/shell/extensions/clipboard-indicator/prev-entry" "['<Con
 dconf write "/org/gnome/shell/extensions/clipboard-indicator/clear-history" "['<Shift><Control>Delete']"
 
 
+# install sound device shell extension: "sound-output-device-chooser@kgshank.net"
+gnome-shell-extension-installer --yes 906
+gnome-extensions enable sound-output-device-chooser@kgshank.net
+
+
 # configure bottom autohide dock
 gsettings set org.gnome.shell.extensions.dash-to-dock extend-height false
 gsettings set org.gnome.shell.extensions.dash-to-dock dock-position BOTTOM
@@ -59,11 +64,6 @@ gsettings set org.gnome.shell.extensions.dash-to-dock show-mounts false
 gsettings set org.gnome.shell.extensions.dash-to-dock dock-fixed false
 gsettings set org.gnome.shell.extensions.dash-to-dock autohide true
 gsettings set org.gnome.shell.extensions.dash-to-dock intellihide true
-
-
-# install sound device shell extension: "sound-output-device-chooser@kgshank.net"
-gnome-shell-extension-installer --yes 906
-gnome-extensions enable sound-output-device-chooser@kgshank.net
 
 
 # set light ubuntu color theme
