@@ -37,6 +37,7 @@ gnome-shell-extension-installer --yes 906
 
 # refresh gnome-shell to find extensions
 killall gnome-shell
+sleep 15
 
 # configure sound device shell extension: "sound-output-device-chooser@kgshank.net"
 gnome-extensions enable sound-output-device-chooser@kgshank.net
