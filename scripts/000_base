@@ -31,8 +31,17 @@ chmod +x gnome-shell-extension-installer
 sudo mv gnome-shell-extension-installer /usr/bin/
 
 
-# install and configure clipboard indicator shell extension: "clipboard-indicator@tudmotu.com"
+# install shell extensions
 gnome-shell-extension-installer --yes 779
+gnome-shell-extension-installer --yes 906
+
+# refresh gnome-shell to find extensions
+killall gnome-shell
+
+# configure sound device shell extension: "sound-output-device-chooser@kgshank.net"
+gnome-extensions enable sound-output-device-chooser@kgshank.net
+
+# configure clipboard indicator shell extension: "clipboard-indicator@tudmotu.com"
 gnome-extensions enable clipboard-indicator@tudmotu.com
 dconf write "/org/gnome/shell/extensions/clipboard-indicator/cache-size" "2048"
 dconf write "/org/gnome/shell/extensions/clipboard-indicator/confirm-clear" "false"
@@ -51,12 +60,6 @@ dconf write "/org/gnome/shell/extensions/clipboard-indicator/next-entry" "['<Con
 dconf write "/org/gnome/shell/extensions/clipboard-indicator/prev-entry" "['<Control><Super>Left']"
 dconf write "/org/gnome/shell/extensions/clipboard-indicator/clear-history" "['<Shift><Control>Delete']"
 
-
-# install sound device shell extension: "sound-output-device-chooser@kgshank.net"
-gnome-shell-extension-installer --yes 906
-gnome-extensions enable sound-output-device-chooser@kgshank.net
-
-
 # configure bottom autohide dock
 gsettings set org.gnome.shell.extensions.dash-to-dock extend-height false
 gsettings set org.gnome.shell.extensions.dash-to-dock dock-position BOTTOM
@@ -65,10 +68,8 @@ gsettings set org.gnome.shell.extensions.dash-to-dock dock-fixed false
 gsettings set org.gnome.shell.extensions.dash-to-dock autohide true
 gsettings set org.gnome.shell.extensions.dash-to-dock intellihide true
 
-
 # set light ubuntu color theme
 gsettings set org.gnome.desktop.interface gtk-theme 'Yaru-light'
-
 
 # download and set wallpapers
 # sudo curl -o /usr/share/backgrounds/fox-grey.jpg https://assets.hongkiat.com/uploads/minimalist-dekstop-wallpapers/non-4k/preview/06.jpg
