@@ -32,43 +32,43 @@ sudo mv gnome-shell-extension-installer /usr/bin/
 
 
 # install and configure clipboard indicator shell extension: "clipboard-indicator@tudmotu.com"
-sudo gnome-shell-extension-installer --yes 779
-sudo gnome-extensions enable clipboard-indicator@tudmotu.com
-sudo dconf write "/org/gnome/shell/extensions/clipboard-indicator/cache-size" "2048"
-sudo dconf write "/org/gnome/shell/extensions/clipboard-indicator/confirm-clear" "false"
-sudo dconf write "/org/gnome/shell/extensions/clipboard-indicator/disable-down-arrow" "true"
-sudo dconf write "/org/gnome/shell/extensions/clipboard-indicator/display-mode" "0"
-sudo dconf write "/org/gnome/shell/extensions/clipboard-indicator/enable-keybindings" "true"
-sudo dconf write "/org/gnome/shell/extensions/clipboard-indicator/history-size" "99"
-sudo dconf write "/org/gnome/shell/extensions/clipboard-indicator/move-item-first" "false"
-sudo dconf write "/org/gnome/shell/extensions/clipboard-indicator/notify-on-copy" "false"
-sudo dconf write "/org/gnome/shell/extensions/clipboard-indicator/preview-size" "99"
-sudo dconf write "/org/gnome/shell/extensions/clipboard-indicator/refresh-interval" "500"
-sudo dconf write "/org/gnome/shell/extensions/clipboard-indicator/strip-text" "false"
-sudo dconf write "/org/gnome/shell/extensions/clipboard-indicator/toggle-menu" "['<Control>Insert']"
-sudo dconf write "/org/gnome/shell/extensions/clipboard-indicator/topbar-preview-size" "99"
-sudo dconf write "/org/gnome/shell/extensions/clipboard-indicator/next-entry" "['<Control><Super>Right']"
-sudo dconf write "/org/gnome/shell/extensions/clipboard-indicator/prev-entry" "['<Control><Super>Left']"
-sudo dconf write "/org/gnome/shell/extensions/clipboard-indicator/clear-history" "['<Shift><Control>Delete']"
+gnome-shell-extension-installer --yes 779
+gnome-extensions enable clipboard-indicator@tudmotu.com
+dconf write "/org/gnome/shell/extensions/clipboard-indicator/cache-size" "2048"
+dconf write "/org/gnome/shell/extensions/clipboard-indicator/confirm-clear" "false"
+dconf write "/org/gnome/shell/extensions/clipboard-indicator/disable-down-arrow" "true"
+dconf write "/org/gnome/shell/extensions/clipboard-indicator/display-mode" "0"
+dconf write "/org/gnome/shell/extensions/clipboard-indicator/enable-keybindings" "true"
+dconf write "/org/gnome/shell/extensions/clipboard-indicator/history-size" "99"
+dconf write "/org/gnome/shell/extensions/clipboard-indicator/move-item-first" "false"
+dconf write "/org/gnome/shell/extensions/clipboard-indicator/notify-on-copy" "false"
+dconf write "/org/gnome/shell/extensions/clipboard-indicator/preview-size" "99"
+dconf write "/org/gnome/shell/extensions/clipboard-indicator/refresh-interval" "500"
+dconf write "/org/gnome/shell/extensions/clipboard-indicator/strip-text" "false"
+dconf write "/org/gnome/shell/extensions/clipboard-indicator/toggle-menu" "['<Control>Insert']"
+dconf write "/org/gnome/shell/extensions/clipboard-indicator/topbar-preview-size" "99"
+dconf write "/org/gnome/shell/extensions/clipboard-indicator/next-entry" "['<Control><Super>Right']"
+dconf write "/org/gnome/shell/extensions/clipboard-indicator/prev-entry" "['<Control><Super>Left']"
+dconf write "/org/gnome/shell/extensions/clipboard-indicator/clear-history" "['<Shift><Control>Delete']"
 
 
 # install customizable dock shell extension: "dash-to-dock@micxgx.gmail.com"
-sudo gnome-shell-extension-installer --yes 307
-sudo gnome-extensions enable dash-to-dock@micxgx.gmail.com
-sudo gnome-extensions disable ubuntu-dock@ubuntu.com
+gnome-shell-extension-installer --yes 307
+gnome-extensions enable dash-to-dock@micxgx.gmail.com
+gnome-extensions disable ubuntu-dock@ubuntu.com
 gsettings set org.gnome.shell.extensions.dash-to-dock autohide true
 gsettings set org.gnome.shell.extensions.dash-to-dock dock-position 'BOTTOM'
 gsettings set org.gnome.shell.extensions.dash-to-dock isolate-monitors false
 gsettings set org.gnome.shell.extensions.dash-to-dock intellihide-mode 'ALL_WINDOWS'
 gsettings set org.gnome.shell.extensions.dash-to-dock intellihide true
 gsettings set org.gnome.shell.extensions.dash-to-dock apply-custom-theme true
-sudo gnome-extensions disable dash-to-dock@micxgx.gmail.com
-sudo gnome-extensions enable ubuntu-dock@ubuntu.com
+gnome-extensions disable dash-to-dock@micxgx.gmail.com
+gnome-extensions enable ubuntu-dock@ubuntu.com
 
 
 # install sound device shell extension: "sound-output-device-chooser@kgshank.net"
-sudo gnome-shell-extension-installer --yes 906
-sudo gnome-extensions enable sound-output-device-chooser@kgshank.net
+gnome-shell-extension-installer --yes 906
+gnome-extensions enable sound-output-device-chooser@kgshank.net
 
 
 # set light ubuntu color theme
