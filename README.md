@@ -1,6 +1,10 @@
 # Dotfiles Ubuntu
 This is a collection of dotfiles and scripts I use for customizing Ubuntu to my liking and setting up the software development tools
 
+## Prerequisites:
+- X11
+- curl and git `sudo apt install curl git`
+
 ## Installation
 ```
   curl https://raw.github.com/AlessioCoser/dotfiles-ubuntu/master/install -L -o - | bash
