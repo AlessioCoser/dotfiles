@@ -11,7 +11,7 @@ if ! type "docker" > /dev/null; then
 
   curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg
 
-  # for ubuntu jammy docker repository is not jet available
+  # for ubuntu jammy docker repository is not yet available
   RELEASE=$(lsb_release -cs)
   if $RELEASE == "jammy"; then
     $RELEASE = "impish"
