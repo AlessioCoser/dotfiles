@@ -4,7 +4,6 @@ set -e
 COMMAND=$1
 DOTSPATH="$HOME/dotfiles"
 
-
 if [ $XDG_SESSION_TYPE == "wayland" ]; then
   echo "This script is not compatible with Wayland: use X11 and restart the pc."
   echo ""

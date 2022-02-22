@@ -4,7 +4,7 @@ This is a collection of dotfiles and scripts I use for customizing Ubuntu to my 
 ## Prerequisites:
 - X11
 - GNOME Shell
-- curl and git `sudo apt install curl git`
+- curl and git `sudo apt install -y curl git`
 
 ## Versions
 Tested on fresh installed Ubuntu versions:

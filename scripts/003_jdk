@@ -2,5 +2,5 @@
 
 
 if ! type "java" > /dev/null; then
-  sudo apt install openjdk-8-jdk
+  sudo apt install -y openjdk-8-jdk
 fi
