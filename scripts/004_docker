@@ -13,8 +13,8 @@ if ! type "docker" > /dev/null; then
 
   # for ubuntu jammy docker repository is not yet available
   RELEASE=$(lsb_release -cs)
-  if $RELEASE == "jammy"; then
-    $RELEASE = "impish"
+  if [ "$RELEASE" == "jammy" ]; then
+    RELEASE="impish"
   fi
 
   echo \
