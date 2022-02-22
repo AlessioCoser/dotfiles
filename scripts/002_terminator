@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 if ! type "terminator" > /dev/null; then
-  sudo apt install -y terminator
+  sudo DEBIAN_FRONTEND=noninteractive apt install -y terminator
   # see the shortcuts here: https://makandracards.com/makandra/26311-terminator-keyboard-shortcuts
 
   gsettings set org.gnome.desktop.default-applications.terminal exec /usr/bin/terminator
