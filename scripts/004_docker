@@ -11,10 +11,15 @@ if ! type "docker" > /dev/null; then
 
   curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg
 
-  echo \
-    "deb [arch=amd64 signed-by=/usr/share/keyrings/docker-archive-keyring.gpg] https://download.docker.com/linux/ubuntu \
-    $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
+  # for ubuntu jammy docker repository is not jet available
+  RELEASE=$(lsb_release -cs)
+  if $RELEASE == "jammy"; then
+    $RELEASE = "impish"
+  fi
 
+  echo \
+      "deb [arch=amd64 signed-by=/usr/share/keyrings/docker-archive-keyring.gpg] https://download.docker.com/linux/ubuntu \
+      $RELEASE stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
 
   sudo apt update
   sudo DEBIAN_FRONTEND=noninteractive apt install -y docker-ce docker-ce-cli containerd.io
