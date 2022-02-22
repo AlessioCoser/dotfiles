@@ -1,0 +1,19 @@
+#!/bin/bash
+set -e
+
+. ./lib/ui_widget_select
+. ./lib/indices_of_array
+. ./lib/execute_files
+
+# execute all script without prompt
+# execute_all_files $(echo scripts/*)
+
+execute_files $(echo scripts/*)
+
+# ui_widget_select -l -m -i option1 option2
+# # echo "${UI_WIDGET_RC[@]}"
+
+# for file in ${UI_WIDGET_RC[@]}
+# do
+#   echo "file --> $file"
+# done

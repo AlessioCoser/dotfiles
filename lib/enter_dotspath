@@ -1,0 +1,9 @@
+#!/bin/bash
+
+DOTSPATH="$HOME/dotfiles"
+if [ -e $DOTSPATH/.git ]; then
+  cd $DOTSPATH && git pull
+else
+  git clone https://github.com/AlessioCoser/dotfiles-ubuntu.git $DOTSPATH
+  cd $DOTSPATH
+fi

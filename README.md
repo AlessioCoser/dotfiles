@@ -10,6 +10,7 @@ This is a collection of dotfiles and scripts I use for customizing Ubuntu to my 
 Tested on fresh installed Ubuntu versions:
 - 20.04
 - 21.10
+- 22.04
 
 ## Installation
 ```

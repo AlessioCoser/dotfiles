@@ -1,0 +1,24 @@
+#!/bin/bash
+
+execute_all_files() {
+  for file in $@
+  do
+    echo "--> executing ${file}"
+    # ./$file
+  done
+}
+
+execute_files() {
+  local files=("$@")
+  local all_files=${files[@]}
+  local selected_indices=$(indices_of_array $all_files)
+  ui_widget_select -l -m -s $selected_indices -i $all_files
+  local select_response=${UI_WIDGET_RC[@]}
+  local selected=()
+  for index in $select_response
+  do
+    selected+=("${files[$index]}")
+  done
+
+  execute_all_files ${selected[@]}
+}

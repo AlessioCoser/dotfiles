@@ -1,0 +1,9 @@
+#!/bin/bash
+
+if [ $XDG_SESSION_TYPE == "wayland" ]; then
+  echo "This script is not compatible with Wayland: use X11 and restart the pc."
+  echo ""
+  echo "To change Wayland in favour of X11 run this:"
+  echo "> sudo sed -i 's/#WaylandEnable=false/WaylandEnable=false/' /etc/gdm3/custom.conf && sudo reboot"
+  exit 1
+fi
