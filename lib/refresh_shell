@@ -2,8 +2,8 @@
 
 refresh_shell() {
   echo "Restarting GNOME Shell..."
-  sleep 3
+  sleep 5
   killall -SIGQUIT gnome-shell 2> /dev/null
-  sleep 10
+  sleep 15
   echo "... GNOME Shell ready"
 }
