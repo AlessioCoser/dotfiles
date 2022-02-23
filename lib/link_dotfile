@@ -1,0 +1,22 @@
+#!/bin/bash
+
+DOTSPATH="$HOME/dotfiles"
+
+link_dotfile() {
+  local file=$1
+  if [ -f "$file" ]; then
+    filename=$(basename "$file")
+
+    echo "----> linking $filename"
+
+    if [ -f ~/$filename.orig ]; then
+      echo "rm ~/$filename"
+    else
+      if [ -f ~/$filename ]; then
+        echo "mv ~/$filename ~/$filename.orig"
+      fi
+    fi
+
+    echo "ln -s $DOTSPATH/$file ~/$filename"
+  fi
+}

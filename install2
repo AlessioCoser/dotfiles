@@ -1,13 +1,13 @@
 #!/bin/bash
-set -e
 
+. ./lib/enter_dotspath
 . ./lib/ui_widget_select
 . ./lib/indices_of_array
 . ./lib/execute_files
 
 # execute all script without prompt
 # execute_all_files $(echo scripts/*)
-
+enter_dotspath
 execute_files $(echo scripts/*)
 
 # ui_widget_select -l -m -i option1 option2

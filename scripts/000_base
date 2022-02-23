@@ -19,11 +19,8 @@ sudo apt update
 sudo DEBIAN_FRONTEND=noninteractive apt install -y \
     net-tools \
     fonts-firacode \
-    curl \
     wget \
     htop \
-    vim \
-    git \
     tig
 
 
