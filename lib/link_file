@@ -8,17 +8,16 @@ link_file() {
   mkdir -p $DEST_DIR
   if [ -f "$DEST_FILE" ]; then
     if [ -f "$DEST_FILE.orig" ]; then
-      echo "rm \"$DEST_FILE\""
+      rm "$DEST_FILE"
     else
-      echo "mv \"$DEST_FILE\" \"$DEST_FILE.orig\""
+      mv "$DEST_FILE" "$DEST_FILE.orig"
     fi
   fi
-  echo "ln -s \"$ORIGINAL_FILE\" \"$DEST_FILE\""
+  ln -s "$ORIGINAL_FILE" "$DEST_FILE"
 }
 
 link_dotfile() {
-  local dots_path=$1/dots
-  local filename=$2
+  local filename=$1
 
-  link_file "$dots_path/$filename" "$HOME/$filename"
+  link_file "$DOTSPATH/dots/$filename" "$HOME/$filename"
 }

@@ -2,7 +2,7 @@
 
 
 if ! type "pyenv" > /dev/null; then
-  . $PWD/lib/apt_install
+  . $DOTSPATH/lib/apt_install
   apt_install build-essential zlib1g-dev libbz2-dev libsqlite3-dev libncurses5-dev libgdbm-dev libnss3-dev libssl-dev libreadline-dev libffi-dev
 
   curl -L https://github.com/pyenv/pyenv-installer/raw/master/bin/pyenv-installer | bash

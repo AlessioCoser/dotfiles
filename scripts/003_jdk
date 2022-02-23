@@ -2,6 +2,6 @@
 
 
 if ! type "java" > /dev/null; then
-  . $PWD/lib/apt_install
+  . $DOTSPATH/lib/apt_install
   apt_install openjdk-8-jdk
 fi

@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
 
 # TODO: ask for name and pull strategy
-. $PWD/lib/link_file
-link_dotfile $PWD .gitconfig
+. $DOTSPATH/lib/link_file
+link_dotfile .gitconfig

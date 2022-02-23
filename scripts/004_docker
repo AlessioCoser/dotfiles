@@ -2,7 +2,7 @@
 
 if ! type "docker" > /dev/null; then
   # reference: https://docs.docker.com/engine/install/ubuntu/
-  . $PWD/lib/apt_install
+  . $DOTSPATH/lib/apt_install
   apt_install apt-transport-https ca-certificates gnupg lsb-release
 
   curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg

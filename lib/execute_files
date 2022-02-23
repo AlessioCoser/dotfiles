@@ -1,7 +1,11 @@
 #!/bin/bash
 . $DOTSPATH/lib/print_title
+. $DOTSPATH/lib/indices_of_array
+. $DOTSPATH/lib/ui_widget_select
 
 execute_all_files() {
+  set -e
+
   for file in $@
   do
     print_title "EXECUTING $file"
@@ -21,8 +25,6 @@ execute_files() {
   do
     selected+=("${files[$index]}")
   done
-
-  set -e
 
   execute_all_files ${selected[@]}
 }

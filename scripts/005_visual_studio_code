@@ -41,6 +41,6 @@ code --install-extension trinm1709.dracula-theme-from-intellij
 code --install-extension VisualStudioExptTeam.vscodeintellicode
 
 
-. $PWD/lib/link_file
-link_file "$PWD/.config/Code/User/settings.json" "$HOME/.config/Code/User/settings.json"
-link_file "$PWD/.config/Code/User/keybindings.json" "$HOME/.config/Code/User/keybindings.json"
+. $DOTSPATH/lib/link_file
+link_file "$DOTSPATH/.config/Code/User/settings.json" "$HOME/.config/Code/User/settings.json"
+link_file "$DOTSPATH/.config/Code/User/keybindings.json" "$HOME/.config/Code/User/keybindings.json"

@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 if ! type "terminator" > /dev/null; then
-  . $PWD/lib/apt_install
+  . $DOTSPATH/lib/apt_install
   apt_install terminator
   # see the shortcuts here: https://makandracards.com/makandra/26311-terminator-keyboard-shortcuts
 
@@ -9,5 +9,5 @@ if ! type "terminator" > /dev/null; then
   gsettings set org.gnome.desktop.default-applications.terminal exec-arg "-x"
 fi
 
-. $PWD/lib/link_file
-link_file "$PWD/.config/terminator/config" "$HOME/.config/terminator/config"
+. $DOTSPATH/lib/link_file
+link_file "$DOTSPATH/.config/terminator/config" "$HOME/.config/terminator/config"

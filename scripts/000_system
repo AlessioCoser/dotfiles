@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
-. $PWD/lib/refresh_shell
-. $PWD/lib/apt_install
+. $DOTSPATH/lib/refresh_shell
+. $DOTSPATH/lib/apt_install
 
 # set keyboard blazingly fast
 sudo kbdrate -r 1 -d 150

@@ -1,13 +1,13 @@
 #!/bin/bash
 
-DOTSPATH="$HOME/dotfiles"
+export DOTSPATH="$HOME/dotfiles"
 
 . $DOTSPATH/lib/enter_dotspath_or_download
-. $DOTSPATH/lib/ui_widget_select
-. $DOTSPATH/lib/indices_of_array
+. $DOTSPATH/lib/check_wayland
 . $DOTSPATH/lib/execute_files
 . $DOTSPATH/lib/print_title
 
 enter_dotspath_or_download $DOTSPATH
+check_wayland
 execute_files $(echo $DOTSPATH/scripts/*)
 print_title "INSTALLATION COMPLETE - RESTART PC"
