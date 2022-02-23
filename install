@@ -1,13 +1,24 @@
 #!/bin/bash
-
 export DOTSPATH="$HOME/dotfiles"
 
-. $DOTSPATH/lib/update_or_download
+function update_or_download() {
+  if ! type "git" > /dev/null; then
+    sudo DEBIAN_FRONTEND=noninteractive apt install -y git
+  fi
+
+  if [ -e $DOTSPATH/.git ]; then
+    git -C "$DOTSPATH" pull
+  else
+    git clone https://github.com/AlessioCoser/dotfiles-ubuntu.git "$DOTSPATH"
+  fi
+}
+
+update_or_download
+
 . $DOTSPATH/lib/check_wayland
 . $DOTSPATH/lib/execute_files
 . $DOTSPATH/lib/print_title
 
-update_or_download $DOTSPATH
 check_wayland
 execute_files $(echo $DOTSPATH/scripts/*)
 print_title "INSTALLATION COMPLETE - RESTART PC"
