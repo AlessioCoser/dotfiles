@@ -1,0 +1,10 @@
+#!/bin/bash
+
+enter_dotspath_or_download() {
+  if [ -e $1/.git ]; then
+    cd $1 && git pull
+  else
+    git clone https://github.com/AlessioCoser/dotfiles-ubuntu.git $1
+    cd $1
+  fi
+}

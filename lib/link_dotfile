@@ -1,9 +1,8 @@
 #!/bin/bash
 
-DOTSPATH="$HOME/dotfiles"
-
 link_dotfile() {
-  local file=$1
+  local dots_path=$1
+  local file=$2
   if [ -f "$file" ]; then
     filename=$(basename "$file")
 

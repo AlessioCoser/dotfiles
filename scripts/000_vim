@@ -2,6 +2,6 @@
 
 if ! type "vim" > /dev/null; then
   . ./lib/link_dotfile
-  sudo DEBIAN_FRONTEND=noninteractive apt install -y vim
-  link_dotfile ./dots/.vimrc
+  echo "sudo DEBIAN_FRONTEND=noninteractive apt install -y vim"
+  link_dotfile $DOTSPATH ./dots/.vimrc
 fi

@@ -1,14 +1,16 @@
 #!/bin/bash
 
-. ./lib/enter_dotspath
-. ./lib/ui_widget_select
-. ./lib/indices_of_array
-. ./lib/execute_files
+DOTSPATH="$HOME/dotfiles"
+
+. $DOTSPATH/lib/enter_dotspath_or_download
+. $DOTSPATH/lib/ui_widget_select
+. $DOTSPATH/lib/indices_of_array
+. $DOTSPATH/lib/execute_files
 
 # execute all script without prompt
 # execute_all_files $(echo scripts/*)
-enter_dotspath
-execute_files $(echo scripts/*)
+enter_dotspath_or_download $DOTSPATH
+# execute_files $(echo $DOTSPATH/scripts/*)
 
 # ui_widget_select -l -m -i option1 option2
 # # echo "${UI_WIDGET_RC[@]}"
