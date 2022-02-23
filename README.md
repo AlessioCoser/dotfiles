@@ -4,7 +4,7 @@ This is a collection of dotfiles and scripts I use for customizing Ubuntu to my 
 ## Prerequisites:
 - X11
 - GNOME Shell
-- curl `sudo apt install -y curl`
+- wget or curl
 
 ## Versions
 Tested on fresh installed Ubuntu versions:
@@ -12,7 +12,12 @@ Tested on fresh installed Ubuntu versions:
 - 21.10
 - 22.04
 
-## Installation
+## Installation using wget
+```
+  bash <(wget -O- https://raw.github.com/AlessioCoser/dotfiles-ubuntu/master/install)
+```
+
+## Installation using curl
 ```
   bash <(curl https://raw.github.com/AlessioCoser/dotfiles-ubuntu/master/install -L -o -)
 ```
