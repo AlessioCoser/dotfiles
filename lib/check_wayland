@@ -1,8 +1,8 @@
 #!/bin/bash
 
 check_wayland() {
-  . $PWD/lib/print_title
   if [ $XDG_SESSION_TYPE == "wayland" ]; then
+    . $DOTSPATH/lib/print_title
     print_title "WAYLAND NOT SUPPORTED - CHANGE TO X11"
     echo "This script is not compatible with Wayland: use X11 and restart the pc."
     echo ""
