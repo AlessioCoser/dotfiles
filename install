@@ -21,4 +21,4 @@ update_or_download
 
 check_wayland
 execute_files $(echo $DOTSPATH/scripts/*)
-print_title "INSTALLATION COMPLETE - RESTART PC"
+print_title "INSTALLATION COMPLETE - CLOSE THIS TERMINAL"
