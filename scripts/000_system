@@ -71,7 +71,3 @@ sudo curl -o /usr/share/backgrounds/starwars-blue.jpg https://i1.wp.com/wallpape
 gsettings set org.gnome.desktop.screensaver picture-uri 'file:///usr/share/backgrounds/starwars-blue.jpg'
 gsettings set com.ubuntu.login-screen background-picture-uri 'file:///usr/share/backgrounds/starwars-blue.jpg'
 gsettings set org.gnome.desktop.background picture-uri 'file:///usr/share/backgrounds/starwars-blue.jpg'
-
-
-# refresh gnome-shell to make the changes effective
-refresh_shell
