@@ -1,20 +1,11 @@
 #!/bin/bash
 
-basenames() {
-  local names=()
-  for file in ${1[@]}
-  do
-    names+=$(basename "$file")
-  done
-  echo ${names[@]}
-}
-
 execute_all_files() {
   for file in $@
   do
     echo "--> executing ${file}"
     sudo chmod a+x $file
-    ./$file
+    $file
   done
 }
 
@@ -22,7 +13,7 @@ execute_files() {
   local files=("$@")
   local all_files=${files[@]}
   local selected_indices=$(indices_of_array $all_files)
-  ui_widget_select -l -m -s $selected_indices -i $(basenames $all_files)
+  ui_widget_select -l -m -s $selected_indices -i $all_files
   local select_response=${UI_WIDGET_RC[@]}
   local selected=()
   for index in $select_response

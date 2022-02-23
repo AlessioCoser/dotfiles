@@ -9,13 +9,13 @@ link_dotfile() {
     echo "----> linking $filename"
 
     if [ -f ~/$filename.orig ]; then
-      echo "rm ~/$filename"
+      rm ~/$filename
     else
       if [ -f ~/$filename ]; then
-        echo "mv ~/$filename ~/$filename.orig"
+        mv ~/$filename ~/$filename.orig
       fi
     fi
 
-    echo "ln -s $DOTSPATH/$file ~/$filename"
+    ln -s $dots_path/$file ~/$filename
   fi
 }
