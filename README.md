@@ -14,7 +14,7 @@ Tested on fresh installed Ubuntu versions:
 
 ## Installation
 ```
-  curl https://raw.github.com/AlessioCoser/dotfiles-ubuntu/master/install -L -o - | bash
+  bash <(curl https://raw.github.com/AlessioCoser/dotfiles-ubuntu/master/install -L -o -)
 ```
 
 ## Custom installation
