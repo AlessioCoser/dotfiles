@@ -6,6 +6,8 @@ DOTSPATH="$HOME/dotfiles"
 . $DOTSPATH/lib/ui_widget_select
 . $DOTSPATH/lib/indices_of_array
 . $DOTSPATH/lib/execute_files
+. $DOTSPATH/lib/print_title
 
 enter_dotspath_or_download $DOTSPATH
 execute_files $(echo $DOTSPATH/scripts/*)
+print_title "INSTALLATION COMPLETE - RESTART PC"

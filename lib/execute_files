@@ -1,9 +1,10 @@
 #!/bin/bash
+. $DOTSPATH/lib/print_title
 
 execute_all_files() {
   for file in $@
   do
-    echo "--> executing ${file}"
+    print_title "EXECUTING $file"
     sudo chmod a+x $file
     $file
   done
@@ -20,6 +21,8 @@ execute_files() {
   do
     selected+=("${files[$index]}")
   done
+
+  set -e
 
   execute_all_files ${selected[@]}
 }

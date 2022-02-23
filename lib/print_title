@@ -1,0 +1,24 @@
+#!/bin/bash
+
+first_line() {
+  printf %$((${#1} + 36))s "####################################" | tr ' ' "#" && echo ""
+}
+
+empty_line() {
+  printf "###############%$((${#1} + 21))s" "###############" | tr ' ' " " && echo ""
+}
+
+text_line() {
+  echo "###############   $1   ###############"
+}
+
+print_title() {
+  local text=$1
+  echo ""
+  first_line "$text"
+  empty_line "$text"
+  text_line "$text"
+  empty_line "$text"
+  first_line "$text"
+  echo ""
+}
