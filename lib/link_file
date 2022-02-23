@@ -1,0 +1,24 @@
+#!/bin/bash
+
+link_file() {
+  local ORIGINAL_FILE=$1
+  local DEST_FILE=$2
+  local DEST_DIR="$(dirname "${DEST_FILE}")"
+
+  mkdir -p $DEST_DIR
+  if [ -f "$DEST_FILE" ]; then
+    if [ -f "$DEST_FILE.orig" ]; then
+      echo "rm \"$DEST_FILE\""
+    else
+      echo "mv \"$DEST_FILE\" \"$DEST_FILE.orig\""
+    fi
+  fi
+  echo "ln -s \"$ORIGINAL_FILE\" \"$DEST_FILE\""
+}
+
+link_dotfile() {
+  local dots_path=$1/dots
+  local filename=$2
+
+  link_file "$dots_path/$filename" "$HOME/$filename"
+}

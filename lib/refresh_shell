@@ -1,0 +1,9 @@
+#!/bin/bash
+
+refresh_shell() {
+  echo "Restarting GNOME Shell..."
+  sleep 5
+  dbus-send --session --type=method_call --dest=org.gnome.Shell /org/gnome/Shell org.gnome.Shell.Eval string\:'global.reexec_self()';
+  sleep 5
+  echo "... GNOME Shell ready"
+}

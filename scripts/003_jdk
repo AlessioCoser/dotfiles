@@ -2,5 +2,6 @@
 
 
 if ! type "java" > /dev/null; then
-  sudo DEBIAN_FRONTEND=noninteractive apt install -y openjdk-8-jdk
+  . $PWD/lib/apt_install
+  apt_install openjdk-8-jdk
 fi

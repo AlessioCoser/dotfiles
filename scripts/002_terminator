@@ -1,25 +1,13 @@
 #!/usr/bin/env bash
 
 if ! type "terminator" > /dev/null; then
-  sudo DEBIAN_FRONTEND=noninteractive apt install -y terminator
+  . $PWD/lib/apt_install
+  apt_install terminator
   # see the shortcuts here: https://makandracards.com/makandra/26311-terminator-keyboard-shortcuts
 
   gsettings set org.gnome.desktop.default-applications.terminal exec /usr/bin/terminator
   gsettings set org.gnome.desktop.default-applications.terminal exec-arg "-x"
 fi
 
-
-# link settings
-TERM_SETTINGS_PATH=/home/$(whoami)/.config/terminator
-DOTFILE_SETTINGS_PATH=/home/$(whoami)/dotfiles/.config/terminator
-
-mkdir -p $TERM_SETTINGS_PATH
-
-if [ -f "$TERM_SETTINGS_PATH/config" ]; then
-  if [ -f "$TERM_SETTINGS_PATH/config.orig" ]; then
-    rm "$TERM_SETTINGS_PATH/config"
-  else
-    mv "$TERM_SETTINGS_PATH/config" "$TERM_SETTINGS_PATH/config.orig"
-  fi
-fi
-ln -s "$DOTFILE_SETTINGS_PATH/config" "$TERM_SETTINGS_PATH/config"
+. $PWD/lib/link_file
+link_file "$PWD/.config/terminator/config" "$HOME/.config/terminator/config"

@@ -9,11 +9,3 @@ DOTSPATH="$HOME/dotfiles"
 
 enter_dotspath_or_download $DOTSPATH
 execute_files $(echo $DOTSPATH/scripts/*)
-
-# ui_widget_select -l -m -i option1 option2
-# # echo "${UI_WIDGET_RC[@]}"
-
-# for file in ${UI_WIDGET_RC[@]}
-# do
-#   echo "file --> $file"
-# done

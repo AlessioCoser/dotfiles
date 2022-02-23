@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+
+if ! type "vim" > /dev/null; then
+  . $PWD/lib/apt_install
+  apt_install vim
+fi
+
+. $PWD/lib/link_file
+link_dotfile $PWD .vimrc

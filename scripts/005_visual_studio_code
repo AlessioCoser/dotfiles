@@ -41,27 +41,6 @@ code --install-extension trinm1709.dracula-theme-from-intellij
 code --install-extension VisualStudioExptTeam.vscodeintellicode
 
 
-CODE_SETTINGS_PATH=/home/$(whoami)/.config/Code/User
-DOTFILE_SETTINGS_PATH=/home/$(whoami)/dotfiles/.config/Code/User
-
-mkdir -p $CODE_SETTINGS_PATH
-
-# copy settings
-if [ -f "$CODE_SETTINGS_PATH/settings.json" ]; then
-  if [ -f "$CODE_SETTINGS_PATH/settings.json.orig" ]; then
-    rm "$CODE_SETTINGS_PATH/settings.json"
-  else
-    mv "$CODE_SETTINGS_PATH/settings.json" "$CODE_SETTINGS_PATH/settings.json.orig"
-  fi
-fi
-ln -s "$DOTFILE_SETTINGS_PATH/settings.json" "$CODE_SETTINGS_PATH/settings.json"
-
-# copy keybindings
-if [ -f "$CODE_SETTINGS_PATH/keybindings.json" ]; then
-  if [ -f "$CODE_SETTINGS_PATH/keybindings.json.orig" ]; then
-    rm "$CODE_SETTINGS_PATH/keybindings.json"
-  else
-    mv "$CODE_SETTINGS_PATH/keybindings.json" "$CODE_SETTINGS_PATH/keybindings.json.orig"
-  fi
-fi
-ln -s "$DOTFILE_SETTINGS_PATH/keybindings.json" "$CODE_SETTINGS_PATH/keybindings.json"
+. $PWD/lib/link_file
+link_file "$PWD/.config/Code/User/settings.json" "$HOME/.config/Code/User/settings.json"
+link_file "$PWD/.config/Code/User/keybindings.json" "$HOME/.config/Code/User/keybindings.json"

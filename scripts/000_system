@@ -1,12 +1,7 @@
 #!/usr/bin/env bash
 
-function refresh_shell {
-  echo "Restarting GNOME Shell..."
-  sleep 5
-  dbus-send --session --type=method_call --dest=org.gnome.Shell /org/gnome/Shell org.gnome.Shell.Eval string\:'global.reexec_self()';
-  sleep 5
-  echo "... GNOME Shell ready"
-}
+. $PWD/lib/refresh_shell
+. $PWD/lib/apt_install
 
 # set keyboard blazingly fast
 sudo kbdrate -r 1 -d 150
@@ -16,13 +11,7 @@ sudo add-apt-repository "deb http://archive.ubuntu.com/ubuntu $(lsb_release -sc)
 
 sudo apt update
 
-sudo DEBIAN_FRONTEND=noninteractive apt install -y \
-    net-tools \
-    fonts-firacode \
-    wget \
-    htop \
-    tig
-
+apt_install net-tools fonts-firacode wget htop tig
 
 # install Monaco Font
 mkdir -p ~/.fonts
