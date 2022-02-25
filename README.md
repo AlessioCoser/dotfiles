@@ -1,6 +1,8 @@
 # Dotfiles Ubuntu
 This is a collection of dotfiles and scripts I use for customizing Ubuntu to my liking and setting up the software development tools.
 
+![Example](example.gif)
+
 ## Prerequisites:
 - X11
 - GNOME Shell
