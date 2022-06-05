@@ -44,5 +44,5 @@ code --install-extension VisualStudioExptTeam.vscodeintellicode
 . $DOTSPATH/lib/link_file
 
 
-link_file "$DOTSPATH/.config/Code/User/settings.json" "/Users/$(whoami)/Library/Application\ Support/Code/User/settings.json"
-link_file "$DOTSPATH/.config/Code/User/keybindings.json" "/Users/$(whoami)/Library/Application\ Support/Code/User/keybindings.json"
+link_file "$DOTSPATH/.config/Code/User/settings.json" "/Users/$(whoami)/Library/Application Support/Code/User/settings.json"
+link_file "$DOTSPATH/.config/Code/User/keybindings.json" "/Users/$(whoami)/Library/Application Support/Code/User/keybindings.json"
