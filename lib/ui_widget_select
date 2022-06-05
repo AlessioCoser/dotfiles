@@ -197,7 +197,7 @@ ui_key_input() {
         esac
     done
     IFS= read ${args[@]} -rsn1 key 2>/dev/null >&2
-    read -sn1 -t "0.0001" k1; read -sn1 -t "0.0001" k2; read -sn1 -t "0.0001" k3
+    read -sn1 k1; read -sn1 k2; read -sn1 k3
     key+="${k1}${k2}${k3}"
     if [[ "${debug}" -eq 1 ]]; then echo -n "${key}" | str2hex_echo; echo -n " : " ;fi;
     case "${key}" in
