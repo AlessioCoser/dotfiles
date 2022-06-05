@@ -1,13 +1,14 @@
 #!/bin/bash
 
+brew install wget
+brew install curl
+brew install antigen
+brew install autojump
+brew install tig
+brew install htop
+brew install hub
+
 if ! type "zsh" > /dev/null; then
-  brew install wget
-  brew install curl
-  brew install antigen
-  brew install autojump
-  brew install tig
-  brew install htop
-  brew install hub
   brew install zsh
 
   mkdir -p ~/.config
