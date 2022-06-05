@@ -6,10 +6,27 @@
 # Ask for the administrator password upfront
 sudo softwareupdate -ia
 
+
+###############################################################################
+# Wallpaper                                                              #
+###############################################################################
+echo "WALLPAPER"
+# download and set wallpapers
+# sudo curl -o ~/Pictures/fox-grey.jpg https://assets.hongkiat.com/uploads/minimalist-dekstop-wallpapers/non-4k/preview/06.jpg
+# sudo curl -o ~/Pictures/starwars-yellow.jpg https://images.wallpapersden.com/image/download/r2-d2-star-wars-minimalist_a2xuaWWUmZqaraWkpJRqZWVlrWdqZWU.jpg
+# sudo curl -o ~/Pictures/starwars-orange.jpg https://wallpaperboat.com/wp-content/uploads/2019/05/star-wars-minimalist-065.jpg
+# sudo curl -o ~/Pictures/starwars-green.jpg https://images.wallpapersden.com/image/download/star-wars-skywalker-saga-minimal_a2xsbmqUmZqaraWkpJRnamtlrWZpaWU.jpg
+# sudo curl -o ~/Pictures/city-green.jpg https://wallpaperboat.com/wp-content/uploads/2019/06/minimalist-desktop-17.jpg
+# sudo curl -o ~/Pictures/desert-orange.jpg https://wallpaperbat.com/img/349312-minimalist-desert-wallpaper-for-desktop-1440p.jpg
+sudo curl -o ~/Pictures/starwars-blue.jpg https://i1.wp.com/wallpapercave.com/wp/wp6722869.jpg
+BACKGROUND='starwars-blue.jpg'
+
+echo "osascript -e 'tell application \"Finder\" to set desktop picture to POSIX file \"$HOME/Pictures/$BACKGROUND\"'" | bash -
+
 ###############################################################################
 # General UI/UX                                                               #
 ###############################################################################
-
+echo "General UI/UX"
 # Disable the sound effects on boot
 sudo nvram SystemAudioVolume=" "
 
@@ -25,7 +42,7 @@ launchctl unload -w /System/Library/LaunchAgents/com.apple.notificationcenterui.
 ###############################################################################
 # Trackpad, mouse, keyboard, Bluetooth accessories, and input                 #
 ###############################################################################
-
+echo "Trackpad, mouse, keyboard, Bluetooth accessories, and input"
 # Trackpad: enable tap to click for this user and for the login screen
 defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad Clicking -bool true
 defaults -currentHost write NSGlobalDomain com.apple.mouse.tapBehavior -int 1
@@ -57,7 +74,7 @@ defaults write NSGlobalDomain NSAutomaticSpellingCorrectionEnabled -bool false
 ###############################################################################
 # Screen                                                                      #
 ###############################################################################
-
+echo "Screen"
 # Require password immediately after sleep or screen saver begins
 defaults write com.apple.screensaver askForPassword -int 1
 defaults write com.apple.screensaver askForPasswordDelay -int 0
@@ -74,7 +91,7 @@ defaults write com.apple.screencapture disable-shadow -bool true
 ###############################################################################
 # Finder                                                                      #
 ###############################################################################
-
+echo "Finder"
 # Set Desktop as the default location for new Finder windows
 # For other paths, use `PfLo` and `file:///full/path/here/`
 defaults write com.apple.finder NewWindowTarget -string "PfDe"
@@ -115,7 +132,7 @@ defaults write com.apple.finder EmptyTrashSecurely -bool true
 ###############################################################################
 # Dock, Dashboard, and hot corners                                            #
 ###############################################################################
-
+echo "Dock, Dashboard, and hot corners"
 # Set the icon size of Dock items to 36 pixels
 defaults write com.apple.dock tilesize -int 36
 
@@ -149,29 +166,13 @@ sudo ln -sf /Applications/Xcode.app/Contents/Applications/iPhone\ Simulator.app 
 ###############################################################################
 # Activity Monitor                                                            #
 ###############################################################################
-
+echo "Activity Monitor"
 # Show the main window when launching Activity Monitor
 defaults write com.apple.ActivityMonitor OpenMainWindow -bool true
 
 ###############################################################################
 # Mac App Store                                                               #
 ###############################################################################
-
+echo "Mac App Store"
 # Enable the automatic update check
 defaults write com.apple.SoftwareUpdate AutomaticCheckEnabled -bool true
-
-###############################################################################
-# Wallpaper                                                              #
-###############################################################################
-
-# download and set wallpapers
-# sudo curl -o ~/Pictures/fox-grey.jpg https://assets.hongkiat.com/uploads/minimalist-dekstop-wallpapers/non-4k/preview/06.jpg
-# sudo curl -o ~/Pictures/starwars-yellow.jpg https://images.wallpapersden.com/image/download/r2-d2-star-wars-minimalist_a2xuaWWUmZqaraWkpJRqZWVlrWdqZWU.jpg
-# sudo curl -o ~/Pictures/starwars-orange.jpg https://wallpaperboat.com/wp-content/uploads/2019/05/star-wars-minimalist-065.jpg
-# sudo curl -o ~/Pictures/starwars-green.jpg https://images.wallpapersden.com/image/download/star-wars-skywalker-saga-minimal_a2xsbmqUmZqaraWkpJRnamtlrWZpaWU.jpg
-# sudo curl -o ~/Pictures/city-green.jpg https://wallpaperboat.com/wp-content/uploads/2019/06/minimalist-desktop-17.jpg
-# sudo curl -o ~/Pictures/desert-orange.jpg https://wallpaperbat.com/img/349312-minimalist-desert-wallpaper-for-desktop-1440p.jpg
-sudo curl -o ~/Pictures/starwars-blue.jpg https://i1.wp.com/wallpapercave.com/wp/wp6722869.jpg
-BACKGROUND='starwars-blue.jpg'
-
-echo "osascript -e 'tell application \"Finder\" to set desktop picture to POSIX file \"$HOME/Pictures/$BACKGROUND\"'" | bash -

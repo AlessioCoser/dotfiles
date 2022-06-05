@@ -1,10 +1,6 @@
 #!/bin/bash
 
 if ! type "zsh" > /dev/null; then
-  brew install zsh
-
-  chsh -s $(which zsh) $(whoami)
-
   brew install wget
   brew install curl
   brew install antigen
@@ -12,7 +8,12 @@ if ! type "zsh" > /dev/null; then
   brew install tig
   brew install htop
   brew install hub
-  brew cleanup
+  brew install zsh
+
+  mkdir -p ~/.config
+  ln -s /usr/local/share/antigen/antigen.zsh ~/.config/antigen.zsh
+
+  chsh -s $(which zsh) $(whoami)
 fi
 
 . $DOTSPATH/lib/link_file
