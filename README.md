@@ -3,10 +3,14 @@ This is a collection of dotfiles and scripts I use for customizing Ubuntu to my 
 
 ![Example](example.gif)
 
-## Prerequisites:
+## Prerequisites Linux:
 - X11
 - GNOME Shell
 - wget or curl
+- git
+
+## Prerequisites MacOS
+- XCode
 - git
 
 ## Versions
