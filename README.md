@@ -1,5 +1,5 @@
-# Dotfiles Ubuntu
-This is a collection of dotfiles and scripts I use for customizing Ubuntu to my liking and setting up the software development tools.
+# Dotfiles Ubuntu & MacOs
+This is a collection of dotfiles and scripts I use for customizing Ubuntu and MacOS to my liking and setting up the software development tools.
 
 ![Example](example.gif)
 
@@ -10,14 +10,16 @@ This is a collection of dotfiles and scripts I use for customizing Ubuntu to my 
 - git
 
 ## Prerequisites MacOS
-- XCode (`xcode-select --install || true && sudo xcodebuild -license accept || true`)
+- XCode (+ `xcode-select --install || true && sudo xcodebuild -license accept || true`)
+- wget or curl
 - git
 
 ## Versions
-Tested on fresh installed Ubuntu versions:
-- 20.04
-- 21.10
-- 22.04
+Tested on fresh installed versions:
+- Ubuntu 20.04
+- Ubuntu 21.10
+- Ubuntu 22.04
+- MacOS 12.4 Monterey 
 
 ## Installation using wget
 ```
