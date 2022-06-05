@@ -1,0 +1,5 @@
+#!/bin/bash
+
+brew install --cask spectacle
+brew install --cask jumpcut
+brew install --cask vlc

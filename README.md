@@ -7,6 +7,7 @@ This is a collection of dotfiles and scripts I use for customizing Ubuntu to my 
 - X11
 - GNOME Shell
 - wget or curl
+- git
 
 ## Versions
 Tested on fresh installed Ubuntu versions:

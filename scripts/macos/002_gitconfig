@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+
+# TODO: ask for name and pull strategy
+. $DOTSPATH/lib/link_file
+link_dotfile .gitconfig

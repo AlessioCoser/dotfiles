@@ -1,0 +1,24 @@
+#!/bin/bash
+
+. $DOTSPATH/lib/execute_files
+. $DOTSPATH/lib/print_title
+
+execute_os_scripts() {
+  if [[ $OSTYPE == 'darwin'* ]]; then
+
+    xcode-select --install || true
+    sudo xcodebuild -license accept || true
+    execute_files $(echo $DOTSPATH/scripts/macos/*)
+    print_title "INSTALLATION COMPLETE - CLOSE THIS TERMINAL"
+
+  elif [[ $OSTYPE == 'linux'* ]]; then
+
+    . $DOTSPATH/lib/check_wayland
+    check_wayland
+    execute_files $(echo $DOTSPATH/scripts/linux/*)
+    print_title "INSTALLATION COMPLETE - CLOSE THIS TERMINAL"
+
+  else
+    print_title "INSTALLATION FAILED - OS NOT RECOGNIZED"
+  fi
+}

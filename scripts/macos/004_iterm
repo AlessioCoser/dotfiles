@@ -1,0 +1,8 @@
+#!/bin/bash
+
+if ! [ $(mdfind "kMDItemCFBundleIdentifier == com.googlecode.iterm2") ]; then
+  brew install --cask iterm2
+
+  defaults write com.googlecode.iterm2 LoadPrefsFromCustomFolder -bool true
+  defaults write com.googlecode.iterm2 PrefsCustomFolder -string "$HOME/dotfiles/.config/iTerm"
+fi

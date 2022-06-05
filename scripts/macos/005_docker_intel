@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+
+if ! type "docker" > /dev/null; then
+  curl -o ~/Downloads/Docker.dmg https://desktop.docker.com/mac/main/amd64/Docker.dmg
+  sudo hdiutil attach ~/Downloads/Docker.dmg
+  sudo /Volumes/Docker/Docker.app/Contents/MacOS/install --accept-license
+  sudo hdiutil detach /Volumes/Docker
+fi

@@ -1,0 +1,20 @@
+#!/bin/bash
+
+if ! type "zsh" > /dev/null; then
+  brew install zsh
+
+  chsh -s $(which zsh) $(whoami)
+
+  brew install wget
+  brew install curl
+  brew install antigen
+  brew install autojump
+  brew install tig
+  brew install htop
+  brew install hub
+  brew cleanup
+fi
+
+. $DOTSPATH/lib/link_file
+link_dotfile .zshrc
+link_dotfile .aliases

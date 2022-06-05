@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+
+if ! type "nvm" > /dev/null; then
+  brew uninstall --ignore-dependencies node
+  brew uninstall --force node
+  brew install nvm
+  mkdir ~/.nvm
+
+  nvm install 16.13.2
+  nvm alias default 16.13.2
+
+  # zshrc or bash_profile:
+  # export NVM_DIR=~/.nvm
+  # source $(brew --prefix nvm)/nvm.sh
+fi

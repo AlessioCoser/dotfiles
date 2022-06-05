@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+
+if ! type "vim" > /dev/null; then
+  . $DOTSPATH/lib/apt_install
+  brew install vim
+fi
+
+. $DOTSPATH/lib/link_file
+link_dotfile .vimrc

@@ -2,10 +2,6 @@
 export DOTSPATH="$HOME/dotfiles"
 
 function update_or_download() {
-  if ! type "git" > /dev/null; then
-    sudo DEBIAN_FRONTEND=noninteractive apt install -y git
-  fi
-
   if [ -e $DOTSPATH/.git ]; then
     git -C "$DOTSPATH" pull
   else
@@ -15,10 +11,5 @@ function update_or_download() {
 
 update_or_download
 
-. $DOTSPATH/lib/check_wayland
-. $DOTSPATH/lib/execute_files
-. $DOTSPATH/lib/print_title
-
-check_wayland
-execute_files $(echo $DOTSPATH/scripts/*)
-print_title "INSTALLATION COMPLETE - CLOSE THIS TERMINAL"
+. $DOTSPATH/lib/execute_os_scripts
+execute_os_scripts

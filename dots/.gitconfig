@@ -1,6 +1,8 @@
+[credential]
+  helper=
 [user]
   name = Alessio Coser
-  email = 
+  email =
 [push]
   default = simple
   followTags = true
