@@ -6,10 +6,9 @@ if ! type "nvm" > /dev/null; then
   brew install nvm
   mkdir ~/.nvm
 
+  export NVM_DIR=~/.nvm
+  source $(brew --prefix nvm)/nvm.sh
+
   nvm install 16.13.2
   nvm alias default 16.13.2
-
-  # zshrc or bash_profile:
-  # export NVM_DIR=~/.nvm
-  # source $(brew --prefix nvm)/nvm.sh
 fi
