@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 
-sdk install java 8.0.302-open
+source "$HOME/.sdkman/bin/sdkman-init.sh"
+
 sdk install java 18.0.1.1-open
 
 sdk default java 18.0.1.1-open
