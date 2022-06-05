@@ -42,7 +42,7 @@ declare -xr UI_WIDGET_TPL_CHECKED="▣"
 declare -xr UI_WIDGET_TPL_UNCHECKED="□"
 
 # We use env variable to pass results since no interactive output from subshells and we don't wanna go hacky!
-declare -xg UI_WIDGET_RC=-1
+declare -x UI_WIDGET_RC=-1
 
 
 ##

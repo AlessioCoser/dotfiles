@@ -10,7 +10,7 @@ This is a collection of dotfiles and scripts I use for customizing Ubuntu to my 
 - git
 
 ## Prerequisites MacOS
-- XCode
+- XCode (`xcode-select --install || true && sudo xcodebuild -license accept || true`)
 - git
 
 ## Versions

@@ -6,8 +6,6 @@
 execute_os_scripts() {
   if [[ $OSTYPE == 'darwin'* ]]; then
 
-    xcode-select --install || true
-    sudo xcodebuild -license accept || true
     execute_files $(echo $DOTSPATH/scripts/macos/*)
     print_title "INSTALLATION COMPLETE - CLOSE THIS TERMINAL"
 
