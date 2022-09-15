@@ -30,13 +30,12 @@
       "editor.findMatchBorder": "#80CBC4",
       "selection.background": "#80CBC440"
     },
-    "editor.fontSize": 18,
+    "editor.fontSize": 22,
     "editor.scrollBeyondLastLine": false,
     "editor.minimap.enabled": false,
     "explorer.openEditors.visible": 0,
     "workbench.startupEditor": "none",
-    "workbench.colorTheme": "Community Material Theme",
-    "workbench.iconTheme": "eq-material-theme-icons",
+    "workbench.colorTheme": "One Dark Pro",
     "files.trimTrailingWhitespace": true,
     "files.autoSave": "onFocusChange",
     "files.exclude": {
@@ -90,5 +89,12 @@
     "telemetry.telemetryLevel": "off",
     "[typescript]": {
       "editor.defaultFormatter": "rvest.vs-code-prettier-eslint"
-    }
+    },
+    "[python]": {
+      "editor.tabSize": 4
+    },
+    "editor.rulers": [
+      120
+    ],
+    "workbench.editor.untitled.hint": "hidden"
   }

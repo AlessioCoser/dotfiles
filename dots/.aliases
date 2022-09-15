@@ -12,6 +12,10 @@ function subdir () {
   fi
 }
 
+function kube () {
+  kubectl --kubeconfig="$HOME/.kube/$1.yml" ${@:2}
+}
+
 alias g=git
 alias doc=docker
 alias doco=docker-compose

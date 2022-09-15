@@ -8,6 +8,8 @@
   followTags = true
 [core]
   editor = vim
-
+	autocrlf = false
+[commit]
+  verbose = true
 [pull]
-	rebase = true
+  rebase = true

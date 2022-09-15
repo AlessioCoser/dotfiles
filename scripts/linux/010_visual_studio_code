@@ -8,38 +8,40 @@ sleep 5
 
 # show extensions installed: `code --list-extensions`
 # installing all extensions
-code --install-extension akamud.vscode-theme-onedark
-code --install-extension akamud.vscode-theme-onelight
+code --install-extension andrewm098.OneLight-Pro
 code --install-extension castwide.solargraph
 code --install-extension christian-kohler.npm-intellisense
 code --install-extension christian-kohler.path-intellisense
-code --install-extension CoenraadS.bracket-pair-colorizer-2
 code --install-extension dariofuzinato.vue-peek
 code --install-extension dbaeumer.vscode-eslint
 code --install-extension dkundel.vscode-new-file
-code --install-extension Equinusocio.vsc-community-material-theme
-code --install-extension Equinusocio.vsc-material-theme
-code --install-extension equinusocio.vsc-material-theme-icons
+code --install-extension esbenp.prettier-vscode
 code --install-extension fabiospampinato.vscode-diff
 code --install-extension gogocrow.jsx-beautify
-code --install-extension hdg.live-html-previewer
-code --install-extension jprestidge.theme-material-theme
+code --install-extension JakeBecker.elixir-ls
+code --install-extension k--kato.intellij-idea-keybindings
+code --install-extension KevinRose.vsc-python-indent
 code --install-extension leizongmin.node-module-intellisense
-code --install-extension markskelton.one-dark-pro-italic
-code --install-extension marp-team.marp-vscode
 code --install-extension mohd-akram.vscode-html-format
 code --install-extension mohsen1.prettify-json
 code --install-extension ms-python.python
+code --install-extension ms-python.vscode-pylance
 code --install-extension ms-toolsai.jupyter
+code --install-extension ms-toolsai.jupyter-keymap
+code --install-extension ms-toolsai.jupyter-renderers
 code --install-extension ms-vscode.sublime-keybindings
 code --install-extension ms-vsliveshare.vsliveshare
+code --install-extension mubaidr.vuejs-extension-pack
 code --install-extension octref.vetur
-code --install-extension PKief.material-icon-theme
+code --install-extension phoenixframework.phoenix
 code --install-extension rvest.vs-code-prettier-eslint
-code --install-extension tht13.python
+code --install-extension sdras.vue-vscode-snippets
 code --install-extension trinm1709.dracula-theme-from-intellij
 code --install-extension VisualStudioExptTeam.vscodeintellicode
-
+code --install-extension Vue.volar
+code --install-extension Vue.vscode-typescript-vue-plugin
+code --install-extension zeshuaro.vscode-python-poetry
+code --install-extension zhuangtongfa.material-theme
 
 . $DOTSPATH/lib/link_file
 link_file "$DOTSPATH/.config/Code/User/settings.json" "$HOME/.config/Code/User/settings.json"
