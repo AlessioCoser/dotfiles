@@ -30,7 +30,7 @@
       "editor.findMatchBorder": "#80CBC4",
       "selection.background": "#80CBC440"
     },
-    "editor.fontSize": 22,
+    "editor.fontSize": 17,
     "editor.scrollBeyondLastLine": false,
     "editor.minimap.enabled": false,
     "explorer.openEditors.visible": 0,
@@ -39,17 +39,18 @@
     "files.trimTrailingWhitespace": true,
     "files.autoSave": "onFocusChange",
     "files.exclude": {
-      "**/.git": true,
-      "**/.svn": true,
-      "**/.hg": true,
-      "**/CVS": true,
-      "**/.DS_Store": true,
-      "**/.vagrant": true,
-      "**/.serverless": true,
+      "**/__pycache__": true,
       "**/.classpath": true,
+      "**/.DS_Store": true,
+      "**/.factorypath": true,
+      "**/.git": true,
+      "**/.hg": true,
       "**/.project": true,
+      "**/.serverless": true,
       "**/.settings": true,
-      "**/.factorypath": true
+      "**/.svn": true,
+      "**/.vagrant": true,
+      "**/CVS": true
     },
     "files.watcherExclude": {
         "**/.git/objects/**": true,
@@ -96,5 +97,27 @@
     "editor.rulers": [
       120
     ],
-    "workbench.editor.untitled.hint": "hidden"
+    "workbench.editor.untitled.hint": "hidden",
+    "debug.console.fontSize": 16,
+    "terminal.integrated.fontSize": 16,
+    "[dart]": {
+      "editor.formatOnSave": true,
+      "editor.formatOnType": true,
+      "editor.rulers": [
+        80
+      ],
+      "editor.selectionHighlight": false,
+      "editor.suggest.snippetsPreventQuickSuggestions": false,
+      "editor.suggestSelection": "first",
+      "editor.tabCompletion": "onlySnippets",
+      "editor.wordBasedSuggestions": false
+    },
+    "[typescriptreact]": {
+      "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "window.restoreWindows": "none",
+    "window.zoomLevel": 1,
+    "[javascript]": {
+      "editor.defaultFormatter": "esbenp.prettier-vscode"
+    }
   }
