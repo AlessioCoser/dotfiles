@@ -60,12 +60,9 @@ gsettings set org.gnome.shell.extensions.dash-to-dock intellihide true
 gsettings set org.gnome.desktop.interface gtk-theme 'Yaru-light'
 
 # download and set wallpapers
-# sudo curl -o /usr/share/backgrounds/fox-grey.jpg https://assets.hongkiat.com/uploads/minimalist-dekstop-wallpapers/non-4k/preview/06.jpg
+# sudo curl -o /usr/share/backgrounds/starwars-orange.jpg https://i1.wp.com/wallpapercave.com/wp/wp11881623.jpg
 # sudo curl -o /usr/share/backgrounds/starwars-yellow.jpg https://images.wallpapersden.com/image/download/r2-d2-star-wars-minimalist_a2xuaWWUmZqaraWkpJRqZWVlrWdqZWU.jpg
-# sudo curl -o /usr/share/backgrounds/starwars-orange.jpg https://wallpaperboat.com/wp-content/uploads/2019/05/star-wars-minimalist-065.jpg
 # sudo curl -o /usr/share/backgrounds/starwars-green.jpg https://images.wallpapersden.com/image/download/star-wars-skywalker-saga-minimal_a2xsbmqUmZqaraWkpJRnamtlrWZpaWU.jpg
-# sudo curl -o /usr/share/backgrounds/city-green.jpg https://wallpaperboat.com/wp-content/uploads/2019/06/minimalist-desktop-17.jpg
-# sudo curl -o /usr/share/backgrounds/desert-orange.jpg https://wallpaperbat.com/img/349312-minimalist-desert-wallpaper-for-desktop-1440p.jpg
 sudo curl -o /usr/share/backgrounds/starwars-blue.jpg https://i1.wp.com/wallpapercave.com/wp/wp6722869.jpg
 
 gsettings set org.gnome.desktop.screensaver picture-uri 'file:///usr/share/backgrounds/starwars-blue.jpg'
