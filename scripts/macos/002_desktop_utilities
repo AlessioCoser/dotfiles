@@ -1,4 +1,8 @@
 #!/bin/bash
 
+. $DOTSPATH/lib/link_file
+
+mkdir -p "/Users/$(whoami)/Library/Application\ Support/Rectangle"
+link_file "$DOTSPATH/.config/Rectangle/config.json" "/Users/$(whoami)/Library/Application Support/Rectangle/RectangleConfig.json"
 brew install --cask rectangle
 brew install --cask jumpcut
