@@ -21,7 +21,7 @@ export PATH="$PYENV_ROOT/bin:$PATH"
 export PATH="$HOME/.poetry/bin:$PATH"
 
 eval "$(pyenv init --path)"
-source ~/.poetry/env
+source ~/.poetry/venv
 
 # NODE ---------------------------------------
 

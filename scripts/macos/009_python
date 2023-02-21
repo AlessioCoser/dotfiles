@@ -11,5 +11,5 @@ if ! type "pyenv" > /dev/null; then
   pyenv install 3.10.6
   pyenv global 3.10.6
 
-  curl -sSL https://raw.githubusercontent.com/python-poetry/poetry/master/get-poetry.py | python
+  curl -sSL https://install.python-poetry.org | POETRY_HOME="$HOME/.poetry" python -
 fi
