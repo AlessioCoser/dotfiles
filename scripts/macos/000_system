@@ -97,7 +97,7 @@ defaults write com.apple.dock tilesize -int 42
 # Automatically hide and show the Dock
 defaults write com.apple.dock autohide -bool true
 # Remove the auto-hiding Dock delay
-defaults write com.apple.dock autohide-time-modifier -float 0.5
+defaults write com.apple.dock autohide-time-modifier -float 0
 # Make Dock icons of hidden applications translucent
 defaults write com.apple.dock showhidden -bool true
 # Hide recent apps in the Dock
@@ -107,7 +107,7 @@ defaults write com.apple.dock show-recents -bool false
 defaults write com.apple.dock show-process-indicators -bool true
 
 # Speed up Mission Control animations
-defaults write com.apple.dock expose-animation-duration -float 0.1
+defaults write com.apple.dock expose-animation-duration -float 0
 
 # Disable Dashboard
 defaults write com.apple.dashboard mcx-disabled -bool true
