@@ -11,7 +11,7 @@
     "command": "workbench.action.terminal.toggleTerminal"
   },
   {
-    "key": "cmd+d",
+    "key": "shift+cmd+d",
     "command": "editor.action.copyLinesDownAction",
     "when": "editorTextFocus && !editorHasSelection && !editorReadonly"
   },
@@ -39,5 +39,30 @@
     "key": "cmd+d",
     "command": "-editor.action.duplicateSelection",
     "when": "editorHasSelection && editorTextFocus && !editorReadonly"
+  },
+  {
+    "key": "shift+cmd+d",
+    "command": "-workbench.view.debug",
+    "when": "viewContainer.workbench.view.debug.enabled"
+  },
+  {
+    "key": "ctrl+cmd+down",
+    "command": "editor.action.moveLinesDownAction",
+    "when": "editorTextFocus && !editorReadonly"
+  },
+  {
+    "key": "alt+down",
+    "command": "-editor.action.moveLinesDownAction",
+    "when": "editorTextFocus && !editorReadonly"
+  },
+  {
+    "key": "ctrl+cmd+up",
+    "command": "editor.action.moveLinesUpAction",
+    "when": "editorTextFocus && !editorReadonly"
+  },
+  {
+    "key": "alt+up",
+    "command": "-editor.action.moveLinesUpAction",
+    "when": "editorTextFocus && !editorReadonly"
   }
 ]
