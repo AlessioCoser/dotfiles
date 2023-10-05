@@ -1,5 +1,17 @@
 #!/usr/bin/env bash
 
+function jekyll () {
+	mkdir -p "$PWD/vendor/bundle"
+	docker run \
+		--volume="$PWD:/srv/jekyll" \
+		--volume="$PWD/vendor/bundle:/usr/local/bundle" \
+	       	--env "JEKYLL_GID=$GID" \
+		--env "JEKYLL_UID=$UID" \
+		-p "4000:4000" \
+		-it "jekyll/jekyll:4" \
+		jekyll $@
+}
+
 function subdir () {
   reset="\033[0m"
   red="\033[01;31m"

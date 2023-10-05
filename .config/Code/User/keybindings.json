@@ -31,7 +31,7 @@
     "when": "activeEditor && !editorTextFocus"
   },
   {
-    "key": "alt+cmd+d",
+    "key": "shift+cmd+d",
     "command": "editor.action.duplicateSelection",
     "when": "editorHasSelection && editorTextFocus && !editorReadonly"
   },

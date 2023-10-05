@@ -1,7 +1,6 @@
 #!/usr/bin/env bash
 
 if ! type "vim" > /dev/null; then
-  . $DOTSPATH/lib/apt_install
   brew install vim
 fi
 
