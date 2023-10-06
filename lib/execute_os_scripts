@@ -4,16 +4,21 @@
 . $DOTSPATH/lib/print_title
 
 execute_os_scripts() {
+  local method="default"
+  if [ "$1" == "custom" ]; then
+    method="custom"
+  fi
+
   if [[ $OSTYPE == 'darwin'* ]]; then
 
-    execute_files $(echo $DOTSPATH/scripts/macos/*)
+    execute_files $method $(echo $DOTSPATH/scripts/macos/*)
     print_title "INSTALLATION COMPLETE - CLOSE THIS TERMINAL"
 
   elif [[ $OSTYPE == 'linux'* ]]; then
 
     . $DOTSPATH/lib/check_wayland
     check_wayland
-    execute_files $(echo $DOTSPATH/scripts/linux/*)
+    execute_files $method $(echo $DOTSPATH/scripts/linux/*)
     print_title "INSTALLATION COMPLETE - CLOSE THIS TERMINAL"
 
   else

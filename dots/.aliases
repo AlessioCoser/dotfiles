@@ -37,3 +37,4 @@ alias http-server="python -m http.server"
 alias md5sum="md5 -r"
 alias jekyll-serve='PAGES_REPO_NWO=test HTTP_PROXY=http://rubygems.org docker run --rm -it -p 4000:4000 -v $(pwd):/srv/jekyll jekyll/jekyll:pages jekyll serve --watch --incremental'
 alias jtest="./gradlew clean test"
+alias listen="lsof -w -n -i $1"

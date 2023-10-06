@@ -1,7 +1,7 @@
 #!/bin/bash
 . $DOTSPATH/lib/print_title
-. $DOTSPATH/lib/indices_of_array
-. $DOTSPATH/lib/ui_widget_select
+. $DOTSPATH/lib/multiselect
+. $DOTSPATH/lib/join
 
 execute_all_files() {
   set -e
@@ -15,19 +15,22 @@ execute_all_files() {
 }
 
 execute_files() {
-  local files=("$@")
+  local method=$1
+  local files=("${@:2}")
   local all_files=${files[@]}
 
-  execute_all_files ${all_files}
+  if [ "$method" != "custom" ]; then
+    execute_all_files ${all_files}
+  else
+    multiselect select_response "$(join \; $all_files)"
 
-  # local selected_indices=$(indices_of_array $all_files)
-  # ui_widget_select -l -m -s $selected_indices -i $all_files
-  # local select_response=${UI_WIDGET_RC[@]}
-  # local selected=()
-  # for index in $select_response
-  # do
-  #   selected+=("${files[$index]}")
-  # done
+    local selected=()
+    for i in "${!select_response[@]}"; do
+      if [ "${select_response[$i]}" == "true" ]; then
+        selected+=("${files[$i]}")
+      fi
+    done
 
-  # execute_all_files ${selected[@]}
+    execute_all_files ${selected[@]}
+  fi
 }

@@ -12,4 +12,4 @@ function update_or_download() {
 update_or_download
 
 . $DOTSPATH/lib/execute_os_scripts
-execute_os_scripts
+execute_os_scripts $1
