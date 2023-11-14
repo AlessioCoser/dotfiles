@@ -3,6 +3,7 @@
 function jekyll () {
 	mkdir -p "$PWD/vendor/bundle"
 	docker run \
+		--platform linux/amd64 \
 		--volume="$PWD:/srv/jekyll" \
 		--volume="$PWD/vendor/bundle:/usr/local/bundle" \
 	       	--env "JEKYLL_GID=$GID" \
