@@ -21,5 +21,6 @@
   conflictStyle = diff3
 [commit]
   verbose = true
+	gpgsign = true
 [pull]
   rebase = true
