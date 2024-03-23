@@ -27,6 +27,8 @@ code --install-extension dkundel.vscode-new-file
 code --install-extension fabiospampinato.vscode-diff
 code --install-extension k--kato.intellij-idea-keybindings
 code --install-extension KevinRose.vsc-python-indent
+code --install-extension redhat.vscode-xml
+code --install-extension vitest.explorer
 
 
 . $DOTSPATH/lib/link_file

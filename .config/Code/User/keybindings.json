@@ -64,5 +64,49 @@
     "key": "alt+up",
     "command": "-editor.action.moveLinesUpAction",
     "when": "editorTextFocus && !editorReadonly"
+  },
+  {
+    "key": "ctrl+r",
+    "command": "testing.reRunLastRun"
+  },
+  {
+    "key": "cmd+; l",
+    "command": "-testing.reRunLastRun"
+  },
+  {
+    "key": "ctrl+c",
+    "command": "testing.coverageLastRun"
+  },
+  {
+    "key": "cmd+; shift+cmd+l",
+    "command": "-testing.coverageLastRun"
+  },
+  {
+    "key": "ctrl+alt+c",
+    "command": "testing.coverageAll"
+  },
+  {
+    "key": "cmd+; shift+cmd+a",
+    "command": "-testing.coverageAll"
+  },
+  {
+    "key": "ctrl+shift+c",
+    "command": "testing.coverageAtCursor",
+    "when": "editorTextFocus"
+  },
+  {
+    "key": "cmd+; shift+cmd+c",
+    "command": "-testing.coverageAtCursor",
+    "when": "editorTextFocus"
+  },
+  {
+    "key": "ctrl+shift+r",
+    "command": "testing.runAtCursor",
+    "when": "editorTextFocus"
+  },
+  {
+    "key": "cmd+; c",
+    "command": "-testing.runAtCursor",
+    "when": "editorTextFocus"
   }
 ]
