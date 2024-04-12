@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+
+if ! type "sdk" > /dev/null; then
+  curl -s "https://get.sdkman.io" | bash
+fi

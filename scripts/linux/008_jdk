@@ -1,7 +1,0 @@
-#!/usr/bin/env bash
-
-
-if ! type "java" > /dev/null; then
-  . $DOTSPATH/lib/apt_install
-  apt_install openjdk-8-jdk
-fi

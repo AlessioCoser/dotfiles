@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+
+source "$HOME/.sdkman/bin/sdkman-init.sh"
+
+sdk install java 22-amzn
+sdk default java 22-amzn

@@ -5,7 +5,7 @@ if ! type "zsh" > /dev/null; then
   apt_install zsh autojump
 
   sudo chsh -s $(which zsh) $(whoami)
-  curl -L git.io/antigen > ~/.config/antigen.zsh
+  curl -sS https://starship.rs/install.sh | sh
 fi
 
 . $DOTSPATH/lib/link_file

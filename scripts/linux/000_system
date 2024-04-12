@@ -6,18 +6,19 @@
 # set keyboard blazingly fast
 sudo kbdrate -r 1 -d 150
 
-# add firacode font repository
-sudo add-apt-repository "deb http://archive.ubuntu.com/ubuntu $(lsb_release -sc) universe"
-
 sudo apt update
 
-apt_install net-tools fonts-firacode wget htop tig
+apt_install net-tools wget htop tig
 
 # install Monaco Font
 mkdir -p ~/.fonts
 curl -o ~/.fonts/Monaco-Linux.ttf "http://www.gringod.com/wp-upload/software/Fonts/Monaco_Linux.ttf"
 sudo fc-cache -fv
 
+wget https://github.com/ryanoasis/nerd-fonts/releases/download/v3.2.1/FiraCode.zip
+mkdir firacode && unzip -d firacode FiraCode.zip
+mv firacode/FiraCode* ~/.fonts/
+rm FiraCode.zip && rm -r firacode
 
 # install gnome-shell extension installer
 wget -O gnome-shell-extension-installer "https://github.com/brunelli/gnome-shell-extension-installer/raw/master/gnome-shell-extension-installer"
