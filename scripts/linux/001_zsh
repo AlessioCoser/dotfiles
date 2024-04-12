@@ -5,7 +5,7 @@ if ! type "zsh" > /dev/null; then
   apt_install zsh autojump
 
   sudo chsh -s $(which zsh) $(whoami)
-  curl -sS https://starship.rs/install.sh | sh
+  sudo curl -sS https://starship.rs/install.sh | sh -s -- -y
 fi
 
 . $DOTSPATH/lib/link_file

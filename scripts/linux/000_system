@@ -1,6 +1,5 @@
 #!/usr/bin/env bash
 
-. $DOTSPATH/lib/refresh_shell
 . $DOTSPATH/lib/apt_install
 
 # set keyboard blazingly fast
@@ -28,7 +27,6 @@ sudo mv gnome-shell-extension-installer /usr/bin/
 # install shell extensions
 gnome-shell-extension-installer --yes 779 # "clipboard-indicator@tudmotu.com"
 gnome-shell-extension-installer --yes 906 # "sound-output-device-chooser@kgshank.net"
-refresh_shell
 
 gnome-extensions enable sound-output-device-chooser@kgshank.net
 gnome-extensions enable clipboard-indicator@tudmotu.com

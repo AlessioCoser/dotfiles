@@ -16,8 +16,6 @@ execute_os_scripts() {
 
   elif [[ $OSTYPE == 'linux'* ]]; then
 
-    . $DOTSPATH/lib/check_wayland
-    check_wayland
     execute_files $method $(echo $DOTSPATH/scripts/linux/*)
     print_title "INSTALLATION COMPLETE - CLOSE THIS TERMINAL"
 
