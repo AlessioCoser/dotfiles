@@ -73,7 +73,6 @@
     "explorer.confirmDelete": false,
     "telemetry.enableCrashReporter": false,
     "telemetry.enableTelemetry": false,
-    "workbench.activityBar.visible": true,
     "workbench.view.alwaysShowHeaderActions": true,
     "materialTheme.accent": "Teal",
     "editor.suggestSelection": "first",
@@ -97,7 +96,6 @@
     "editor.rulers": [
       120
     ],
-    "workbench.editor.untitled.hint": "hidden",
     "debug.console.fontSize": 16,
     "terminal.integrated.fontSize": 16,
     "[dart]": {
@@ -110,7 +108,7 @@
       "editor.suggest.snippetsPreventQuickSuggestions": false,
       "editor.suggestSelection": "first",
       "editor.tabCompletion": "onlySnippets",
-      "editor.wordBasedSuggestions": false
+      "editor.wordBasedSuggestions": "off"
     },
     "[typescriptreact]": {
       "editor.defaultFormatter": "esbenp.prettier-vscode"
@@ -119,5 +117,6 @@
     "window.zoomLevel": 1,
     "[javascript]": {
       "editor.defaultFormatter": "esbenp.prettier-vscode"
-    }
+    },
+    "workbench.editor.empty.hint": "hidden"
   }

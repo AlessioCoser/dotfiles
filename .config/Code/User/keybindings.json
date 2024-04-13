@@ -74,7 +74,7 @@
     "command": "-testing.reRunLastRun"
   },
   {
-    "key": "ctrl+c",
+    "key": "ctrl+shift+c",
     "command": "testing.coverageLastRun"
   },
   {

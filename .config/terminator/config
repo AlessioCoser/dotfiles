@@ -4,7 +4,7 @@
   title_transmit_bg_color = "#dedede"
   title_inactive_bg_color = "#bcbcbc"
   title_use_system_font = False
-  title_font = Monaco 12
+  title_font = FiraCode Nerd Font weight=453 12
   invert_search = True
 [keybindings]
 [profiles]

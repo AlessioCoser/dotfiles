@@ -1,0 +1,46 @@
+#!/usr/bin/env bash
+
+# set a fancy prompt (non-color, unless we know we "want" color)
+case "$TERM" in
+    xterm-color|*-256color) color_prompt=yes;;
+esac
+
+if [ -x /usr/bin/tput ] && tput setaf 1 >&/dev/null; then
+  # We have color support; assume it's compliant with Ecma-48
+  # (ISO/IEC-6429). (Lack of such support is extremely rare, and such
+  # a case would tend to support setf rather than setaf.)
+  color_prompt=yes
+else
+  color_prompt=
+fi
+
+sps() {
+    current_path=${PWD/#$HOME/'~'}
+    if [ "$current_path" = "~" ]; then
+       echo $current_path
+    else
+       path_parent=${current_path%\/*}
+       path_parent_short=`echo $path_parent | sed -r 's|/([^/]{,2})[^/]*|/\1|g'`
+       directory=${current_path##*\/}
+       echo "$path_parent_short/"
+    fi
+}
+
+curdir() {
+  current_path=${PWD/#$HOME/'~'}
+    if [ "$current_path" != "~" ]; then
+      echo "${current_path##*\/}"
+    fi
+}
+
+if [ "$color_prompt" = yes ]; then
+    CYAN=`tput setaf 45`;
+    GREEN=`tput setaf 40`;
+    BLUE=`tput setaf 39`;
+    RESET=`tput sgr0`;
+    BOLD=`tput bold`;
+    PS1='\[${BLUE}\]$(eval "sps")\[${CYAN}\]\[${BOLD}\]$(eval "curdir")\[${RESET}\]$(__git_ps1 " \[${GREEN}\]\[${BOLD}\][%s]\[${RESET}\]") '
+else
+    PS1='$(eval "sps") $(__git_ps1 "(%s)")'
+fi
+unset color_prompt

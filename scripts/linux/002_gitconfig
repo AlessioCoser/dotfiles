@@ -1,5 +1,8 @@
 #!/usr/bin/env bash
 
-# TODO: ask for name and pull strategy
 . $DOTSPATH/lib/link_file
 link_dotfile .gitconfig
+
+wget https://github.com/dandavison/delta/releases/download/0.17.0/git-delta_0.17.0_amd64.deb
+sudo dpkg -i git-delta_0.17.0_amd64.deb
+rm git-delta_0.17.0_amd64.deb
