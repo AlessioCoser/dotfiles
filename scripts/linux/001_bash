@@ -10,6 +10,7 @@ then
     echo "colorprompt already loaded. Skip."
 else
     echo -e "\\nsource ~/.colorprompt\\n" >> .bashrc
+    source ~/.bashrc
 fi
 
 if [ -f "~/.local/bin/zoxide" ]; then
@@ -17,4 +18,5 @@ if [ -f "~/.local/bin/zoxide" ]; then
 else
   curl -sS https://raw.githubusercontent.com/ajeetdsouza/zoxide/main/install.sh | bash
   echo -e "\\neval \"\$(zoxide init bash)\"\\n" >> .bashrc
+  source ~/.bashrc
 fi
