@@ -33,14 +33,20 @@ curdir() {
     fi
 }
 
+source ~/dotfiles/dots/.git_prompt.sh
+
+GIT_PS1_SHOWDIRTYSTATE=1 # yellow
+GIT_PS1_SHOWSTASHSTATE=1 # green
+GIT_PS1_SHOWUNTRACKEDFILES=1 # red
 if [ "$color_prompt" = yes ]; then
+    GIT_PS1_SHOWCOLORHINTS=1
     CYAN=`tput setaf 45`;
-    GREEN=`tput setaf 40`;
+    GREEN=`tput setaf 34`;
     BLUE=`tput setaf 39`;
     RESET=`tput sgr0`;
     BOLD=`tput bold`;
-    PS1='\[${BLUE}\]$(eval "sps")\[${CYAN}\]\[${BOLD}\]$(eval "curdir")\[${RESET}\]$(__git_ps1 " \[${GREEN}\]\[${BOLD}\][%s]\[${RESET}\]") '
+    PS1='\[${BLUE}\]$(eval "sps")\[${CYAN}\]\[${BOLD}\]$(eval "curdir")\[${RESET}\]$(__custom_git_ps1 " \[${GREEN}\][%s\[${GREEN}\]]\[${RESET}\]") '
 else
-    PS1='$(eval "sps") $(__git_ps1 "(%s)")'
+    PS1='$(eval "sps") $(__custom_git_ps1 "(%s)")'
 fi
 unset color_prompt
