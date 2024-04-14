@@ -5,3 +5,5 @@ $include /etc/inputrc
 "\e[A":history-search-backward
 ## arrow down
 "\e[B":history-search-forward
+set colored-completion-prefix on
+set colored-stats on
