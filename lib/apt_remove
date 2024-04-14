@@ -2,4 +2,5 @@
 
 apt_remove() {
   sudo DEBIAN_FRONTEND=noninteractive apt remove -y $@
+  sudo DEBIAN_FRONTEND=noninteractive apt autoremove -y
 }
