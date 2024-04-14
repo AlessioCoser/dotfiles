@@ -4,6 +4,7 @@ alias la='ls -A'
 alias l='ls -CF'
 alias g="git"
 alias gc="git commit"
+alias gco="git checkout"
 alias gd="git diff"
 alias gst="git status"
 alias gss="git status -s"
