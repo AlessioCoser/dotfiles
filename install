@@ -5,7 +5,7 @@ function update_or_download() {
   if [ -e $DOTSPATH/.git ]; then
     git -C "$DOTSPATH" pull
   else
-    git clone https://github.com/AlessioCoser/dotfiles-ubuntu.git "$DOTSPATH"
+    git clone https://github.com/AlessioCoser/dotfiles.git "$DOTSPATH"
   fi
 }
 
