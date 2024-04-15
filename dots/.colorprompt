@@ -17,19 +17,19 @@ fi
 curpath() {
   current_path=${PWD/#$HOME/'~'}
   if [ "$current_path" = "~" ]; then
-    echo -e $current_path
+    echo $current_path
   else
     path_parent=${current_path%\/*}
     path_parent_short=`echo $path_parent | sed -r "s|/([^/]{,${path_segment_length}})[^/]*|/\1|g"`
     directory=${current_path##*\/}
-    echo -e "$path_parent_short/"
+    echo "$path_parent_short/"
   fi
 }
 
 curdir() {
   current_path=${PWD/#$HOME/'~'}
   if [ "$current_path" != "~" ]; then
-    echo -e "${current_path##*\/}"
+    echo "${current_path##*\/}"
   fi
 }
 
@@ -38,9 +38,9 @@ colorize() {
     local text=$1
     local color=$2
 
-    echo -e "${color}${1}${c_clear}"
+    echo "${color}${1}${c_clear}"
   else
-    echo -e "$1"
+    echo "$1"
   fi
 }
 
@@ -66,7 +66,7 @@ git_transform_semaphore() {
     prefix=" "
   fi
 
-  echo -e "${prefix}${cached}${dirty}${untracked}"
+  echo "${prefix}${cached}${dirty}${untracked}"
 }
 
 git_transform_ps1() {
@@ -76,7 +76,7 @@ git_transform_ps1() {
 
   local ps1="$(__git_ps1 "%s")"
   if [ -z "$ps1" ]; then
-    echo -e ""
+    echo ""
 		return
 	fi
 
@@ -91,23 +91,26 @@ git_transform_ps1() {
   local status=`git_transform_semaphore "$semaphore"`
   local close_bracket=`colorize "]" $c_git_base`
 
-  echo -e "${open_bracket}${branch_name}${status}${close_bracket} "
+  echo "${open_bracket}${branch_name}${status}${close_bracket} "
 }
 
 custom_ps1() {
   local base_path=`colorize "$(curpath)" $c_path_base`
   local directory=`colorize "$(curdir) " $c_path_curdir`
 
-  echo -e "${base_path}${directory}$(git_transform_ps1)"
+  echo "${base_path}${directory}$(git_transform_ps1)"
 }
 
+
+# # Using \001 and \002 around colors is necessary to prevent
+# # issues with command line editing/browsing/completion!
+c_path_base=$'\001\e[0;34m\002' # blue
+c_path_curdir=$'\001\e[1;36m\002' # cyan bold
+c_git_base=$'\001\e[1;32m\002' # green bold
+c_git_cached=$'\001\e[1;32m\002' # green bold
+c_git_dirty=$'\001\e[1;33m\002' # yellow bold
+c_git_untracked=$'\001\e[1;31m\002' # red bold
+c_clear=$'\001\e[0m\002'
 path_segment_length=1
-c_path_base='\033[0;34m' # blue
-c_path_curdir='\033[1;36m' # cyan bold
-c_git_base='\033[1;32m' # green bold
-c_git_cached='\033[1;32m' # green bold
-c_git_dirty='\033[1;33m' # yellow bold
-c_git_untracked='\033[1;31m' # red bold
-c_clear='\033[0m'
 
 PS1='$(eval "custom_ps1")'
