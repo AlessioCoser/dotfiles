@@ -46,23 +46,27 @@ colorize() {
 
 git_transform_semaphore() {
   local text="$1"
+  local prefix=""
 
   local cached=""
   if [[ $text == *"+"* ]]; then
     cached=`colorize "•" $c_git_cached`
+    prefix=" "
   fi
 
   local dirty=""
   if [[ $text == *"*"* ]]; then
-    dirty=`colorize "•" $c_git_dirty`
+    dirty=`colorize "‣" $c_git_dirty`
+    prefix=" "
   fi
 
   local untracked=""
   if [[ $text == *"%"* ]]; then
-    untracked=`colorize "•" $c_git_untracked`
+    untracked=`colorize "￭" $c_git_untracked`
+    prefix=" "
   fi
 
-  echo -e "${cached}${dirty}${untracked}"
+  echo -e "${prefix}${cached}${dirty}${untracked}"
 }
 
 git_transform_ps1() {
