@@ -5,6 +5,7 @@ $include /etc/inputrc
 "\e[A":history-search-backward
 ## arrow down
 "\e[B":history-search-forward
+"\e\b": backward-kill-word
 set colored-completion-prefix on
 set colored-stats on
 set completion-ignore-case on
