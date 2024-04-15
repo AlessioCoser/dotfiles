@@ -46,17 +46,17 @@ colorize() {
 }
 
 git_transform_semaphore() {
-  local text=$1
+  local text="$1"
   local cached=`colorize "•" $c_git_cached`
   local dirty=`colorize "•" $c_git_dirty`
   local untracked=`colorize "•" $c_git_untracked`
 
   # put at the start the cached changes char (+)
-  if [[ $text == *"+"* ]]; then
+  if [[ "$text" == *"+"* ]]; then
     text="+${text//\+/""}"
   fi
 
-  echo $text | sed "s/\*/$dirty/g;s/+/$cached/g;s/%/$untracked/g"
+  echo "$text" | sed "s/\*/$dirty/g;s/+/$cached/g;s/%/$untracked/g"
 }
 
 git_transform_ps1() {
@@ -78,7 +78,7 @@ git_transform_ps1() {
 
   local open_bracket=`colorize "[" $c_git_base`
   local branch_name=`colorize $branch $c_git_base`
-  local status=`git_transform_semaphore $semaphore`
+  local status=`git_transform_semaphore "$semaphore"`
   local close_bracket=`colorize "]" $c_git_base`
 
   echo "${open_bracket}${branch_name}${status}${close_bracket} "
