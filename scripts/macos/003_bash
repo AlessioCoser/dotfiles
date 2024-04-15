@@ -1,9 +1,16 @@
-#!/usr/bin/env bash
+#!/bin/bash
 
 . $DOTSPATH/lib/link_file
 link_dotfile .bash_aliases
 link_dotfile .inputrc
 link_dotfile .colorprompt
+
+brew install wget
+brew install curl
+brew install tig
+brew install htop
+brew install hub
+brew install zoxide
 
 if grep -Fxq "source ~/.colorprompt" ~/.bashrc
 then
@@ -15,9 +22,8 @@ fi
 
 if grep -Fxq "eval \"\$(zoxide init bash)\"" ~/.bashrc
 then
-  echo "zoxide already present. Skipping installation"
+  echo "zoxide already configured. Skipping configuration"
 else
-  curl -sS https://raw.githubusercontent.com/ajeetdsouza/zoxide/main/install.sh | bash
   echo -e "\\neval \"\$(zoxide init bash)\"\\n" >> .bashrc
   source ~/.bashrc
 fi
