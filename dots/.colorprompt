@@ -15,22 +15,22 @@ else
 fi
 
 curpath() {
-    current_path=${PWD/#$HOME/'~'}
-    if [ "$current_path" = "~" ]; then
-       echo $current_path
-    else
-       path_parent=${current_path%\/*}
-       path_parent_short=`echo $path_parent | sed -r 's|/([^/]{,2})[^/]*|/\1|g'`
-       directory=${current_path##*\/}
-       echo "$path_parent_short/"
-    fi
+  current_path=${PWD/#$HOME/'~'}
+  if [ "$current_path" = "~" ]; then
+    echo $current_path
+  else
+    path_parent=${current_path%\/*}
+    path_parent_short=`echo $path_parent | sed -r "s|/([^/]{,${path_segment_length}})[^/]*|/\1|g"`
+    directory=${current_path##*\/}
+    echo "$path_parent_short/"
+  fi
 }
 
 curdir() {
   current_path=${PWD/#$HOME/'~'}
-    if [ "$current_path" != "~" ]; then
-      echo "${current_path##*\/}"
-    fi
+  if [ "$current_path" != "~" ]; then
+    echo "${current_path##*\/}"
+  fi
 }
 
 colorize() {
@@ -45,153 +45,58 @@ colorize() {
   fi
 }
 
-git_branch_name() {
-  echo `git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/\1/'`
-}
+git_transform_semaphore() {
+  local text=$1
+  local cached=`colorize "•" $c_git_cached`
+  local dirty=`colorize "•" $c_git_dirty`
+  local untracked=`colorize "•" $c_git_untracked`
 
-git_branch() {
-
-	local repo_info rev_parse_exit_code
-
-	repo_info="$(git rev-parse --git-dir --is-inside-git-dir \
-		--is-bare-repository --is-inside-work-tree --show-ref-format \
-		--short HEAD 2>/dev/null)"
-  rev_parse_exit_code="$?"
-
-  if [ "$rev_parse_exit_code" != "0" ]; then
-    return
-  fi
-	local short_sha="${repo_info##*$'\n'}"
-  repo_info="${repo_info%$'\n'*}"
-	local ref_format="${repo_info##*$'\n'}"
-	repo_info="${repo_info%$'\n'*}"
-	local inside_worktree="${repo_info##*$'\n'}"
-	repo_info="${repo_info%$'\n'*}"
-	local bare_repo="${repo_info##*$'\n'}"
-	repo_info="${repo_info%$'\n'*}"
-	local inside_gitdir="${repo_info##*$'\n'}"
-	local g="${repo_info%$'\n'*}"
-
-	local r=""
-	local b=""
-	local step=""
-	local total=""
-  if [ -d "$g/rebase-merge" ]; then
-		__git_eread "$g/rebase-merge/head-name" b
-		__git_eread "$g/rebase-merge/msgnum" step
-		__git_eread "$g/rebase-merge/end" total
-		r="|REBASE"
-	else
-		if [ -d "$g/rebase-apply" ]; then
-			__git_eread "$g/rebase-apply/next" step
-			__git_eread "$g/rebase-apply/last" total
-			if [ -f "$g/rebase-apply/rebasing" ]; then
-				__git_eread "$g/rebase-apply/head-name" b
-				r="|REBASE"
-			elif [ -f "$g/rebase-apply/applying" ]; then
-				r="|AM"
-			else
-				r="|AM/REBASE"
-			fi
-		elif [ -f "$g/MERGE_HEAD" ]; then
-			r="|MERGING"
-		elif __git_sequencer_status; then
-			:
-		elif [ -f "$g/BISECT_LOG" ]; then
-			r="|BISECTING"
-		fi
-
-		if [ -n "$b" ]; then
-			:
-		elif [ -h "$g/HEAD" ]; then
-			# symlink symbolic ref
-			b="$(git symbolic-ref HEAD 2>/dev/null)"
-		else
-			local head=""
-
-			case "$ref_format" in
-			files)
-				if ! __git_eread "$g/HEAD" head; then
-					return $exit
-				fi
-
-				if [[ $head == "ref: "* ]]; then
-					head="${head#ref: }"
-				else
-					head=""
-				fi
-				;;
-			*)
-				head="$(git symbolic-ref HEAD 2>/dev/null)"
-				;;
-			esac
-
-			if test -z "$head"; then
-				detached=yes
-				b="$(
-				case "${GIT_PS1_DESCRIBE_STYLE-}" in
-				(contains)
-					git describe --contains HEAD ;;
-				(branch)
-					git describe --contains --all HEAD ;;
-				(tag)
-					git describe --tags HEAD ;;
-				(describe)
-					git describe HEAD ;;
-				(* | default)
-					git describe --tags --exact-match HEAD ;;
-				esac 2>/dev/null)" ||
-
-				b="$short_sha..."
-			else
-				b="$head"
-			fi
-		fi
-	fi
-  echo ${b##refs/heads/}
-}
-
-git_status() {
-  local cached=""
-  git diff --no-ext-diff --cached --quiet || cached=`colorize "•" $green`
-  local dirty=""
-  git diff --no-ext-diff --quiet || dirty=`colorize "•" $yellow`
-  local untracked=""
-  if git ls-files --others --exclude-standard --directory --no-empty-directory --error-unmatch -- ':/*' >/dev/null 2>/dev/null; then
-    untracked=`colorize "•" $red`
+  # put at the start the cached changes char (+)
+  if [[ $text == *"+"* ]]; then
+    text="+${text//\+/""}"
   fi
 
-  local status="${cached}${dirty}${untracked}"
-
-  if [ -z "$status" ]; then
-    return
-  fi
-
-  echo " $status"
+  echo $text | sed "s/\*/$dirty/g;s/+/$cached/g;s/%/$untracked/g"
 }
 
-build_custom_ps1() {
-  local blue=39
-  local cyan=45
-  local green=76
-  local red=160
-  local yellow=214
+git_transform_ps1() {
+  GIT_PS1_SHOWDIRTYSTATE=1
+  GIT_PS1_SHOWUNTRACKEDFILES=1
+  GIT_PS1_SHOWCOLORHINTS=0
 
-  local base_path=`colorize "$(curpath)" $blue`
-  local directory=`colorize "$(curdir) " $cyan bold`
-
-  local branch=$(git_branch)
-  if [ -z "$branch" ]; then
-    echo "${base_path}${directory}"
+  local ps1="$(__git_ps1 "%s")"
+  if [ -z "$ps1" ]; then
+    echo ""
 		return
 	fi
 
-  local open_bracket=`colorize "[" $green`
-  local branch_name=`colorize $branch $green`
-  local close_bracket=`colorize "]" $green`
-  local git="${open_bracket}${branch_name}$(git_status)${close_bracket} "
+  IFS=" " read -ra ps1array <<< "$ps1"
 
-  echo "${base_path}${directory}${git}"
+  local branch="${ps1array[0]}"
+  local semaphore_array="${ps1array[@]:1}"
+  local semaphore="${semaphore_array[*]}"
+
+  local open_bracket=`colorize "[" $c_git_base`
+  local branch_name=`colorize $branch $c_git_base`
+  local status=`git_transform_semaphore $semaphore`
+  local close_bracket=`colorize "]" $c_git_base`
+
+  echo "${open_bracket}${branch_name}${status}${close_bracket} "
 }
 
-PS1='$(eval "build_custom_ps1")'
+custom_ps1() {
+  local base_path=`colorize "$(curpath)" $c_path_base`
+  local directory=`colorize "$(curdir) " $c_path_curdir bold`
+
+  echo "${base_path}${directory}$(git_transform_ps1)"
+}
+
+path_segment_length=1
+c_path_base=39 # blue
+c_path_curdir=45 # cyan
+c_git_base=76 # green
+c_git_cached=76 # green
+c_git_dirty=214 # yellow
+c_git_untracked=160 # red
+
+PS1='$(eval "custom_ps1")'
