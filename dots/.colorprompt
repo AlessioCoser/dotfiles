@@ -79,9 +79,13 @@ git_transform_semaphore() {
 }
 
 git_transform_ps1() {
+  # we use the default __git_ps1 function already present along with git
+  # and we customize it with the following variables
+  # https://github.com/git/git/blob/master/contrib/completion/git-prompt.sh
+
   GIT_PS1_SHOWDIRTYSTATE=1
   GIT_PS1_SHOWUNTRACKEDFILES=1
-  GIT_PS1_SHOWCOLORHINTS=1
+  GIT_PS1_SHOWCOLORHINTS=0
 
   local ps1="$(__git_ps1 "%s")"
   if [ -z "$ps1" ]; then
