@@ -17,56 +17,62 @@ fi
 curpath() {
   current_path=${PWD/#$HOME/'~'}
   if [ "$current_path" = "~" ]; then
-    echo $current_path
+    echo -e $current_path
   else
     path_parent=${current_path%\/*}
     path_parent_short=`echo $path_parent | sed -r "s|/([^/]{,${path_segment_length}})[^/]*|/\1|g"`
     directory=${current_path##*\/}
-    echo "$path_parent_short/"
+    echo -e "$path_parent_short/"
   fi
 }
 
 curdir() {
   current_path=${PWD/#$HOME/'~'}
   if [ "$current_path" != "~" ]; then
-    echo "${current_path##*\/}"
+    echo -e "${current_path##*\/}"
   fi
 }
 
 colorize() {
   if [ "$color_prompt_available" = yes ]; then
     local text=$1
-    local reset=`tput sgr0`
-    local color=`tput setaf $2`
-    local style=`tput ${3:-"sgr0"}`
-    echo "${style}${color}${1}${reset}"
+    local color=$2
+
+    echo -e "${color}${1}${c_clear}"
   else
-    echo "$1"
+    echo -e "$1"
   fi
 }
 
 git_transform_semaphore() {
   local text="$1"
-  local cached=`colorize "•" $c_git_cached`
-  local dirty=`colorize "•" $c_git_dirty`
-  local untracked=`colorize "•" $c_git_untracked`
 
-  # put at the start the cached changes char (+)
-  if [[ "$text" == *"+"* ]]; then
-    text="+${text//\+/""}"
+  local cached=""
+  if [[ $text == *"+"* ]]; then
+    cached=`colorize "•" $c_git_cached`
   fi
 
-  echo "$text" | sed "s/\*/$dirty/g;s/+/$cached/g;s/%/$untracked/g"
+  local dirty=""
+  if [[ $text == *"*"* ]]; then
+    dirty=`colorize "•" $c_git_dirty`
+  fi
+
+  local untracked=""
+  if [[ $text == *"%"* ]]; then
+    untracked=`colorize "•" $c_git_untracked`
+  fi
+
+  echo -e "${cached}${dirty}${untracked}"
 }
 
 git_transform_ps1() {
   GIT_PS1_SHOWDIRTYSTATE=1
   GIT_PS1_SHOWUNTRACKEDFILES=1
-  GIT_PS1_SHOWCOLORHINTS=0
+  GIT_PS1_SHOWCOLORHINTS=1
 
   local ps1="$(__git_ps1 "%s")"
   if [ -z "$ps1" ]; then
-    echo ""
+    echo -e ""
 		return
 	fi
 
@@ -81,22 +87,23 @@ git_transform_ps1() {
   local status=`git_transform_semaphore "$semaphore"`
   local close_bracket=`colorize "]" $c_git_base`
 
-  echo "${open_bracket}${branch_name}${status}${close_bracket} "
+  echo -e "${open_bracket}${branch_name}${status}${close_bracket} "
 }
 
 custom_ps1() {
   local base_path=`colorize "$(curpath)" $c_path_base`
-  local directory=`colorize "$(curdir) " $c_path_curdir bold`
+  local directory=`colorize "$(curdir) " $c_path_curdir`
 
-  echo "${base_path}${directory}$(git_transform_ps1)"
+  echo -e "${base_path}${directory}$(git_transform_ps1)"
 }
 
 path_segment_length=1
-c_path_base=39 # blue
-c_path_curdir=45 # cyan
-c_git_base=76 # green
-c_git_cached=76 # green
-c_git_dirty=214 # yellow
-c_git_untracked=160 # red
+c_path_base='\033[0;34m' # blue
+c_path_curdir='\033[1;36m' # cyan bold
+c_git_base='\033[1;32m' # green bold
+c_git_cached='\033[1;32m' # green bold
+c_git_dirty='\033[1;33m' # yellow bold
+c_git_untracked='\033[1;31m' # red bold
+c_clear='\033[0m'
 
 PS1='$(eval "custom_ps1")'
