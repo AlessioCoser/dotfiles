@@ -71,7 +71,7 @@ git_transform_semaphore() {
 
   local untracked=""
   if [[ $text == *"%"* ]]; then
-    untracked=`colorize "￭" $c_git_untracked`
+    untracked=`colorize "🞍" $c_git_untracked`
     prefix=" "
   fi
 
