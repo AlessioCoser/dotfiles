@@ -8,7 +8,7 @@
   followTags = true
 [core]
   editor = vim
-	autocrlf = false
+  autocrlf = false
   pager = delta
 [interactive]
   diffFilter = delta --color-only
@@ -21,6 +21,9 @@
   conflictStyle = diff3
 [commit]
   verbose = true
-	gpgsign = true
+  gpgsign = true
 [pull]
   rebase = true
+[init]
+  defaultBranch = main
+
