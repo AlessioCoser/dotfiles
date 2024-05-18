@@ -1,7 +1,7 @@
 # Dotfiles Ubuntu & MacOs
 This is a collection of dotfiles and scripts I use for customizing Ubuntu and MacOS to my liking and setting up the software development tools.
 
-## Prerequisites Linux:
+## Prerequisites Ubuntu:
 - GNOME Shell
 - wget or curl
 - git

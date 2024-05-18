@@ -18,6 +18,6 @@ then
   echo "zoxide already present. Skipping installation"
 else
   curl -sS https://raw.githubusercontent.com/ajeetdsouza/zoxide/main/install.sh | bash
-  echo -e "\\neval \"\$(zoxide init bash)\"\\n" >> .bashrc
+  echo -e "\\neval \"\$(zoxide init bash)\"\\n" >> ~/.bashrc
   source ~/.bashrc
 fi

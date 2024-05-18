@@ -16,7 +16,7 @@ execute_os_scripts() {
 
   elif [[ $OSTYPE == 'linux'* ]]; then
 
-    execute_files $method $(echo $DOTSPATH/scripts/linux/*)
+    execute_files $method $(echo $DOTSPATH/scripts/ubuntu/*)
     print_title "INSTALLATION COMPLETE - CLOSE THIS TERMINAL"
 
   else

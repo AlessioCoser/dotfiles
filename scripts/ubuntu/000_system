@@ -6,7 +6,7 @@
 sudo kbdrate -r 1 -d 150 # only works on X11
 
 mkdir -p ~/.local/bin
-echo -e "\\nexport PATH=\"~/.local/bin:\$PATH\"\\n" >> .bashrc
+echo -e "\\nexport PATH=\"~/.local/bin:\$PATH\"\\n" >> ~/.bashrc
 source ~/.bashrc
 
 sudo apt update
