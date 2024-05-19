@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+alias vi="vim"
 alias j="z"
 alias ll="ls -laF"
 alias la='ls -A'

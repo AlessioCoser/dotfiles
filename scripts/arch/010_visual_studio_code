@@ -1,0 +1,34 @@
+#!/usr/bin/env bash
+
+if ! type "code" > /dev/null; then
+  yay -S visual-studio-code-bin --noconfirm
+
+  sleep 5
+
+  # show extensions installed: `code --list-extensions`
+  code --install-extension zhuangtongfa.material-theme
+  code --install-extension VisualStudioExptTeam.intellicode-api-usage-examples
+  code --install-extension VisualStudioExptTeam.vscodeintellicode
+  code --install-extension leizongmin.node-module-intellisense
+  code --install-extension christian-kohler.npm-intellisense
+  code --install-extension christian-kohler.path-intellisense
+  code --install-extension esbenp.prettier-vscode
+  code --install-extension mohd-akram.vscode-html-format
+  code --install-extension mohsen1.prettify-json
+  code --install-extension gogocrow.jsx-beautify
+  code --install-extension ms-python.python
+  code --install-extension nickmillerdev.pytest-fixtures
+  code --install-extension ms-python.isort
+  code --install-extension ms-python.vscode-pylance
+  code --install-extension zeshuaro.vscode-python-poetry
+  code --install-extension dkundel.vscode-new-file
+  code --install-extension fabiospampinato.vscode-diff
+  code --install-extension k--kato.intellij-idea-keybindings
+  code --install-extension KevinRose.vsc-python-indent
+  code --install-extension redhat.vscode-xml
+  code --install-extension vitest.explorer
+
+  . $DOTSPATH/lib/link_file
+  link_file "$DOTSPATH/.config/Code/User/settings.json" "$HOME/.config/Code/User/settings.json"
+  link_file "$DOTSPATH/.config/Code/User/keybindings.json" "$HOME/.config/Code/User/keybindings.json"
+fi

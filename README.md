@@ -13,11 +13,13 @@ This is a collection of dotfiles and scripts I use for customizing Ubuntu and Ma
 
 ## Versions
 Tested on fresh installed versions:
+- MacOS 12.4 Monterey
+- MacOS 13.2 Ventura
 - Ubuntu 20.04
 - Ubuntu 21.10
 - Ubuntu 22.04
-- MacOS 12.4 Monterey
-- MacOS 13.2 Ventura
+- Manjaro
+- Arch
 
 ## Installation using wget
 ```

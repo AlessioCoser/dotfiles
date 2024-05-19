@@ -1,0 +1,31 @@
+#!/usr/bin/env bash
+
+. $DOTSPATH/lib/link_file
+link_dotfile .bash_aliases
+link_dotfile .inputrc
+link_dotfile .colorprompt
+
+if grep -Fxq "source ~/.bash_aliases" ~/.bashrc
+then
+    echo ".bash_aliases already loaded. Skip."
+else
+    echo "source ~/.bash_aliases" >> ~/.bashrc
+    source ~/.bashrc
+fi
+
+if grep -Fxq "source ~/.colorprompt" ~/.bashrc
+then
+    echo ".colorprompt already loaded. Skip."
+else
+    echo "source ~/.colorprompt" >> ~/.bashrc
+    source ~/.bashrc
+fi
+
+if grep -Fxq "eval \"\$(zoxide init bash)\"" ~/.bashrc
+then
+  echo "zoxide already present. Skipping installation"
+else
+  yay -S zoxide --noconfirm
+  echo "eval \"\$(zoxide init bash)\"" >> ~/.bashrc
+  source ~/.bashrc
+fi

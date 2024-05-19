@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+
+if ! type "nvm" > /dev/null; then
+  yay -S nvm --noconfirm
+  echo 'source /usr/share/nvm/init-nvm.sh' >> ~/.bashrc
+  source /usr/share/nvm/init-nvm.sh
+  nvm install 20.12.2
+  nvm alias default 20.12.2
+fi

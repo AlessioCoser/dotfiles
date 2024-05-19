@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+source /usr/share/git/git-prompt.sh
+
 # set a fancy prompt (non-color, unless we know we "want" color)
 case "$TERM" in
     xterm-color|*-256color) color_prompt_available=yes;;

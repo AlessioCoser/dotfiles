@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+
+if ! type "docker" > /dev/null; then
+  yay -S docker --noconfirm
+  sudo systemctl enable docker
+  sudo systemctl start docker
+  sudo usermod -aG docker ${USER}
+fi

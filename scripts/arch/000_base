@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+set -e
+
+chsh -s /bin/bash
+
+sudo pacman -Syu base-devel --noconfirm
+
+# install yay
+if `sudo pacman -Q yay 2> /dev/null`; then
+    sudo pacman -S yay
+else
+  git clone https://aur.archlinux.org/yay.git && cd yay && makepkg -si --noconfirm && cd .. && rm -rf yay
+  yay -Syu --noconfirm
+fi
+
+yay -S zip wget curl htop noto-fonts-emoji nerd-fonts python python-pip python-pipx --noconfirm

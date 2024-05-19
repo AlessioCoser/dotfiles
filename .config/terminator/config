@@ -1,10 +1,5 @@
 [global_config]
   window_state = maximise
-  title_transmit_fg_color = "#2e3436"
-  title_transmit_bg_color = "#dedede"
-  title_inactive_bg_color = "#bcbcbc"
-  title_use_system_font = False
-  title_font = FiraCode Nerd Font weight=453 12
   invert_search = True
 [keybindings]
   reset_clear = <Primary><Shift>g
@@ -13,9 +8,7 @@
     background_color = "#243238"
     background_darkness = 0.95
     background_type = transparent
-    cursor_color = "#c0c4ce"
-    cursor_color_fg = False
-    font = Monaco 14
+    font = MesloLGS Nerd Font 14
     foreground_color = "#cdd2de"
     scrollback_infinite = True
     palette = "#000000:#f44235:#4cae4f:#ffea3a:#2196f2:#9b27af:#00bcd4:#eeeeec:#898989:#e57272:#81c783:#fff175:#64b5f6:#ba67c8:#4dd0e1:#fefefe"

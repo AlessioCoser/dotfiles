@@ -1,0 +1,39 @@
+#!/usr/bin/env bash
+set -e
+
+# increase keyboard speed
+gsettings set org.gnome.desktop.peripherals.keyboard repeat-interval 10
+gsettings set org.gnome.desktop.peripherals.keyboard delay 240
+
+# install gnome extensions
+pipx install gnome-extensions-cli --system-site-packages
+pipx ensurepath
+source ~/.bashrc
+export PATH="~/.local/bin:$PATH"
+
+gext install clipboard-indicator@tudmotu.com
+gext enable clipboard-indicator@tudmotu.com
+dconf write "/org/gnome/shell/extensions/clipboard-indicator/cache-size" "2048"
+dconf write "/org/gnome/shell/extensions/clipboard-indicator/confirm-clear" "false"
+dconf write "/org/gnome/shell/extensions/clipboard-indicator/disable-down-arrow" "true"
+dconf write "/org/gnome/shell/extensions/clipboard-indicator/display-mode" "0"
+dconf write "/org/gnome/shell/extensions/clipboard-indicator/enable-keybindings" "true"
+dconf write "/org/gnome/shell/extensions/clipboard-indicator/history-size" "99"
+dconf write "/org/gnome/shell/extensions/clipboard-indicator/move-item-first" "false"
+dconf write "/org/gnome/shell/extensions/clipboard-indicator/notify-on-copy" "false"
+dconf write "/org/gnome/shell/extensions/clipboard-indicator/preview-size" "99"
+dconf write "/org/gnome/shell/extensions/clipboard-indicator/refresh-interval" "500"
+dconf write "/org/gnome/shell/extensions/clipboard-indicator/strip-text" "false"
+dconf write "/org/gnome/shell/extensions/clipboard-indicator/toggle-menu" "['<Control>Insert']"
+dconf write "/org/gnome/shell/extensions/clipboard-indicator/topbar-preview-size" "99"
+dconf write "/org/gnome/shell/extensions/clipboard-indicator/next-entry" "['<Control><Super>Right']"
+dconf write "/org/gnome/shell/extensions/clipboard-indicator/prev-entry" "['<Control><Super>Left']"
+dconf write "/org/gnome/shell/extensions/clipboard-indicator/clear-history" "['<Shift><Control>Delete']"
+
+# download and set wallpapers
+# sudo curl -o /usr/share/backgrounds/starwars-orange.jpg https://i1.wp.com/wallpapercave.com/wp/wp11881623.jpg
+# sudo curl -o /usr/share/backgrounds/starwars-yellow.jpg https://images.wallpapersden.com/image/download/r2-d2-star-wars-minimalist_a2xuaWWUmZqaraWkpJRqZWVlrWdqZWU.jpg
+# sudo curl -o /usr/share/backgrounds/starwars-blue.jpg https://i1.wp.com/wallpapercave.com/wp/wp6722869.jpg
+sudo curl -o /usr/share/backgrounds/starwars-green.jpg https://images.wallpapersden.com/image/download/star-wars-skywalker-saga-minimal_a2xsbmqUmZqaraWkpJRnamtlrWZpaWU.jpg
+gsettings set org.gnome.desktop.background picture-uri 'file:///usr/share/backgrounds/starwars-green.jpg'
+gsettings set org.gnome.desktop.background picture-uri-dark 'file:///usr/share/backgrounds/starwars-green.jpg'
