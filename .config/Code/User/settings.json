@@ -53,11 +53,11 @@
       "**/CVS": true
     },
     "files.watcherExclude": {
-        "**/.git/objects/**": true,
-        "**/.git/subtree-cache/**": true,
-        "**/node_modules/**": true,
-        "**/.vagrant/**": true,
-        "**/.serverless/**": true
+      "**/.git/objects/**": true,
+      "**/.git/subtree-cache/**": true,
+      "**/node_modules/**": true,
+      "**/.vagrant/**": true,
+      "**/.serverless/**": true
     },
     "search.exclude": {
         "**/node_modules": true,
@@ -73,6 +73,7 @@
     "explorer.confirmDelete": false,
     "telemetry.enableCrashReporter": false,
     "telemetry.enableTelemetry": false,
+    "telemetry.telemetryLevel": "off",
     "workbench.view.alwaysShowHeaderActions": true,
     "materialTheme.accent": "Teal",
     "editor.suggestSelection": "first",
@@ -85,11 +86,7 @@
     "markdown.marp.chromePath": "/Applications/Google\\ Chrome.app/Contents/MacOS/Google\\ Chrome",
     "js/ts.implicitProjectConfig.checkJs": true,
     "eslint.alwaysShowStatus": true,
-    "window.menuBarVisibility": "toggle",
-    "telemetry.telemetryLevel": "off",
-    "[typescript]": {
-      "editor.defaultFormatter": "rvest.vs-code-prettier-eslint"
-    },
+    "window.menuBarVisibility": "compact",
     "[python]": {
       "editor.tabSize": 4
     },
@@ -110,13 +107,10 @@
       "editor.tabCompletion": "onlySnippets",
       "editor.wordBasedSuggestions": "off"
     },
-    "[typescriptreact]": {
-      "editor.defaultFormatter": "esbenp.prettier-vscode"
-    },
     "window.restoreWindows": "none",
     "window.zoomLevel": 1,
-    "[javascript]": {
-      "editor.defaultFormatter": "esbenp.prettier-vscode"
-    },
-    "workbench.editor.empty.hint": "hidden"
+    "workbench.editor.empty.hint": "hidden",
+    "update.showReleaseNotes": true,
+    "github.copilot.editor.enableAutoCompletions": true,
+    "eslint.format.enable": true
   }
