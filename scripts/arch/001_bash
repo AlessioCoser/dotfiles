@@ -5,6 +5,8 @@ link_dotfile .bash_aliases
 link_dotfile .inputrc
 link_dotfile .colorprompt
 
+yay -S bash-completion --noconfirm
+
 if grep -Fxq "source ~/.bash_aliases" ~/.bashrc
 then
     echo ".bash_aliases already loaded. Skip."
