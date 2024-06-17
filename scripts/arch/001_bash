@@ -31,3 +31,47 @@ else
   echo "eval \"\$(zoxide init bash)\"" >> ~/.bashrc
   source ~/.bashrc
 fi
+
+###################
+## history setup ##
+###################
+
+if grep -Fxq "shopt -s histappend" ~/.bashrc
+then
+    echo "history appending already enabled. Skip."
+else
+    echo "shopt -s histappend" >> ~/.bashrc
+    source ~/.bashrc
+fi
+
+if grep -Fxq "export PROMPT_COMMAND=\"history -a; history -c; history -r; \$PROMPT_COMMAND\"" ~/.bashrc
+then
+    echo "history recording already configured. Skip."
+else
+    echo "export PROMPT_COMMAND=\"history -a; history -c; history -r; \$PROMPT_COMMAND\"" >> ~/.bashrc
+    source ~/.bashrc
+fi
+
+if grep -Fxq "export HISTSIZE=100000000" ~/.bashrc
+then
+    echo "history size limit already configured. Skip."
+else
+    echo "export HISTSIZE=100000000" >> ~/.bashrc
+    source ~/.bashrc
+fi
+
+if grep -Fxq "export HISTFILESIZE=100000000" ~/.bashrc
+then
+    echo "history file size limit already configured. Skip."
+else
+    echo "export HISTFILESIZE=100000000" >> ~/.bashrc
+    source ~/.bashrc
+fi
+
+if grep -Fxq "export HISTCONTROL=ignoreboth:erasedups" ~/.bashrc
+then
+    echo "history file size limit already configured. Skip."
+else
+    echo "export HISTCONTROL=ignoreboth:erasedups" >> ~/.bashrc
+    source ~/.bashrc
+fi
