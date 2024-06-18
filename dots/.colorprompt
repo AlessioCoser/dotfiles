@@ -80,6 +80,21 @@ git_transform_semaphore() {
   echo "${prefix}${cached}${dirty}${untracked}"
 }
 
+git_rebase_or_merge() {
+  local ps1="$1"
+  local result=`echo "$ps1" | awk -F '|' ' {print $2}'`
+  if [[ $result == *"REBASE"* ]]; then
+    local status=`echo "$result" | awk -F ' ' '{print $2}'`
+    result=`colorize " (⤰ $status)" $c_git_rebase`
+  fi
+
+  if [[ $result == *"MERGING"* ]]; then
+    result=`colorize " ᛦ" $c_git_merge`
+  fi
+
+  echo $result
+}
+
 git_transform_ps1() {
   # we use the default __git_ps1 function already present along with git
   # and we customize it with the following variables
@@ -95,18 +110,21 @@ git_transform_ps1() {
 		return
 	fi
 
-  IFS=" " read -ra ps1array <<< "$ps1"
+  local rebase_or_merge=`git_rebase_or_merge "$ps1"`
 
+  local branch_part=`echo "$ps1" | awk -F '|' '{print $1}'`
+  IFS=" " read -ra ps1array <<< "$branch_part"
   local branch="${ps1array[0]}"
+  local branch_name=`colorize $branch $c_git_base`
+
   local semaphore_array="${ps1array[@]:1}"
   local semaphore="${semaphore_array[*]}"
+  local changes_status=`git_transform_semaphore "$semaphore"`
 
   local open_bracket=`colorize "[" $c_git_base`
-  local branch_name=`colorize $branch $c_git_base`
-  local status=`git_transform_semaphore "$semaphore"`
   local close_bracket=`colorize "]" $c_git_base`
 
-  echo "${open_bracket}${branch_name}${status}${close_bracket} "
+  echo "${open_bracket}${branch_name}${rebase_or_merge}${changes_status}${close_bracket} "
 }
 
 custom_ps1() {
@@ -125,6 +143,8 @@ c_git_base=$'\001\e[1;32m\002' # green bold
 c_git_cached=$'\001\e[1;32m\002' # green bold
 c_git_dirty=$'\001\e[1;33m\002' # yellow bold
 c_git_untracked=$'\001\e[1;31m\002' # red bold
+c_git_rebase=$'\001\e[0;31m\002' # red
+c_git_merge=$'\001\e[1;31m\002' # red bold
 c_error=$'\001\e[1;31m\002' # red bold
 c_clear=$'\001\e[0m\002'
 path_segment_length=2
