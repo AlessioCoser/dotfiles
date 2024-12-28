@@ -112,5 +112,6 @@
     "workbench.editor.empty.hint": "hidden",
     "update.showReleaseNotes": true,
     "github.copilot.editor.enableAutoCompletions": true,
-    "eslint.format.enable": true
+    "eslint.format.enable": true,
+    "editor.selectionClipboard": false
   }
