@@ -4,6 +4,7 @@ set -e
 # increase keyboard speed
 gsettings set org.gnome.desktop.peripherals.keyboard repeat-interval 10
 gsettings set org.gnome.desktop.peripherals.keyboard delay 240
+gsettings set org.gnome.desktop.interface enable-hot-corners false
 
 # install gnome extensions
 pipx install gnome-extensions-cli --system-site-packages
