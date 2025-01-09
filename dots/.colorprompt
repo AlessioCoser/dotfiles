@@ -85,7 +85,7 @@ git_rebase_or_merge() {
   local result=`echo "$ps1" | awk -F '|' ' {print $2}'`
   if [[ $result == *"REBASE"* ]]; then
     local status=`echo "$result" | awk -F ' ' '{print $2}'`
-    result=`colorize " (⤰ $status)" $c_git_rebase`
+    result=`colorize " (» $status)" $c_git_rebase`
   fi
 
   if [[ $result == *"MERGING"* ]]; then
