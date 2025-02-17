@@ -13,4 +13,4 @@ else
   yay -Syu --noconfirm
 fi
 
-yay -S sof-firmware zip wget curl htop noto-fonts-emoji nerd-fonts python python-pip python-pipx --noconfirm
+yay -S sof-firmware net-tools zip wget curl htop noto-fonts-emoji nerd-fonts python python-pip python-pipx --noconfirm
