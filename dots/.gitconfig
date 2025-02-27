@@ -1,8 +1,8 @@
 [credential]
-  helper=
+  helper =
 [user]
-  name = Alessio Coser
-  email = 18616553+AlessioCoser@users.noreply.github.com
+  name =
+  email =
 [push]
   default = simple
   followTags = true
