@@ -13,4 +13,7 @@ else
   yay -Syu --noconfirm
 fi
 
-yay -S sof-firmware net-tools zip wget curl htop noto-fonts-emoji nerd-fonts python python-pip python-pipx --noconfirm
+yay -S sof-firmware net-tools zip wget curl htop noto-fonts-emoji nerd-fonts python python-pip python-pipx cpupower --noconfirm
+
+sudo systemctl enable --now cpupower.service
+sudo sed -i "s/^#governor=.*/governor='performance'/" /etc/default/cpupower

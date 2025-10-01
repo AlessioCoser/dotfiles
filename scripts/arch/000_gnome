@@ -5,6 +5,7 @@ set -e
 gsettings set org.gnome.desktop.peripherals.keyboard repeat-interval 10
 gsettings set org.gnome.desktop.peripherals.keyboard delay 240
 gsettings set org.gnome.desktop.interface enable-hot-corners false
+gsettings set org.gnome.desktop.interface enable-animations false
 gio mime "inode/directory" org.gnome.Nautilus.desktop
 
 # install gnome extensions
