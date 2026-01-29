@@ -18,14 +18,6 @@ BACKGROUND='starwars-blue.jpg'
 echo "osascript -e 'tell application \"Finder\" to set desktop picture to POSIX file \"$HOME/Pictures/$BACKGROUND\"'" | bash -
 
 ###############################################################################
-# General UI/UX                                                               #
-###############################################################################
-echo "General UI/UX"
-
-# Increase window resize speed for Cocoa applications
-defaults write NSGlobalDomain NSWindowResizeTime -float 0.001
-
-###############################################################################
 # Trackpad, mouse, keyboard, Bluetooth accessories, and input                 #
 ###############################################################################
 echo "Keyboard input"
@@ -58,7 +50,6 @@ echo "Finder"
 # Set Desktop as the default location for new Finder windows
 # For other paths, use `PfLo` and `file:///full/path/here/`
 defaults write com.apple.finder NewWindowTarget -string "PfDe"
-defaults write com.apple.finder NewWindowTargetPath -string "file://${HOME}/Desktop/"
 
 # Finder: show hidden files by default
 defaults write com.apple.finder AppleShowAllFiles -bool true
@@ -111,9 +102,6 @@ defaults write com.apple.dock expose-animation-duration -float 0
 
 # Disable Dashboard
 defaults write com.apple.dashboard mcx-disabled -bool true
-
-# Don’t show Dashboard as a Space
-defaults write com.apple.dock dashboard-in-overlay -bool true
 
 # Reset Launchpad
 find ~/Library/Application\ Support/Dock -name "*.db" -maxdepth 1 -delete

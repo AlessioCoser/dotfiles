@@ -1,0 +1,11 @@
+#!/bin/bash
+
+. $DOTSPATH/lib/link_file
+
+brew install zsh
+brew install fzf
+brew install zoxide
+zsh <(curl -s https://raw.githubusercontent.com/zap-zsh/zap/master/install.zsh) --branch release-v1 --keep
+
+link_dotfile .zsh_aliases
+link_dotfile .zshrc

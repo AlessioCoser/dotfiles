@@ -9,6 +9,6 @@ if ! type "nvm" > /dev/null; then
   export NVM_DIR=~/.nvm
   source $(brew --prefix nvm)/nvm.sh
 
-  nvm install 18.14.2
-  nvm alias default 18.14.2
+  nvm install 24.11.0
+  nvm alias default 24.11.0
 fi

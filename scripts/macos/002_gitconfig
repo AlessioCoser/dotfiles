@@ -2,6 +2,5 @@
 
 brew install git-delta
 brew install --cask gpg-suite
-# TODO: ask for name and pull strategy
 . $DOTSPATH/lib/link_file
 link_dotfile .gitconfig

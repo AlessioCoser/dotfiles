@@ -1,14 +1,7 @@
 #!/usr/bin/env bash
 
-if ! type "docker" > /dev/null; then
-  ARCH=`uname -m`
-  DOCKER_URL='https://desktop.docker.com/mac/main/amd64/Docker.dmg'
-  if [ $ARCH == 'arm64' ]; then
-    DOCKER_URL='https://desktop.docker.com/mac/main/arm64/Docker.dmg'
-  fi
+brew remove docker docker-desktop
+brew install colima docker docker-compose docker-buildx docker-credential-helper
+sudo brew services start colima
 
-  curl -o ~/Downloads/Docker.dmg $DOCKER_URL
-  sudo hdiutil attach ~/Downloads/Docker.dmg
-  sudo /Volumes/Docker/Docker.app/Contents/MacOS/install --accept-license
-  sudo hdiutil detach /Volumes/Docker
-fi
+sudo ln -sf $HOME/.colima/default/docker.sock /var/run/docker.sock

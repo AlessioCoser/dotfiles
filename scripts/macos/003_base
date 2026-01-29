@@ -1,0 +1,8 @@
+#!/bin/bash
+
+. $DOTSPATH/lib/link_file
+
+brew install wget
+brew install curl
+brew install tig
+brew install btop
