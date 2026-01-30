@@ -29,6 +29,6 @@ if ! type "code" > /dev/null; then
   code --install-extension github.copilot-chat
 
   . $DOTSPATH/lib/link_file
-  link_file "$DOTSPATH/.config/Code/User/settings.json" "$HOME/.config/Code/User/settings.json"
-  link_file "$DOTSPATH/.config/Code/User/keybindings.json" "$HOME/.config/Code/User/keybindings.json"
+  link_file "$DOTSPATH/.config/Code/User/settings.json" "$HOME/Library/Application\ Support/Code/User/settings.json"
+  link_file "$DOTSPATH/.config/Code/User/keybindings.json" "$HOME/Library/Application\ Support/Code/User/keybindings.json"
 fi
