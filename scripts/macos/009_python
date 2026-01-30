@@ -2,4 +2,4 @@
 
 brew install uv
 uv python install 3.13 --default
-uv pyton update-shell
+uv python update-shell
