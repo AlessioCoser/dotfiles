@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
 brew install git-delta
-brew install --cask gpg-suite
+brew install gpg-suite
 . $DOTSPATH/lib/link_file
 link_dotfile .gitconfig

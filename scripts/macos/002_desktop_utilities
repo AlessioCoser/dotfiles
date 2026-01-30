@@ -2,8 +2,8 @@
 
 . $DOTSPATH/lib/link_file
 
-brew install --cask rectangle
-brew install --cask maccy
+brew install rectangle
+brew install maccy
 
 sudo mkdir -p "/Users/$(whoami)/Library/Application\ Support/Rectangle"
-sudo link_file "$DOTSPATH/.config/Rectangle/config.json" "/Users/$(whoami)/Library/Application Support/Rectangle/RectangleConfig.json"
+sudo link_file "$DOTSPATH/.config/Rectangle/config.json" "/Users/$(whoami)/Library/Application\ Support/Rectangle/RectangleConfig.json"
