@@ -1,0 +1,34 @@
+#!/usr/bin/env bash
+
+if ! type "code" > /dev/null; then
+  brew install visual-studio-code
+
+  sleep 5
+
+  # show extensions installed: `code --list-extensions`
+  code --install-extension akamud.vscode-theme-onelight
+  code --install-extension zhuangtongfa.material-theme
+  code --install-extension k--kato.intellij-idea-keybindings
+  # python
+  code --install-extension ms-python.python
+  code --install-extension ms-python.debugpy
+  code --install-extension ms-pyright.pyright
+  code --install-extension ms-python.vscode-pylance
+  code --install-extension ms-python.vscode-python-envs
+  code --install-extension charliermarsh.ruff
+  # javascript
+  code --install-extension yoavbls.pretty-ts-errors
+  code --install-extension esbenp.prettier-vscode
+  code --install-extension dbaeumer.vscode-eslint
+  code --install-extension vitest.explorer
+  # html and toml
+  code --install-extension mohd-akram.vscode-html-format
+  code --install-extension tamasfe.even-better-toml
+  # copilot
+  code --install-extension github.copilot
+  code --install-extension github.copilot-chat
+
+  . $DOTSPATH/lib/link_file
+  link_file "$DOTSPATH/.config/Code/User/settings.json" "$HOME/.config/Code/User/settings.json"
+  link_file "$DOTSPATH/.config/Code/User/keybindings.json" "$HOME/.config/Code/User/keybindings.json"
+fi
