@@ -2,7 +2,6 @@
 [ -f "${XDG_DATA_HOME:-$HOME/.local/share}/zap/zap.zsh" ] && source "${XDG_DATA_HOME:-$HOME/.local/share}/zap/zap.zsh"
 plug "zsh-users/zsh-autosuggestions"
 plug "zap-zsh/supercharge"
-plug "zap-zsh/zap-prompt"
 plug "zsh-users/zsh-syntax-highlighting"
 plug "zsh-users/zsh-history-substring-search"
 
@@ -17,6 +16,8 @@ autoload -Uz compinit; compinit
 source <(fzf --zsh)
 # Set up zoxide to move between folders efficiently
 eval "$(zoxide init zsh)"
+# Set up starship prompt theme
+eval "$(starship init zsh)"
 
 [ -f "$HOME/.zsh_aliases" ] && source "$HOME/.zsh_aliases"
 
