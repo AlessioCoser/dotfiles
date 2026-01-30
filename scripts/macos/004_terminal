@@ -1,3 +1,9 @@
 #!/bin/bash
 
-brew install ghostty
+
+if ! type "ghostty" > /dev/null; then
+  brew install ghostty
+
+  . $DOTSPATH/lib/link_file
+  link_file "$DOTSPATH/.config/ghostty/config" "$HOME/.config/ghostty/config"
+fi
