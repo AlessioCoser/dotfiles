@@ -4,6 +4,7 @@ java = "temurin-25.0.1"
 maven = "latest"
 gradle = "latest"
 kotlin = "latest"
+usage = "latest"
 
 [settings]
 idiomatic_version_file_enable_tools = ["node", "java"]
