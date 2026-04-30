@@ -1,7 +1,0 @@
-#!/usr/bin/env bash
-
-source "$HOME/.sdkman/bin/sdkman-init.sh"
-
-sdk install java 25.0.1-tem
-
-sdk default java 25.0.1-tem

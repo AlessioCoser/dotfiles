@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+eval "$(/opt/homebrew/bin/brew shellenv)"
 
 brew remove docker docker-desktop
 brew install colima docker docker-compose docker-buildx docker-credential-helper

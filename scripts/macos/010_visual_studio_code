@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+eval "$(/opt/homebrew/bin/brew shellenv)"
 
 if ! type "code" > /dev/null; then
   brew install visual-studio-code
