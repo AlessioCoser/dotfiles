@@ -14,15 +14,3 @@ muted  = "#9a958f"
 [directory]
 truncation_length = 3
 truncate_to_repo  = true
-
-[git_branch]
-symbol = " "
-
-[nodejs]
-symbol = " "
-
-[python]
-symbol = " "
-
-[java]
-symbol = " "
