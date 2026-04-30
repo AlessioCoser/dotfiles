@@ -6,6 +6,6 @@ eval "$(/opt/homebrew/bin/brew shellenv)"
 brew install rectangle
 brew install maccy
 
-sudo mkdir -p "/Users/$(whoami)/Library/Application\ Support/Rectangle"
-sudo chown -R $(whoami):staff "/Users/$(whoami)/Library/Application\ Support/Rectangle"
-link_file "$DOTSPATH/.config/Rectangle/config.json" "/Users/$(whoami)/Library/Application\ Support/Rectangle/RectangleConfig.json"
+sudo mkdir -p "/Users/$(whoami)/Library/Application Support/Rectangle"
+sudo chown -R $(whoami):staff "/Users/$(whoami)/Library/Application Support/Rectangle"
+link_file "$DOTSPATH/.config/Rectangle/config.json" "/Users/$(whoami)/Library/Application Support/Rectangle/RectangleConfig.json"
