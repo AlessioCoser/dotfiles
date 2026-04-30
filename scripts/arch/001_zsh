@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+
+. $DOTSPATH/lib/link_file
+
+yay -S zsh fzf zoxide starship --noconfirm
+
+if [ ! -d "${XDG_DATA_HOME:-$HOME/.local/share}/zap" ]; then
+  zsh <(curl -s https://raw.githubusercontent.com/zap-zsh/zap/master/install.zsh) --branch release-v1 --keep
+fi
+
+sudo chsh -s "$(which zsh)" "$USER"
+
+link_dotfile .zprofile
+link_dotfile .zsh_aliases
+link_dotfile .zshrc
+link_file "$DOTSPATH/.config/starship.toml" "$HOME/.config/starship.toml"

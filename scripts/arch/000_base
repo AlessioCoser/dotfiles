@@ -1,8 +1,6 @@
 #!/usr/bin/env bash
 set -e
 
-chsh -s /bin/bash
-
 sudo pacman -Syu base-devel --noconfirm
 
 # install yay

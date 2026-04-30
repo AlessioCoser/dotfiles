@@ -1,0 +1,28 @@
+"$schema" = 'https://starship.rs/config-schema.json'
+
+palette = "soft"
+
+[palettes.soft]
+red    = "#e07878"
+green  = "#7ac892"
+yellow = "#dec57a"
+blue   = "#7ba8e0"
+purple = "#b08fd8"
+cyan   = "#7fc8d6"
+muted  = "#9a958f"
+
+[directory]
+truncation_length = 3
+truncate_to_repo  = true
+
+[git_branch]
+symbol = " "
+
+[nodejs]
+symbol = " "
+
+[python]
+symbol = " "
+
+[java]
+symbol = " "

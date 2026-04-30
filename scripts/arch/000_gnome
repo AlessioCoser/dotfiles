@@ -11,8 +11,7 @@ gio mime "inode/directory" org.gnome.Nautilus.desktop
 # install gnome extensions
 pipx install gnome-extensions-cli --system-site-packages
 pipx ensurepath
-source ~/.bashrc
-export PATH="~/.local/bin:$PATH"
+export PATH="$HOME/.local/bin:$PATH"
 
 gext install clipboard-indicator@tudmotu.com
 gext enable clipboard-indicator@tudmotu.com

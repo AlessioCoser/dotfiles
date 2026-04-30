@@ -12,3 +12,4 @@ zsh <(curl -s https://raw.githubusercontent.com/zap-zsh/zap/master/install.zsh) 
 link_dotfile .zprofile
 link_dotfile .zsh_aliases
 link_dotfile .zshrc
+link_file "$DOTSPATH/.config/starship.toml" "$HOME/.config/starship.toml"
