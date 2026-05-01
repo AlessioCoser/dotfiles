@@ -22,8 +22,14 @@
 [commit]
   verbose = true
   gpgsign = true
+[tag]
+  gpgsign = true
+[gpg]
+  format = ssh
 [pull]
   rebase = true
 [init]
   defaultBranch = main
+[include]
+  path = ~/.gitconfig.local
 
