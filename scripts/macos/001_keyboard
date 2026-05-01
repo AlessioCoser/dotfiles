@@ -1,0 +1,69 @@
+#!/bin/bash
+set -e
+
+. $DOTSPATH/lib/link_file
+
+KEYLAYOUT_FILE="Italian (US).keylayout"
+KEYLAYOUT_SRC="$DOTSPATH/.config/Keyboard Layouts/$KEYLAYOUT_FILE"
+KEYLAYOUT_DEST="$HOME/Library/Keyboard Layouts/$KEYLAYOUT_FILE"
+PLIST="$HOME/Library/Preferences/com.apple.HIToolbox.plist"
+BACKUP_DIR="$HOME/.dotfiles-backup/keyboard"
+
+if [ ! -f "$KEYLAYOUT_SRC" ]; then
+  echo "Layout file mancante: $KEYLAYOUT_SRC"
+  exit 1
+fi
+
+LAYOUT_TAG="$(grep -m1 '<keyboard ' "$KEYLAYOUT_SRC")"
+LAYOUT_ID="$(printf '%s' "$LAYOUT_TAG" | sed -nE 's/.* id="(-?[0-9]+)".*/\1/p')"
+LAYOUT_NAME="$(printf '%s' "$LAYOUT_TAG" | sed -nE 's/.* name="([^"]*)".*/\1/p')"
+
+link_file "$KEYLAYOUT_SRC" "$KEYLAYOUT_DEST"
+
+mkdir -p "$BACKUP_DIR"
+if [ -f "$PLIST" ]; then
+  cp "$PLIST" "$BACKUP_DIR/com.apple.HIToolbox.plist.$(date +%Y%m%d-%H%M%S)"
+fi
+
+killall cfprefsd 2>/dev/null || true
+
+if [ ! -f "$PLIST" ]; then
+  /usr/bin/plutil -create binary1 "$PLIST"
+fi
+
+ENABLED_JSON=$(cat <<EOF
+[
+  {
+    "Bundle ID": "com.apple.CharacterPaletteIM",
+    "InputSourceKind": "Non Keyboard Input Method"
+  },
+  {
+    "InputSourceKind": "Keyboard Layout",
+    "KeyboardLayout ID": $LAYOUT_ID,
+    "KeyboardLayout Name": "$LAYOUT_NAME"
+  }
+]
+EOF
+)
+
+SELECTED_JSON=$(cat <<EOF
+[
+  {
+    "InputSourceKind": "Keyboard Layout",
+    "KeyboardLayout ID": $LAYOUT_ID,
+    "KeyboardLayout Name": "$LAYOUT_NAME"
+  }
+]
+EOF
+)
+
+/usr/bin/plutil -replace AppleEnabledInputSources -json "$ENABLED_JSON" "$PLIST"
+/usr/bin/plutil -replace AppleSelectedInputSources -json "$SELECTED_JSON" "$PLIST"
+
+defaults write com.apple.TextInputMenu visible -bool false
+
+killall cfprefsd 2>/dev/null || true
+
+echo ""
+echo "Layout '$LAYOUT_NAME' installato come unico input source."
+echo "Esegui logout/login per applicare il cambiamento."
