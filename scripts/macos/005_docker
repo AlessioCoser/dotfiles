@@ -3,6 +3,4 @@ eval "$(/opt/homebrew/bin/brew shellenv)"
 
 brew remove docker docker-desktop
 brew install colima docker docker-compose docker-buildx docker-credential-helper
-sudo brew services start colima
-
-sudo ln -sf $HOME/.colima/default/docker.sock /var/run/docker.sock
+brew services start colima
