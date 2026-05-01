@@ -28,5 +28,20 @@ HISTORY_SUBSTRING_SEARCH_ENSURE_UNIQUE=1
 bindkey '^[[A' history-substring-search-up
 bindkey '^[[B' history-substring-search-down
 
+# Common terminal escape sequences (Home/End/Canc, word navigation)
+bindkey '^[[H'  beginning-of-line     # Home (xterm)
+bindkey '^[[1~' beginning-of-line     # Home (linux/rxvt)
+bindkey '^[[7~' beginning-of-line     # Home (rxvt-unicode)
+bindkey '^[[F'  end-of-line           # End  (xterm)
+bindkey '^[[4~' end-of-line           # End  (linux/rxvt)
+bindkey '^[[8~' end-of-line           # End  (rxvt-unicode)
+bindkey '^[[3~' delete-char           # Canc / Delete
+bindkey '^[[1;5C' forward-word        # Ctrl+Right
+bindkey '^[[1;5D' backward-word       # Ctrl+Left
+bindkey '^[[1;3C' forward-word        # Alt+Right
+bindkey '^[[1;3D' backward-word       # Alt+Left
+bindkey '^[[1;2C' forward-word        # Shift+Right
+bindkey '^[[1;2D' backward-word       # Shift+Left
+
 # === User config ===
 [ -f "$HOME/.zsh_aliases" ] && source "$HOME/.zsh_aliases"
