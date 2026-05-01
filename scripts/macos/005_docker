@@ -1,6 +1,15 @@
 #!/usr/bin/env bash
 eval "$(/opt/homebrew/bin/brew shellenv)"
 
+. $DOTSPATH/lib/link_file
+
 brew remove docker docker-desktop
 brew install colima docker docker-compose docker-buildx docker-credential-helper
+
+if [ "$(uname -m)" = "arm64" ]; then
+  sudo softwareupdate --install-rosetta --agree-to-license
+fi
+
+link_file "$DOTSPATH/.config/colima/colima.yaml" "$HOME/.colima/default/colima.yaml"
+
 brew services start colima
