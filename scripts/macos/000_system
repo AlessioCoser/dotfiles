@@ -2,20 +2,13 @@
 
 # https://raw.githubusercontent.com/sindresorhus/mathiasbynens-dotfiles/master/.osx
 
-# Ask for the administrator password upfront
-sudo softwareupdate -ia
-
 ###############################################################################
 # Wallpaper                                                              #
 ###############################################################################
 echo "WALLPAPER"
-# sudo curl -o ~/Pictures/starwars-orange.jpg https://i1.wp.com/wallpapercave.com/wp/wp11881623.jpg
-# sudo curl -o ~/Pictures/starwars-yellow.jpg https://images.wallpapersden.com/image/download/r2-d2-star-wars-minimalist_a2xuaWWUmZqaraWkpJRqZWVlrWdqZWU.jpg
-# sudo curl -o ~/Pictures/starwars-green.jpg https://images.wallpapersden.com/image/download/star-wars-skywalker-saga-minimal_a2xsbmqUmZqaraWkpJRnamtlrWZpaWU.jpg
-sudo curl -o ~/Pictures/starwars-blue.jpg https://i1.wp.com/wallpapercave.com/wp/wp6722869.jpg
-BACKGROUND='starwars-blue.jpg'
-
-echo "osascript -e 'tell application \"Finder\" to set desktop picture to POSIX file \"$HOME/Pictures/$BACKGROUND\"'" | bash -
+WALLPAPER="$HOME/Pictures/starwars-blue.jpg"
+[ ! -f "$WALLPAPER" ] && curl -fsSLo "$WALLPAPER" 'https://i1.wp.com/wallpapercave.com/wp/wp6722869.jpg'
+osascript -e "tell application \"Finder\" to set desktop picture to POSIX file \"$WALLPAPER\""
 
 ###############################################################################
 # Trackpad, mouse, keyboard, Bluetooth accessories, and input                 #
@@ -103,11 +96,10 @@ defaults write com.apple.dock expose-animation-duration -float 0
 # Disable Dashboard
 defaults write com.apple.dashboard mcx-disabled -bool true
 
-# Reset Launchpad
-find ~/Library/Application\ Support/Dock -name "*.db" -maxdepth 1 -delete
-
 # Add iOS Simulator to Launchpad
-sudo ln -s /Applications/Xcode.app/Contents/Applications/iPhone\ Simulator.app /Applications
+SIM_LINK="/Applications/iPhone Simulator.app"
+SIM_SRC="/Applications/Xcode.app/Contents/Applications/iPhone Simulator.app"
+[ ! -L "$SIM_LINK" ] && [ -e "$SIM_SRC" ] && sudo ln -s "$SIM_SRC" "$SIM_LINK"
 
 killall Dock
 

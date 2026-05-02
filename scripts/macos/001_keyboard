@@ -20,9 +20,10 @@ LAYOUT_NAME="$(printf '%s' "$LAYOUT_TAG" | sed -nE 's/.* name="([^"]*)".*/\1/p')
 
 link_file "$KEYLAYOUT_SRC" "$KEYLAYOUT_DEST"
 
+ORIGINAL_BACKUP="$BACKUP_DIR/com.apple.HIToolbox.plist.original"
 mkdir -p "$BACKUP_DIR"
-if [ -f "$PLIST" ]; then
-  cp "$PLIST" "$BACKUP_DIR/com.apple.HIToolbox.plist.$(date +%Y%m%d-%H%M%S)"
+if [ -f "$PLIST" ] && [ ! -f "$ORIGINAL_BACKUP" ]; then
+  cp "$PLIST" "$ORIGINAL_BACKUP"
 fi
 
 killall cfprefsd 2>/dev/null || true

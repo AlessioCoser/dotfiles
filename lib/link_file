@@ -3,17 +3,15 @@
 link_file() {
   local ORIGINAL_FILE=$1
   local DEST_FILE=$2
-  local DEST_DIR="$(dirname "${DEST_FILE}")"
 
-  mkdir -p $DEST_DIR
-  if [ -f "$DEST_FILE" ]; then
-    if [ -f "$DEST_FILE.orig" ]; then
-      rm "$DEST_FILE"
-    else
-      mv "$DEST_FILE" "$DEST_FILE.orig"
-    fi
+  mkdir -p "$(dirname "$DEST_FILE")"
+
+  # backup only on first run if DEST is a real file (not a symlink)
+  if [ -f "$DEST_FILE" ] && [ ! -L "$DEST_FILE" ] && [ ! -e "$DEST_FILE.orig" ]; then
+    mv "$DEST_FILE" "$DEST_FILE.orig"
   fi
-  ln -s "$ORIGINAL_FILE" "$DEST_FILE"
+
+  ln -sfn "$ORIGINAL_FILE" "$DEST_FILE"
 }
 
 link_dotfile() {
