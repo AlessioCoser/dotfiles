@@ -9,25 +9,22 @@ fi
 # show extensions installed: `code --list-extensions`
 code --install-extension akamud.vscode-theme-onelight
 code --install-extension zhuangtongfa.material-theme
-# intellisense and idea keybindings
-code --install-extension visualstudioexptteam.intellicode-api-usage-examples
-code --install-extension visualstudioexptteam.vscodeintellicode
 code --install-extension k--kato.intellij-idea-keybindings
 # python
 code --install-extension ms-python.python
-code --install-extension ms-python.isort
-code --install-extension kevinrose.vsc-python-indent
-code --install-extension nickmillerdev.pytest-fixtures
-code --install-extension zeshuaro.vscode-python-poetry
+code --install-extension ms-python.debugpy
+code --install-extension ms-pyright.pyright
+code --install-extension ms-python.vscode-pylance
+code --install-extension ms-python.vscode-python-envs
+code --install-extension charliermarsh.ruff
 # javascript
-code --install-extension christian-kohler.npm-intellisense
-code --install-extension christian-kohler.path-intellisense
-code --install-extension leizongmin.node-module-intellisense
+code --install-extension yoavbls.pretty-ts-errors
+code --install-extension esbenp.prettier-vscode
 code --install-extension dbaeumer.vscode-eslint
 code --install-extension vitest.explorer
-# html and xml
+# html and toml
 code --install-extension mohd-akram.vscode-html-format
-code --install-extension redhat.vscode-xml
+code --install-extension tamasfe.even-better-toml
 
 . $DOTSPATH/lib/link_file
 link_file "$DOTSPATH/.config/Code/User/settings.json" "$HOME/.config/Code/User/settings.json"
