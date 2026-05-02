@@ -2,7 +2,7 @@
 
 . $DOTSPATH/lib/link_file
 
-yay -S zsh fzf zoxide starship --noconfirm
+yay -S --needed --noconfirm zsh fzf zoxide starship
 
 if [ ! -d "${XDG_DATA_HOME:-$HOME/.local/share}/zap" ]; then
   zsh <(curl -s https://raw.githubusercontent.com/zap-zsh/zap/master/install.zsh) --branch release-v1 --keep

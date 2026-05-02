@@ -1,21 +1,15 @@
 #!/usr/bin/env bash
 
+. $DOTSPATH/lib/link_file
+
 if ! type "terminator" > /dev/null; then
-  yay -S terminator --noconfirm
+  yay -S --needed --noconfirm terminator
   # see the shortcuts here: https://makandracards.com/makandra/26311-terminator-keyboard-shortcuts
-
-  . $DOTSPATH/lib/link_file
-  link_file "$DOTSPATH/.config/terminator/config" "$HOME/.config/terminator/config"
-
-  # gsettings set org.gnome.desktop.default-applications.terminal exec /usr/bin/terminator
-  # gsettings set org.gnome.desktop.default-applications.terminal exec-arg "-x"
 fi
+link_file "$DOTSPATH/.config/terminator/config" "$HOME/.config/terminator/config"
 
 if ! type "kitty" > /dev/null; then
-  yay -S fzf kitty --noconfirm
-
-  . $DOTSPATH/lib/link_file
-  link_file "$DOTSPATH/.config/kitty/kitty.conf" "$HOME/.config/kitty/kitty.conf"
-
-  gsettings set org.gnome.desktop.default-applications.terminal exec /usr/bin/kitty
+  yay -S --needed --noconfirm fzf kitty
 fi
+link_file "$DOTSPATH/.config/kitty/kitty.conf" "$HOME/.config/kitty/kitty.conf"
+gsettings set org.gnome.desktop.default-applications.terminal exec /usr/bin/kitty

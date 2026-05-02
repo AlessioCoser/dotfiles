@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-yay -S git-delta tig --noconfirm
+yay -S --needed --noconfirm git-delta tig
 
 . $DOTSPATH/lib/link_file
 link_dotfile .gitconfig

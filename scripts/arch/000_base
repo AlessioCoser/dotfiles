@@ -1,17 +1,14 @@
 #!/usr/bin/env bash
 set -e
 
-sudo pacman -Syu base-devel --noconfirm
+sudo pacman -Syu --needed --noconfirm base-devel
 
 # install yay
-if `sudo pacman -Q yay 2> /dev/null`; then
-    sudo pacman -S yay
-else
+if ! pacman -Q yay > /dev/null 2>&1; then
   git clone https://aur.archlinux.org/yay.git && cd yay && makepkg -si --noconfirm && cd .. && rm -rf yay
-  yay -Syu --noconfirm
 fi
 
-yay -S sof-firmware net-tools zip wget curl htop noto-fonts-emoji nerd-fonts python python-pip python-pipx cpupower --noconfirm
+yay -S --needed --noconfirm sof-firmware net-tools zip wget curl htop noto-fonts-emoji nerd-fonts python python-pip python-pipx cpupower
 
 sudo systemctl enable --now cpupower.service
 sudo sed -i "s/^#governor=.*/governor='performance'/" /etc/default/cpupower

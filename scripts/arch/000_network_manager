@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 set -e
 
-yay -S NetworkManager --noconfirm
+yay -S --needed --noconfirm NetworkManager
 sudo systemctl enable NetworkManager
 sudo systemctl start NetworkManager

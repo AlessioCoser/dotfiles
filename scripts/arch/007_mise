@@ -1,10 +1,10 @@
 #!/usr/bin/env bash
 
 if ! type "mise" > /dev/null; then
-  yay -S mise --noconfirm
-
-  . $DOTSPATH/lib/link_file
-  link_file "$DOTSPATH/.config/mise/config.toml" "$HOME/.config/mise/config.toml"
-
-  mise install
+  yay -S --needed --noconfirm mise
 fi
+
+. $DOTSPATH/lib/link_file
+link_file "$DOTSPATH/.config/mise/config.toml" "$HOME/.config/mise/config.toml"
+
+mise install

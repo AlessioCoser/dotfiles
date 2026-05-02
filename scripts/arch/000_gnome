@@ -9,11 +9,13 @@ gsettings set org.gnome.desktop.interface enable-animations false
 gio mime "inode/directory" org.gnome.Nautilus.desktop
 
 # install gnome extensions
-pipx install gnome-extensions-cli --system-site-packages
-pipx ensurepath
+if ! type "gext" > /dev/null; then
+  pipx install gnome-extensions-cli --system-site-packages
+  pipx ensurepath
+fi
 export PATH="$HOME/.local/bin:$PATH"
 
-gext install clipboard-indicator@tudmotu.com
+gext install clipboard-indicator@tudmotu.com 2>/dev/null || true
 gext enable clipboard-indicator@tudmotu.com
 dconf write "/org/gnome/shell/extensions/clipboard-indicator/cache-size" "2048"
 dconf write "/org/gnome/shell/extensions/clipboard-indicator/confirm-clear" "false"
@@ -32,10 +34,8 @@ dconf write "/org/gnome/shell/extensions/clipboard-indicator/next-entry" "['<Con
 dconf write "/org/gnome/shell/extensions/clipboard-indicator/prev-entry" "['<Control><Super>Left']"
 dconf write "/org/gnome/shell/extensions/clipboard-indicator/clear-history" "['<Shift><Control>Delete']"
 
-# download and set wallpapers
-# sudo curl -o /usr/share/backgrounds/starwars-orange.jpg https://i1.wp.com/wallpapercave.com/wp/wp11881623.jpg
-# sudo curl -o /usr/share/backgrounds/starwars-yellow.jpg https://images.wallpapersden.com/image/download/r2-d2-star-wars-minimalist_a2xuaWWUmZqaraWkpJRqZWVlrWdqZWU.jpg
-# sudo curl -o /usr/share/backgrounds/starwars-blue.jpg https://i1.wp.com/wallpapercave.com/wp/wp6722869.jpg
-sudo curl -o /usr/share/backgrounds/starwars-green.jpg https://images.wallpapersden.com/image/download/star-wars-skywalker-saga-minimal_a2xsbmqUmZqaraWkpJRnamtlrWZpaWU.jpg
-gsettings set org.gnome.desktop.background picture-uri 'file:///usr/share/backgrounds/starwars-green.jpg'
-gsettings set org.gnome.desktop.background picture-uri-dark 'file:///usr/share/backgrounds/starwars-green.jpg'
+# download and set wallpaper
+WALLPAPER='/usr/share/backgrounds/starwars-green.jpg'
+[ ! -f "$WALLPAPER" ] && sudo curl -fsSLo "$WALLPAPER" 'https://images.wallpapersden.com/image/download/star-wars-skywalker-saga-minimal_a2xsbmqUmZqaraWkpJRnamtlrWZpaWU.jpg'
+gsettings set org.gnome.desktop.background picture-uri "file://$WALLPAPER"
+gsettings set org.gnome.desktop.background picture-uri-dark "file://$WALLPAPER"
