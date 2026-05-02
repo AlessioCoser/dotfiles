@@ -12,6 +12,10 @@ gsettings set org.gnome.desktop.interface enable-hot-corners false
 gsettings set org.gnome.desktop.interface enable-animations false
 gio mime "inode/directory" org.gnome.Nautilus.desktop
 
+# free super+alt+arrow_up/down for ghostty goto_split (was: shift-overview)
+gsettings set org.gnome.shell.keybindings shift-overview-up "[]"
+gsettings set org.gnome.shell.keybindings shift-overview-down "[]"
+
 # install gnome extensions cli
 yay -S --needed --noconfirm gnome-extensions-cli
 
@@ -30,8 +34,8 @@ dconf write "/org/gnome/shell/extensions/clipboard-indicator/refresh-interval" "
 dconf write "/org/gnome/shell/extensions/clipboard-indicator/strip-text" "false"
 dconf write "/org/gnome/shell/extensions/clipboard-indicator/toggle-menu" "['<Control>Insert']"
 dconf write "/org/gnome/shell/extensions/clipboard-indicator/topbar-preview-size" "99"
-dconf write "/org/gnome/shell/extensions/clipboard-indicator/next-entry" "['<Control><Super>Right']"
-dconf write "/org/gnome/shell/extensions/clipboard-indicator/prev-entry" "['<Control><Super>Left']"
+dconf write "/org/gnome/shell/extensions/clipboard-indicator/next-entry" "['<Control><Alt>Right']"
+dconf write "/org/gnome/shell/extensions/clipboard-indicator/prev-entry" "['<Control><Alt>Left']"
 dconf write "/org/gnome/shell/extensions/clipboard-indicator/clear-history" "['<Shift><Control>Delete']"
 
 # download and set wallpaper

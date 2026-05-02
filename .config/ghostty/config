@@ -4,3 +4,27 @@ background-opacity = 0.95
 font-family = JetBrainsMono Nerd Font
 font-size = 18
 macos-option-as-alt = false
+
+# macOS-style split shortcuts (no Linux/GNOME conflict)
+keybind = super+d=new_split:right
+keybind = super+shift+d=new_split:down
+keybind = super+w=close_surface
+keybind = super+shift+w=close_window
+keybind = super+q=quit
+
+# split navigation (mac default; on Linux conflicts with GNOME shift-overview, disabled in 000_gnome)
+keybind = super+alt+arrow_up=goto_split:up
+keybind = super+alt+arrow_down=goto_split:down
+keybind = super+alt+arrow_left=goto_split:left
+keybind = super+alt+arrow_right=goto_split:right
+
+# split resize (faster: 30 vs default 10)
+# on Linux conflicts with clipboard-indicator next/prev-entry, remapped in 000_gnome
+keybind = super+ctrl+arrow_up=resize_split:up,30
+keybind = super+ctrl+arrow_down=resize_split:down,30
+keybind = super+ctrl+arrow_left=resize_split:left,30
+keybind = super+ctrl+arrow_right=resize_split:right,30
+keybind = super+ctrl+==equalize_splits
+
+# zoom split
+keybind = super+shift+enter=toggle_split_zoom

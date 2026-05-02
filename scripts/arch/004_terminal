@@ -2,10 +2,6 @@
 
 . $DOTSPATH/lib/link_file
 
-# terminator shortcuts: https://makandracards.com/makandra/26311-terminator-keyboard-shortcuts
-yay -S --needed --noconfirm terminator
-link_file "$DOTSPATH/.config/terminator/config" "$HOME/.config/terminator/config"
-
-yay -S --needed --noconfirm fzf kitty
-link_file "$DOTSPATH/.config/kitty/kitty.conf" "$HOME/.config/kitty/kitty.conf"
-gsettings set org.gnome.desktop.default-applications.terminal exec /usr/bin/kitty
+yay -S --needed --noconfirm ghostty
+link_file "$DOTSPATH/.config/ghostty/config" "$HOME/.config/ghostty/config"
+gsettings set org.gnome.desktop.default-applications.terminal exec /usr/bin/ghostty
