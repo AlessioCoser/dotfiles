@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+
+if ! type "uv" > /dev/null; then
+  yay -S --needed --noconfirm uv
+fi
+
+uv python install 3.13 --default
+uv python update-shell

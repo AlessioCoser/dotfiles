@@ -27,9 +27,6 @@ code --install-extension vitest.explorer
 # html and xml
 code --install-extension mohd-akram.vscode-html-format
 code --install-extension redhat.vscode-xml
-# copilot
-code --install-extension github.copilot
-code --install-extension github.copilot-chat
 
 . $DOTSPATH/lib/link_file
 link_file "$DOTSPATH/.config/Code/User/settings.json" "$HOME/.config/Code/User/settings.json"

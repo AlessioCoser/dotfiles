@@ -8,7 +8,7 @@ if ! pacman -Q yay > /dev/null 2>&1; then
   git clone https://aur.archlinux.org/yay.git && cd yay && makepkg -si --noconfirm && cd .. && rm -rf yay
 fi
 
-yay -S --needed --noconfirm sof-firmware net-tools zip wget curl htop noto-fonts-emoji nerd-fonts python python-pip python-pipx cpupower
+yay -S --needed --noconfirm sof-firmware net-tools zip wget curl btop noto-fonts-emoji nerd-fonts cpupower
 
 sudo systemctl enable --now cpupower.service
 sudo sed -i "s/^#governor=.*/governor='performance'/" /etc/default/cpupower

@@ -1,6 +1,10 @@
 #!/usr/bin/env bash
 set -e
 
+# keyboard layout: Italian (US)
+gsettings set org.gnome.desktop.input-sources sources "[('xkb', 'it+us')]"
+gsettings set org.gnome.desktop.input-sources mru-sources "[('xkb', 'it+us')]"
+
 # increase keyboard speed
 gsettings set org.gnome.desktop.peripherals.keyboard repeat-interval 10
 gsettings set org.gnome.desktop.peripherals.keyboard delay 240
@@ -8,12 +12,10 @@ gsettings set org.gnome.desktop.interface enable-hot-corners false
 gsettings set org.gnome.desktop.interface enable-animations false
 gio mime "inode/directory" org.gnome.Nautilus.desktop
 
-# install gnome extensions
+# install gnome extensions cli
 if ! type "gext" > /dev/null; then
-  pipx install gnome-extensions-cli --system-site-packages
-  pipx ensurepath
+  yay -S --needed --noconfirm gnome-extensions-cli
 fi
-export PATH="$HOME/.local/bin:$PATH"
 
 gext install clipboard-indicator@tudmotu.com 2>/dev/null || true
 gext enable clipboard-indicator@tudmotu.com

@@ -1,5 +1,6 @@
 # see all avilable themes: ghostty +list-themes
 theme = Monokai Pro Machine
 background-opacity = 0.95
+font-family = JetBrainsMono Nerd Font
 font-size = 18
 macos-option-as-alt = false
