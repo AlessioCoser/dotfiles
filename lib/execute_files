@@ -1,36 +1,12 @@
 #!/bin/bash
 . $DOTSPATH/lib/print_title
-. $DOTSPATH/lib/multiselect
-. $DOTSPATH/lib/join
-
-execute_all_files() {
-  set -e
-
-  for file in $@
-  do
-    print_title "EXECUTING $file"
-    sudo chmod a+x $file
-    $file
-  done
-}
 
 execute_files() {
-  local method=$1
-  local files=("${@:2}")
-  local all_files=${files[@]}
+  set -e
 
-  if [ "$method" != "custom" ]; then
-    execute_all_files ${all_files}
-  else
-    multiselect select_response "$(join \; $all_files)"
-
-    local selected=()
-    for i in "${!select_response[@]}"; do
-      if [ "${select_response[$i]}" == "true" ]; then
-        selected+=("${files[$i]}")
-      fi
-    done
-
-    execute_all_files ${selected[@]}
-  fi
+  for file in "$@"; do
+    print_title "EXECUTING $file"
+    sudo chmod a+x "$file"
+    "$file"
+  done
 }

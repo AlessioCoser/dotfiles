@@ -1,5 +1,0 @@
-#!/bin/bash
-
-apt_install() {
-  sudo DEBIAN_FRONTEND=noninteractive apt install -y $@
-}

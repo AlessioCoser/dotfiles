@@ -1,10 +1,13 @@
-# Dotfiles Ubuntu & MacOs
-This is a collection of dotfiles and scripts I use for customizing Ubuntu and MacOS to my liking and setting up the software development tools.
+# Dotfiles Arch & MacOS
+This is a collection of dotfiles and scripts I use for customizing Arch Linux (or Manjaro) and MacOS to my liking and setting up the software development tools.
 
-## Prerequisites Ubuntu:
+The install scripts are **idempotent**: re-running them on an already-configured machine is safe and skips what's already done.
+
+## Prerequisites Arch / Manjaro
 - GNOME Shell
 - wget or curl
 - git
+- sudo
 
 ## Prerequisites MacOS
 - XCode (+ `xcode-select --install || true && sudo xcodebuild -license accept || true`)
@@ -14,9 +17,6 @@ This is a collection of dotfiles and scripts I use for customizing Ubuntu and Ma
 ## Versions
 Tested on fresh installed versions:
 - MacOS Tahoe 26.2
-- Ubuntu 20.04
-- Ubuntu 21.10
-- Ubuntu 22.04
 - Manjaro
 - Arch
 
@@ -30,12 +30,10 @@ Tested on fresh installed versions:
   bash <(curl https://raw.github.com/AlessioCoser/dotfiles/master/install -L -o -)
 ```
 
-## Custom installation
+## Manual installation
 ```sh
 cd ~
 git clone https://github.com/AlessioCoser/dotfiles.git dotfiles
 cd dotfiles
-
-# You can select the scripts you want to apply
-./install custom
+./install
 ```

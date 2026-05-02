@@ -4,15 +4,10 @@
 . $DOTSPATH/lib/print_title
 
 execute_os_scripts() {
-  local method="default"
-  if [ "$1" == "custom" ]; then
-    method="custom"
-  fi
-
   if [[ $OSTYPE == 'darwin'* ]]; then
 
     print_title "INSTALLATION STARTED - MacOS"
-    execute_files $method $(echo $DOTSPATH/scripts/macos/*)
+    execute_files $DOTSPATH/scripts/macos/*
     print_title "INSTALLATION COMPLETE - CLOSE THIS TERMINAL"
 
   elif [[ $OSTYPE == 'linux'* ]]; then
@@ -20,13 +15,13 @@ execute_os_scripts() {
     if grep -Fxq "ID=manjaro" /etc/os-release; then
 
       print_title "INSTALLATION STARTED - Manjaro"
-      execute_files $method $(echo $DOTSPATH/scripts/arch/*)
+      execute_files $DOTSPATH/scripts/arch/*
       print_title "INSTALLATION COMPLETE - CLOSE THIS TERMINAL"
 
     elif grep -Fxq "ID=arch" /etc/os-release; then
 
       print_title "INSTALLATION STARTED - Arch Linux"
-      execute_files $method $(echo $DOTSPATH/scripts/arch/*)
+      execute_files $DOTSPATH/scripts/arch/*
       print_title "INSTALLATION COMPLETE - CLOSE THIS TERMINAL"
 
     else
