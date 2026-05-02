@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+set -e
 eval "$(/opt/homebrew/bin/brew shellenv)"
 
 brew install git-delta

@@ -1,4 +1,5 @@
 #!/bin/bash
+set -e
 eval "$(/opt/homebrew/bin/brew shellenv)"
 
 . $DOTSPATH/lib/link_file

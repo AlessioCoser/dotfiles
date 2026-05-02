@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+set -e
 
 if ! type "code" > /dev/null; then
   yay -S --needed --noconfirm visual-studio-code-bin

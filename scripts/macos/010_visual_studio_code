@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+set -e
 eval "$(/opt/homebrew/bin/brew shellenv)"
 
 if ! type "code" > /dev/null; then
@@ -24,7 +25,7 @@ code --install-extension dbaeumer.vscode-eslint
 code --install-extension vitest.explorer
 # html and toml
 code --install-extension mohd-akram.vscode-html-format
-code --install-extension tamasfe.even-better-tomls
+code --install-extension tamasfe.even-better-toml
 
 . $DOTSPATH/lib/link_file
 link_file "$DOTSPATH/.config/Code/User/settings.json" "$HOME/Library/Application Support/Code/User/settings.json"

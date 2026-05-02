@@ -39,7 +39,7 @@ dconf write "/org/gnome/shell/extensions/clipboard-indicator/prev-entry" "['<Con
 dconf write "/org/gnome/shell/extensions/clipboard-indicator/clear-history" "['<Shift><Control>Delete']"
 
 # download and set wallpaper
-WALLPAPER='/usr/share/backgrounds/starwars-green.jpg'
-[ ! -f "$WALLPAPER" ] && sudo curl -fsSLo "$WALLPAPER" 'https://images.wallpapersden.com/image/download/star-wars-skywalker-saga-minimal_a2xsbmqUmZqaraWkpJRnamtlrWZpaWU.jpg'
+WALLPAPER='/usr/share/backgrounds/starwars-blue.jpg'
+[ ! -f "$WALLPAPER" ] && sudo curl -fsSLo "$WALLPAPER" 'https://i1.wp.com/wallpapercave.com/wp/wp6722869.jpg'
 gsettings set org.gnome.desktop.background picture-uri "file://$WALLPAPER"
 gsettings set org.gnome.desktop.background picture-uri-dark "file://$WALLPAPER"

@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+set -e
 
 # https://raw.githubusercontent.com/sindresorhus/mathiasbynens-dotfiles/master/.osx
 
