@@ -9,7 +9,8 @@ function update_or_download() {
   fi
 }
 
-update_or_download
+# skip git pull when running a single script (assume local development)
+[ -z "$1" ] && update_or_download
 
 . $DOTSPATH/lib/execute_os_scripts
-execute_os_scripts
+execute_os_scripts "$1"

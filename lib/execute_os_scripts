@@ -4,30 +4,37 @@
 . $DOTSPATH/lib/print_title
 
 execute_os_scripts() {
+  local script_name="$1"
+  local os_dir os_name
+
   if [[ $OSTYPE == 'darwin'* ]]; then
-
-    print_title "INSTALLATION STARTED - MacOS"
-    execute_files $DOTSPATH/scripts/macos/*
-    print_title "INSTALLATION COMPLETE - CLOSE THIS TERMINAL"
-
+    os_dir="$DOTSPATH/scripts/macos"
+    os_name="MacOS"
   elif [[ $OSTYPE == 'linux'* ]]; then
-
     if grep -Fxq "ID=manjaro" /etc/os-release; then
-
-      print_title "INSTALLATION STARTED - Manjaro"
-      execute_files $DOTSPATH/scripts/arch/*
-      print_title "INSTALLATION COMPLETE - CLOSE THIS TERMINAL"
-
+      os_dir="$DOTSPATH/scripts/arch"
+      os_name="Manjaro"
     elif grep -Fxq "ID=arch" /etc/os-release; then
-
-      print_title "INSTALLATION STARTED - Arch Linux"
-      execute_files $DOTSPATH/scripts/arch/*
-      print_title "INSTALLATION COMPLETE - CLOSE THIS TERMINAL"
-
-    else
-      print_title "INSTALLATION FAILED - OS NOT RECOGNIZED"
+      os_dir="$DOTSPATH/scripts/arch"
+      os_name="Arch Linux"
     fi
-  else
+  fi
+
+  if [[ -z "$os_dir" ]]; then
     print_title "INSTALLATION FAILED - OS NOT RECOGNIZED"
+    return 1
+  fi
+
+  if [[ -z "$script_name" ]]; then
+    print_title "INSTALLATION STARTED - $os_name"
+    execute_files "$os_dir"/*
+    print_title "INSTALLATION COMPLETE - CLOSE THIS TERMINAL"
+  else
+    local script_path="$os_dir/$script_name"
+    if [[ ! -f "$script_path" ]]; then
+      print_title "SCRIPT NOT FOUND: $script_name ($os_name)"
+      return 1
+    fi
+    execute_files "$script_path"
   fi
 }

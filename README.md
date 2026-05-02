@@ -37,3 +37,12 @@ git clone https://github.com/AlessioCoser/dotfiles.git dotfiles
 cd dotfiles
 ./install
 ```
+
+## Run a single script
+After cloning, you can re-run a specific script by passing its filename as argument (skipping git pull):
+```sh
+cd ~/dotfiles
+./install 003_zsh
+./install 010_visual_studio_code
+```
+The available scripts for your OS are in `scripts/macos/` or `scripts/arch/`.
