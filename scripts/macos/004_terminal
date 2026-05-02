@@ -1,9 +1,7 @@
 #!/bin/bash
 eval "$(/opt/homebrew/bin/brew shellenv)"
 
-if ! type "ghostty" > /dev/null; then
-  brew install ghostty
-fi
+brew install ghostty
 
 . $DOTSPATH/lib/link_file
 link_file "$DOTSPATH/.config/ghostty/config" "$HOME/.config/ghostty/config"

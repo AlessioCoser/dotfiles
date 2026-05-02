@@ -1,8 +1,6 @@
 #!/usr/bin/env bash
 
-if ! type "mise" > /dev/null; then
-  yay -S --needed --noconfirm mise
-fi
+yay -S --needed --noconfirm mise
 
 . $DOTSPATH/lib/link_file
 link_file "$DOTSPATH/.config/mise/config.toml" "$HOME/.config/mise/config.toml"

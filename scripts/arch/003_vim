@@ -1,8 +1,6 @@
 #!/usr/bin/env bash
 
-if ! type "vim" > /dev/null; then
-  yay -S --needed --noconfirm vim
-fi
+yay -S --needed --noconfirm vim
 
 . $DOTSPATH/lib/link_file
 link_dotfile .vimrc

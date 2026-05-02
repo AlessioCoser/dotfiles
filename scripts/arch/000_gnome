@@ -13,9 +13,7 @@ gsettings set org.gnome.desktop.interface enable-animations false
 gio mime "inode/directory" org.gnome.Nautilus.desktop
 
 # install gnome extensions cli
-if ! type "gext" > /dev/null; then
-  yay -S --needed --noconfirm gnome-extensions-cli
-fi
+yay -S --needed --noconfirm gnome-extensions-cli
 
 gext install clipboard-indicator@tudmotu.com 2>/dev/null || true
 gext enable clipboard-indicator@tudmotu.com

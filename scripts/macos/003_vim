@@ -1,9 +1,7 @@
 #!/usr/bin/env bash
 eval "$(/opt/homebrew/bin/brew shellenv)"
 
-if ! type "vim" > /dev/null; then
-  brew install vim
-fi
+brew install vim
 
 . $DOTSPATH/lib/link_file
 link_dotfile .vimrc
