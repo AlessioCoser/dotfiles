@@ -2,9 +2,11 @@
 set -e
 eval "$(/opt/homebrew/bin/brew shellenv)"
 
+. $DOTSPATH/lib/brew_install
+. $DOTSPATH/lib/link_file
+
 brew install mise
 
-. $DOTSPATH/lib/link_file
 link_file "$DOTSPATH/.config/mise/config.toml" "$HOME/.config/mise/config.toml"
 
 mise install

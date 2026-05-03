@@ -9,6 +9,13 @@ function update_or_download() {
   fi
 }
 
+# `configs` runs all scripts but skips package installation
+# (for standard users on machines where software is already installed by an admin)
+if [ "$1" = "configs" ]; then
+  export CONFIGS_ONLY=1
+  set --
+fi
+
 # skip git pull when running a single script (assume local development)
 [ -z "$1" ] && update_or_download
 

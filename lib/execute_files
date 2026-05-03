@@ -6,7 +6,7 @@ execute_files() {
 
   for file in "$@"; do
     print_title "EXECUTING $file"
-    sudo chmod a+x "$file"
+    chmod a+x "$file"
     "$file"
   done
 }

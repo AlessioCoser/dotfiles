@@ -2,11 +2,12 @@
 set -e
 eval "$(/opt/homebrew/bin/brew shellenv)"
 
+. $DOTSPATH/lib/brew_install
 . $DOTSPATH/lib/link_file
 
 brew install colima docker docker-compose docker-buildx docker-credential-helper
 
-if [ "$(uname -m)" = "arm64" ]; then
+if [ "$(uname -m)" = "arm64" ] && [ -z "$CONFIGS_ONLY" ]; then
   sudo softwareupdate --install-rosetta --agree-to-license
 fi
 

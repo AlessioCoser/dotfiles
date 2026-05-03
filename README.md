@@ -46,3 +46,10 @@ cd ~/dotfiles
 ./install 010_visual_studio_code
 ```
 The available scripts for your OS are in `scripts/macos/` or `scripts/arch/`.
+
+## Configs only (standard / non-admin user on macOS)
+On a Mac shared with another user where Homebrew has already been installed by an admin, a standard user can't write to the shared `/opt/homebrew` prefix. Run with `configs` to apply only the dotfile configurations and skip `brew install`:
+```sh
+./install configs
+```
+All non-install steps still run (linking config files, `defaults write`, `mise install`, `uv python install`, `code --install-extension`, `brew services`, etc.) — they only touch `$HOME`.

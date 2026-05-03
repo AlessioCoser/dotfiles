@@ -2,6 +2,8 @@
 set -e
 eval "$(/opt/homebrew/bin/brew shellenv)"
 
+. $DOTSPATH/lib/brew_install
+
 brew install uv
 uv python install 3.13 --default
 uv python update-shell

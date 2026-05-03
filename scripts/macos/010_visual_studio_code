@@ -2,6 +2,9 @@
 set -e
 eval "$(/opt/homebrew/bin/brew shellenv)"
 
+. $DOTSPATH/lib/brew_install
+. $DOTSPATH/lib/link_file
+
 if ! type "code" > /dev/null; then
   brew install visual-studio-code
   sleep 5
@@ -27,6 +30,5 @@ code --install-extension vitest.explorer
 code --install-extension mohd-akram.vscode-html-format
 code --install-extension tamasfe.even-better-toml
 
-. $DOTSPATH/lib/link_file
 link_file "$DOTSPATH/.config/Code/User/settings.json" "$HOME/Library/Application Support/Code/User/settings.json"
 link_file "$DOTSPATH/.config/Code/User/keybindings.json" "$HOME/Library/Application Support/Code/User/keybindings.json"

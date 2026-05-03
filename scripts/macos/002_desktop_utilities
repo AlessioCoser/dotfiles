@@ -2,11 +2,10 @@
 set -e
 eval "$(/opt/homebrew/bin/brew shellenv)"
 
+. $DOTSPATH/lib/brew_install
 . $DOTSPATH/lib/link_file
 
 brew install rectangle
 brew install maccy
 
-sudo mkdir -p "/Users/$(whoami)/Library/Application Support/Rectangle"
-sudo chown -R $(whoami):staff "/Users/$(whoami)/Library/Application Support/Rectangle"
-link_file "$DOTSPATH/.config/Rectangle/config.json" "/Users/$(whoami)/Library/Application Support/Rectangle/RectangleConfig.json"
+link_file "$DOTSPATH/.config/Rectangle/config.json" "$HOME/Library/Application Support/Rectangle/RectangleConfig.json"

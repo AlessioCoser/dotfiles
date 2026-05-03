@@ -1,0 +1,13 @@
+#!/bin/bash
+
+# Override `brew install` to be a no-op when CONFIGS_ONLY=1.
+# Lets standard (non-admin) users run `./install configs` to apply
+# dotfile configurations without writing to a shared Homebrew prefix.
+brew() {
+  if [ "$1" = "install" ] && [ -n "$CONFIGS_ONLY" ]; then
+    shift
+    echo "[configs] skip: brew install $*"
+    return 0
+  fi
+  command brew "$@"
+}

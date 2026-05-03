@@ -2,6 +2,7 @@
 set -e
 eval "$(/opt/homebrew/bin/brew shellenv)"
 
+. $DOTSPATH/lib/brew_install
 . $DOTSPATH/lib/link_file
 
 brew install wget

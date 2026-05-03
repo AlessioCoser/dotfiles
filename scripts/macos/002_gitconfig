@@ -2,6 +2,8 @@
 set -e
 eval "$(/opt/homebrew/bin/brew shellenv)"
 
-brew install git-delta
+. $DOTSPATH/lib/brew_install
 . $DOTSPATH/lib/link_file
+
+brew install git-delta
 link_dotfile .gitconfig
