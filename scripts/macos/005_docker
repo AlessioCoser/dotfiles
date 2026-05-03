@@ -12,5 +12,3 @@ if [ "$(uname -m)" = "arm64" ] && [ -z "$CONFIGS_ONLY" ]; then
 fi
 
 link_file "$DOTSPATH/.config/colima/colima.yaml" "$HOME/.colima/default/colima.yaml"
-
-brew services start colima
