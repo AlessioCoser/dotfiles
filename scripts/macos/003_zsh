@@ -10,7 +10,7 @@ brew install fzf
 brew install zoxide
 brew install starship
 ZAP_DIR="${XDG_DATA_HOME:-$HOME/.local/share}/zap"
-[ -d "$ZAP_DIR" ] || zsh <(curl -s https://raw.githubusercontent.com/zap-zsh/zap/master/install.zsh) --branch release-v1 --keep
+[ -d "$ZAP_DIR" ] || zsh <(curl -s https://raw.githubusercontent.com/zap-zsh/zap/master/install.zsh) --branch release-v1 --keep </dev/null
 
 link_dotfile .zprofile
 link_dotfile .zsh_aliases

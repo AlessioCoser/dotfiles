@@ -52,4 +52,9 @@ On a Mac shared with another user where Homebrew has already been installed by a
 ```sh
 ./install configs
 ```
+Or directly from a remote one-liner:
+```sh
+bash <(wget -O- https://raw.github.com/AlessioCoser/dotfiles/master/install) configs
+bash <(curl https://raw.github.com/AlessioCoser/dotfiles/master/install -L -o -) configs
+```
 All non-install steps still run (linking config files, `defaults write`, `mise install`, `uv python install`, `code --install-extension`, `brew services`, etc.) — they only touch `$HOME`.

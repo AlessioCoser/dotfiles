@@ -13,7 +13,7 @@ setopt HIST_REDUCE_BLANKS
 setopt SHARE_HISTORY
 
 # === Completion system ===
-autoload -Uz compinit; compinit
+autoload -Uz compinit; compinit -i
 
 # === Tools (PATH, hooks, completions on-demand) ===
 eval "$(mise activate zsh)"
