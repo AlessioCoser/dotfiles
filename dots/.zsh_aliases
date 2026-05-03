@@ -17,3 +17,13 @@ alias dops="docker ps --format \"table {{.ID}}\t{{.Image}}\t{{.Status}}\t{{.Name
 alias docker-clean="docker ps -aqf status=exited|xargs docker rm; docker images -qf dangling=true|xargs docker rmi"
 alias http-server="python -m http.server"
 alias listen="lsof -w -n -i $1"
+
+# Fall back to xterm-256color when su-ing if the current TERM isn't system-wide,
+# so the target user's prompt and keybindings don't break (e.g. xterm-ghostty).
+su() {
+  if HOME=/var/empty env -u TERMINFO TERMINFO_DIRS=/usr/share/terminfo infocmp "$TERM" >/dev/null 2>&1; then
+    command su "$@"
+  else
+    TERM=xterm-256color command su "$@"
+  fi
+}
