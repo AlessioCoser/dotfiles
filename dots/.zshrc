@@ -45,3 +45,5 @@ bindkey '^[[1;2D' backward-word       # Shift+Left
 
 # === User config ===
 [ -f "$HOME/.zsh_aliases" ] && source "$HOME/.zsh_aliases"
+
+eval $(thefuck --alias)
