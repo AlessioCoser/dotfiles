@@ -8,3 +8,15 @@ eval "$(/opt/homebrew/bin/brew shellenv)"
 brew install ghostty
 
 link_file "$DOTSPATH/.config/ghostty/config" "$HOME/.config/ghostty/config"
+
+# Install xterm-ghostty terminfo into the system path so other users
+# (su) and incoming SSH sessions can resolve TERM without needing
+# Ghostty's per-user terminfo dir. Source the entry directly from the
+# app bundle so this works regardless of the caller's TERMINFO env.
+GHOSTTY_TERMINFO="/Applications/Ghostty.app/Contents/Resources/terminfo"
+if [ -z "$CONFIGS_ONLY" ] \
+  && [ -d "$GHOSTTY_TERMINFO" ] \
+  && ! HOME=/var/empty env -u TERMINFO TERMINFO_DIRS=/usr/share/terminfo infocmp xterm-ghostty >/dev/null 2>&1; then
+  TERMINFO="$GHOSTTY_TERMINFO" infocmp -x xterm-ghostty | sudo tic -x -o /usr/share/terminfo -
+fi
+unset GHOSTTY_TERMINFO

@@ -5,6 +5,11 @@ font-family = JetBrainsMono Nerd Font
 font-size = 18
 macos-option-as-alt = false
 
+# On `ssh`, install xterm-ghostty terminfo on the remote (cached after first
+# connect via `ghostty +ssh-cache`), and fall back to xterm-256color +
+# COLORTERM/TERM_PROGRAM env propagation when the install isn't possible.
+shell-integration-features = ssh-env,ssh-terminfo
+
 # macOS-style split shortcuts (no Linux/GNOME conflict)
 keybind = super+d=new_split:right
 keybind = super+shift+d=new_split:down
