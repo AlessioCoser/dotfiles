@@ -7,7 +7,6 @@ KEYLAYOUT_FILE="Italian (US).keylayout"
 KEYLAYOUT_SRC="$DOTSPATH/.config/Keyboard Layouts/$KEYLAYOUT_FILE"
 KEYLAYOUT_DEST="$HOME/Library/Keyboard Layouts/$KEYLAYOUT_FILE"
 PLIST="$HOME/Library/Preferences/com.apple.HIToolbox.plist"
-BACKUP_DIR="$HOME/.dotfiles-backup/keyboard"
 
 if [ ! -f "$KEYLAYOUT_SRC" ]; then
   echo "Layout file mancante: $KEYLAYOUT_SRC"
@@ -19,12 +18,6 @@ LAYOUT_ID="$(printf '%s' "$LAYOUT_TAG" | sed -nE 's/.* id="(-?[0-9]+)".*/\1/p')"
 LAYOUT_NAME="$(printf '%s' "$LAYOUT_TAG" | sed -nE 's/.* name="([^"]*)".*/\1/p')"
 
 link_file "$KEYLAYOUT_SRC" "$KEYLAYOUT_DEST"
-
-ORIGINAL_BACKUP="$BACKUP_DIR/com.apple.HIToolbox.plist.original"
-mkdir -p "$BACKUP_DIR"
-if [ -f "$PLIST" ] && [ ! -f "$ORIGINAL_BACKUP" ]; then
-  cp "$PLIST" "$ORIGINAL_BACKUP"
-fi
 
 killall cfprefsd 2>/dev/null || true
 
