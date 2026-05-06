@@ -5,11 +5,7 @@ eval "$(/opt/homebrew/bin/brew shellenv)"
 . $DOTSPATH/lib/brew_install
 . $DOTSPATH/lib/link_file
 
-brew install zsh
-brew install fzf
-brew install zoxide
-brew install thefuck
-brew install starship
+brew install zsh fzf zoxide starship thefuck
 ZAP_DIR="${XDG_DATA_HOME:-$HOME/.local/share}/zap"
 [ -d "$ZAP_DIR" ] || zsh <(curl -s https://raw.githubusercontent.com/zap-zsh/zap/master/install.zsh) --branch release-v1 --keep </dev/null
 
