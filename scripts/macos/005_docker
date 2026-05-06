@@ -11,4 +11,4 @@ if [ "$(uname -m)" = "arm64" ] && [ -z "$CONFIGS_ONLY" ]; then
   sudo softwareupdate --install-rosetta --agree-to-license
 fi
 
-link_file "$DOTSPATH/.config/colima/colima.yaml" "$HOME/.colima/default/colima.yaml"
+link_file "$DOTSPATH/.config/colima/_templates/default.yaml" "$HOME/.colima/_templates/default.yaml"
