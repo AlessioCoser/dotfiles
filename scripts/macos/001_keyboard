@@ -56,6 +56,8 @@ EOF
 
 defaults write com.apple.TextInputMenu visible -bool false
 
+defaults write -g com.apple.keyboard.fnState -bool true
+
 killall cfprefsd 2>/dev/null || true
 
 echo ""
