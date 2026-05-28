@@ -1,5 +1,8 @@
 "$schema" = 'https://starship.rs/config-schema.json'
 
+format       = "$directory$git_branch$git_state$git_status$character"
+right_format = "$cmd_duration"
+
 palette = "soft"
 
 [palettes.soft]
@@ -10,7 +13,43 @@ blue   = "#7ba8e0"
 purple = "#b08fd8"
 cyan   = "#7fc8d6"
 muted  = "#9a958f"
+orange = "#e08c5a"
 
 [directory]
-truncation_length = 3
-truncate_to_repo  = true
+truncate_to_repo          = false
+truncation_length         = 1
+fish_style_pwd_dir_length = 2
+style                     = "blue bold"
+format                    = "[$path]($style) "
+
+[git_branch]
+format = "[\\[$branch](green)"
+
+[git_state]
+format = "[ \\($state( $progress_current/$progress_total)\\)](green bold)"
+
+# Distinct filled shapes (same Unicode block → aligned baseline):
+#   green  ▲ staged
+#   yellow ● modified
+#   red    ◆ untracked
+[git_status]
+style      = "green"
+staged     = "[▲](green)"
+modified   = "[●](yellow)"
+untracked  = "[◆](red)"
+conflicted = "[✖](red bold)"
+deleted    = "[✖](red)"
+renamed    = "[»](yellow)"
+stashed    = "[≡](muted)"
+ahead      = "⇡${count}"
+behind     = "⇣${count}"
+diverged   = "⇕⇡${ahead_count}⇣${behind_count}"
+format     = "([ $staged$modified$untracked$conflicted$deleted$renamed$stashed]($style))([ $ahead_behind]($style))[\\]](green) "
+
+[cmd_duration]
+min_time = 2000
+format   = "[took $duration](muted)"
+
+[character]
+success_symbol = "[❯](green bold)"
+error_symbol   = "[❯](red bold)"
