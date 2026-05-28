@@ -16,7 +16,7 @@ setopt SHARE_HISTORY
 autoload -Uz compinit; compinit -i
 
 # === Tools (PATH, hooks, completions on-demand) ===
-eval "$(mise activate zsh)"
+export PATH="$HOME/.local/share/mise/shims:$PATH"
 eval "$(zoxide init zsh)"
 source <(fzf --zsh)
 
