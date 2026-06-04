@@ -12,3 +12,7 @@ if [ "$(uname -m)" = "arm64" ] && [ -z "$CONFIGS_ONLY" ]; then
 fi
 
 link_file "$DOTSPATH/.config/colima/_templates/default.yaml" "$HOME/.colima/_templates/default.yaml"
+
+# docker CLI plugins: brew installs them but doesn't link where docker looks for them
+link_file "/opt/homebrew/opt/docker-buildx/bin/docker-buildx" "$HOME/.docker/cli-plugins/docker-buildx"
+link_file "/opt/homebrew/opt/docker-compose/bin/docker-compose" "$HOME/.docker/cli-plugins/docker-compose"
