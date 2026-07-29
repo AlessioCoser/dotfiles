@@ -12,9 +12,6 @@ setopt HIST_IGNORE_ALL_DUPS
 setopt HIST_REDUCE_BLANKS
 setopt SHARE_HISTORY
 
-# === Completion system ===
-autoload -Uz compinit; compinit -i
-
 # === Tools (PATH, hooks, completions on-demand) ===
 export PATH="$HOME/.local/share/mise/shims:$PATH"
 eval "$(zoxide init zsh)"
