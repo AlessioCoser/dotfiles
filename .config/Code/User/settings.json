@@ -115,5 +115,9 @@
     "eslint.format.enable": true,
     "editor.selectionClipboard": false,
     "window.customTitleBarVisibility": "auto",
-    "window.titleBarStyle": "custom"
+    "window.titleBarStyle": "custom",
+    "[json]": {
+      "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "diffEditor.renderSideBySide": false
   }
